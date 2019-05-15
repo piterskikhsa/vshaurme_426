@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Upload{% endblock %}
+{% block title %}{{ _('Upload') }}{% endblock %}
 
 {% block styles %}
     {{ super() }}
@@ -10,13 +10,13 @@
 
 {% block content %}
     <div class="page-header">
-        <h1>Upload</h1>
+        <h1>{{ _('Upload') }}</h1>
     </div>
     <div class="row">
         <div class="col-md-12">
             {{ dropzone.create(action='main.upload') }}
             <a class="btn btn-light float-right" href="{{ url_for('user.index', username=current_user.username) }}">
-                Done
+                {{ _('Done') }}
             </a>
         </div>
     </div>

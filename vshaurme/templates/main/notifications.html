@@ -1,36 +1,36 @@
 {% extends 'base.html' %}
 {% from 'bootstrap/pagination.html' import render_pagination %}
 
-{% block title %}Notifications{% endblock %}
+{% block title %}{{ _('Notifications') }}{% endblock %}
 
 {% block content %}
     <div class="page-header">
-        <h1>Notifications</h1>
+        <h1>{{ _('Notifications') }}</h1>
     </div>
     <div class="row">
         <div class="col-md-3">
             <div class="nav nav-pills flex-column" role="tablist" aria-orientation="vertical">
                 <a class="nav-item nav-link {% if request.args.get('filter') != 'unread' %}active{% endif %}"
                    href="{{ url_for('.show_notifications', filter='all') }}">
-                    All
+                    {{ _('All') }}
                 </a>
                 <a class="nav-item nav-link {% if request.args.get('filter') == 'unread' %}active{% endif %}"
                    href="{{ url_for('.show_notifications', filter='unread') }}">
-                    Unread
+                    {{ _('Unread') }}
                 </a>
             </div>
         </div>
         <div class="col-md-9">
             <div class="card bg-light w-100">
-                <div class="card-header">{{ notification_count }} unread notifications
+                <div class="card-header">{{ notification_count }} {{ _('unread notifications') }}
                     <div class="float-right">
                         <a class="btn btn-light btn-sm" href="{{ url_for('user.notification_setting') }}">
-                            <span class="oi oi-cog" aria-hidden="true"></span> Settings
+                            <span class="oi oi-cog" aria-hidden="true"></span> {{ _('Settings') }}
                         </a>
                         <form class="inline" method="post" action="{{ url_for('.read_all_notification') }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-light btn-sm">
-                                <span class="oi oi-check" aria-hidden="true"></span> Read all
+                                <span class="oi oi-check" aria-hidden="true"></span> {{ _('Read all') }}
                             </button>
                         </form>
                     </div>
@@ -62,7 +62,7 @@
                         </div>
                     {% else %}
                         <div class="tip text-center">
-                            <h6>No notifications.</h6>
+                            <h6>{{ _('No notifications.') }}</h6>
                         </div>
                     {% endif %}
                 </div>

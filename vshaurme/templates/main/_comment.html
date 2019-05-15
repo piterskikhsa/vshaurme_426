@@ -1,7 +1,7 @@
 <div class="comments" id="comments">
-    <h3>{{ photo.comments|length }} Comments
+    <h3>{{ photo.comments|length }} {{ _('Comments') }}
         <small>
-            <a href="{{ url_for('.show_photo', photo_id=photo.id, page=pagination.pages or 1) }}#comment-form">latest</a>
+            <a href="{{ url_for('.show_photo', photo_id=photo.id, page=pagination.pages or 1) }}#comment-form">{{ _('latest') }}</a>
         </small>
         {% if current_user == photo.author %}
             <form class="inline" method="post" action="{{ url_for('.set_comment', photo_id=photo.id) }}">
@@ -31,7 +31,7 @@
                             {{ comment.author.name }}
                         </a>
                         {% if comment.author == photo.author %}
-                            <span class="badge badge-light">Author</span>
+                            <span class="badge badge-light">{{ _('Author') }}</span>
                         {% endif %}
                         <small data-toggle="tooltip" data-placement="top" data-timestamp="{{ comment.timestamp }}"
                                data-delay="500">
@@ -49,14 +49,14 @@
                                 {% if current_user != comment.author %}
                                     <a class="dropdown-item btn"
                                        href="{{ url_for('.reply_comment', comment_id=comment.id) }}">
-                                    <span class="oi oi-comment-square"></span> Reply
+                                    <span class="oi oi-comment-square"></span> {{ _('Reply') }}
                                 </a>
                                 {% endif %}
                                 {% if current_user == comment.author or current_user == photo.author or current_user.can('MODERATE') %}
                                     <a class="dropdown-item" data-toggle="modal" href="#!"
                                        data-href="{{ url_for('.delete_comment', comment_id=comment.id) }}"
                                        data-target="#confirm-delete">
-                                    <span class="oi oi-trash" aria-hidden="true"></span> Delete
+                                    <span class="oi oi-trash" aria-hidden="true"></span> {{ _('Delete') }}
                                   </a>
                                 {% endif %}
                                 {% if current_user != comment.author %}
@@ -64,7 +64,7 @@
                                       action="{{ url_for('.report_comment', comment_id=comment.id) }}">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                     <button type="submit" class="dropdown-item">
-                                        <span class="oi oi-warning" aria-hidden="true"></span> Report
+                                        <span class="oi oi-warning" aria-hidden="true"></span> {{ _('Report') }}
                                       </button>
                                 </form>
                                 {% endif %}
@@ -88,7 +88,7 @@
             {{ render_pagination(pagination) }}
         </div>
     {% else %}
-        <p class="tip">No comments.</p>
+        <p class="tip">{{ _('No comments.') }}</p>
     {% endif %}
 
     {% if photo.can_comment %}
@@ -96,8 +96,8 @@
             {% if current_user.can('COMMENT') %}
                 {% if request.args.get('reply') %}
                     <div class="alert alert-dark">
-                        Reply to {{ request.args.get('author') }}:
-                        <a class="float-right" href="{{ url_for('.show_photo', photo_id=photo.id) }}">Cancel</a>
+                        {{ _('Reply to') }} {{ request.args.get('author') }}:
+                        <a class="float-right" href="{{ url_for('.show_photo', photo_id=photo.id) }}">{{ _('Cancel') }}</a>
                     </div>
                 {% endif %}
                 <div class="comment-form-area">
@@ -113,19 +113,19 @@
                 </div>
             {% else %}
                 <p class="tip">
-                    No permission.
+                    {{ _('No permission.') }}
                 </p>
             {% endif %}
         {% else %}
             <p class="tip">
-                <a href="{{ url_for('auth.login') }}">Login</a>
-                or
-                <a href="{{ url_for('auth.register') }}">Register</a> to leave a comment.
+                <a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
+                {{ _('or') }}
+                <a href="{{ url_for('auth.register') }}">{{ _('Register</a> to leave a comment.') }}
             </p>
         {% endif %}
     {% else %}
         <p class="tip">
-            Comment disabled.
+            {{ _('Comment disabled.') }}
         </p>
     {% endif %}
 </div>

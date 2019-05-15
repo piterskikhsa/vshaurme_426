@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-15 16:52+0300\n"
-"PO-Revision-Date: 2019-05-15 16:54+0300\n"
+"POT-Creation-Date: 2019-05-15 19:45+0300\n"
+"PO-Revision-Date: 2019-05-15 19:46+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -94,6 +94,7 @@ msgid "Logout"
 msgstr "Выйти"
 
 #: vshaurme/templates/auth/login.html:4 vshaurme/templates/base.html:81
+#: vshaurme/templates/main/_comment.html:121
 msgid "Login"
 msgstr "Войти"
 
@@ -190,6 +191,7 @@ msgstr "Тэги"
 #: vshaurme/templates/admin/index.html:28
 #: vshaurme/templates/admin/index.html:92
 #: vshaurme/templates/admin/manage_comment.html:14
+#: vshaurme/templates/main/_comment.html:2
 msgid "Comments"
 msgstr "Комментарии"
 
@@ -250,6 +252,7 @@ msgstr "Сообщение"
 
 #: vshaurme/templates/admin/manage_comment.html:36
 #: vshaurme/templates/admin/manage_photo.html:38
+#: vshaurme/templates/main/_comment.html:34
 msgid "Author"
 msgstr "Автор"
 
@@ -294,10 +297,12 @@ msgstr "Вы уверены?"
 #: vshaurme/templates/admin/manage_comment.html:59
 #: vshaurme/templates/admin/manage_photo.html:77
 #: vshaurme/templates/admin/manage_tag.html:37
+#: vshaurme/templates/main/_comment.html:59
 msgid "Delete"
 msgstr "Удалить"
 
 #: vshaurme/templates/admin/manage_comment.html:68
+#: vshaurme/templates/main/_comment.html:91
 msgid "No comments."
 msgstr "Нет комментариев."
 
@@ -406,9 +411,8 @@ msgid "Unblock"
 msgstr "Разблокировать"
 
 #: vshaurme/templates/admin/manage_user.html:101
-#, fuzzy
 msgid "Email"
-msgstr "Email"
+msgstr "Эл. адрес"
 
 #: vshaurme/templates/admin/manage_user.html:112
 msgid "No users."
@@ -426,10 +430,92 @@ msgstr "Регистрация нового аккаунта"
 msgid "Forget password"
 msgstr "Забыли пароль"
 
+#: vshaurme/templates/auth/register.html:4
+msgid "Register"
+msgstr "Регистрация"
+
+#: vshaurme/templates/auth/register.html:14
+#: vshaurme/templates/emails/confirm.txt:3
+msgid "Welcome to Vshaurme!"
+msgstr "Добро пожаловать в Вшаурме!"
+
+#: vshaurme/templates/auth/register.html:18
+msgid "Already have an account?"
+msgstr "Уже есть аккаунт?"
+
+#: vshaurme/templates/auth/register.html:18
+msgid "Click here to log in."
+msgstr "Нажмите здесь для входа."
+
 #: vshaurme/templates/auth/reset_password.html:4
 #: vshaurme/templates/auth/reset_password.html:8
 msgid "Password Reset"
 msgstr "Сброс пароля"
+
+#: vshaurme/templates/emails/change_email.html:1
+#: vshaurme/templates/emails/change_email.txt:1
+#: vshaurme/templates/emails/confirm.html:1
+#: vshaurme/templates/emails/confirm.txt:1
+#: vshaurme/templates/emails/reset_password.html:1
+#: vshaurme/templates/emails/reset_password.txt:1
+msgid "Hello"
+msgstr "Привет, "
+
+#: vshaurme/templates/emails/change_email.html:2
+#: vshaurme/templates/emails/change_email.txt:3
+msgid "Please visit the link below to verify your new email address:"
+msgstr ""
+"Пожалуйста, перейдите по ссылке ниже, чтобы подтвердить свой новый адрес "
+"электронной почты:"
+
+#: vshaurme/templates/emails/change_email.html:5
+#: vshaurme/templates/emails/change_email.txt:7
+#: vshaurme/templates/emails/confirm.html:6
+#: vshaurme/templates/emails/confirm.txt:9
+#: vshaurme/templates/emails/reset_password.html:5
+#: vshaurme/templates/emails/reset_password.txt:8
+msgid "Please do not reply to this notification, this inbox is not monitored."
+msgstr ""
+"Пожалуйста, не отвечайте на это уведомление, этот почтовый ящик не "
+"отслеживается."
+
+#: vshaurme/templates/emails/confirm.html:2
+msgid "Welcome to <b>Vshaurme</b>!"
+msgstr "Добро пожаловать в <b>Вшаурме</b>!"
+
+#: vshaurme/templates/emails/confirm.html:3
+#: vshaurme/templates/emails/confirm.txt:5
+msgid "Please visit the link below to verify your email address:"
+msgstr ""
+"Пожалуйста, перейдите по ссылке ниже, чтобы подтвердить свой адрес "
+"электронной почты:"
+
+#: vshaurme/templates/emails/reset_password.html:2
+#: vshaurme/templates/emails/reset_password.txt:3
+msgid "Here is your password reset link:"
+msgstr "Вот ваша ссылка для сброса пароля:"
+
+#: vshaurme/templates/errors/400.html:3 vshaurme/templates/errors/400.html:10
+msgid "400 Error"
+msgstr "Ошибка 400"
+
+#: vshaurme/templates/errors/400.html:11
+msgid "Bad Request"
+msgstr "Неправильный запрос"
+
+#: vshaurme/templates/errors/400.html:15 vshaurme/templates/errors/403.html:15
+#: vshaurme/templates/errors/404.html:15 vshaurme/templates/errors/413.html:15
+#: vshaurme/templates/errors/500.html:15
+msgid "Return Home"
+msgstr "На главную"
+
+#: vshaurme/templates/errors/403.html:3 vshaurme/templates/errors/403.html:10
+msgid "403 Error"
+msgstr "Ошибка 403"
+
+#: vshaurme/templates/errors/403.html:11
+msgid "Forbidden"
+msgstr "Запрещено"
 
 #: vshaurme/templates/errors/404.html:3 vshaurme/templates/errors/404.html:10
 msgid "404 Error"
@@ -439,17 +525,102 @@ msgstr "Ошибка 404"
 msgid "Page Not Found"
 msgstr "Страница не найдена"
 
-#: vshaurme/templates/errors/404.html:15
-msgid "Return Home"
-msgstr "На главную"
+#: vshaurme/templates/errors/413.html:3 vshaurme/templates/errors/413.html:10
+msgid "413 Error"
+msgstr "Ошибка 413"
 
+#: vshaurme/templates/errors/413.html:11
+msgid "Request Entity Too Large"
+msgstr "Слишком Большой Объект Запроса"
+
+#: vshaurme/templates/errors/500.html:3 vshaurme/templates/errors/500.html:10
+msgid "500 Error"
+msgstr "Ошибка 500"
+
+#: vshaurme/templates/errors/500.html:11
+msgid "Internal Server Error"
+msgstr "Внутренняя ошибка сервера"
+
+#: vshaurme/templates/main/_comment.html:4
+msgid "latest"
+msgstr "последний"
+
+#: vshaurme/templates/main/_comment.html:52
+msgid "Reply"
+msgstr "Ответить"
+
+#: vshaurme/templates/main/_comment.html:67
+msgid "Report"
+msgstr "Пожаловаться"
+
+#: vshaurme/templates/main/_comment.html:99
+msgid "Reply to"
+msgstr "Ответить на"
+
+#: vshaurme/templates/main/_comment.html:100
+#: vshaurme/templates/main/_photo_sidebar.html:49
+#: vshaurme/templates/main/_photo_sidebar.html:75
+msgid "Cancel"
+msgstr "Отменить"
+
+#: vshaurme/templates/main/_comment.html:116
+msgid "No permission."
+msgstr "Нет прав."
+
+#: vshaurme/templates/main/_comment.html:122
+msgid "or"
+msgstr "или"
+
+#: vshaurme/templates/main/_comment.html:123
+msgid "Register</a> to leave a comment."
+msgstr "Зарегистрироваться</a>, чтобы оставить комментарий."
+
+#: vshaurme/templates/main/_comment.html:128
+msgid "Comment disabled."
+msgstr "Комментарии отключены"
+
+#: vshaurme/templates/main/_photo_sidebar.html:6
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: vshaurme/templates/main/_photo_sidebar.html:9
+msgid "Next"
+msgstr "Следующий"
+
+#: vshaurme/templates/main/_photo_sidebar.html:39
+msgid "edit description"
+msgstr "изменить описание"
+
+#: vshaurme/templates/main/_photo_sidebar.html:65
+msgid "edit tag"
+msgstr "изменить тэг"
+
+#: vshaurme/templates/main/_photo_sidebar.html:98
 #: vshaurme/templates/main/index.html:50
 msgid "Uncollect"
 msgstr "Убрать из коллекции"
 
+#: vshaurme/templates/main/_photo_sidebar.html:106
+#: vshaurme/templates/main/_photo_sidebar.html:114
 #: vshaurme/templates/main/index.html:56 vshaurme/templates/main/index.html:63
 msgid "Collect"
 msgstr "Добавить в коллекцию"
+
+#: vshaurme/templates/main/_photo_sidebar.html:120
+msgid "collectors"
+msgstr "коллекторов"
+
+#: vshaurme/templates/main/_sidebar.html:16
+msgid "My Photos"
+msgstr "Мои фото"
+
+#: vshaurme/templates/main/_sidebar.html:19
+msgid "My Collections"
+msgstr "Мои коллекции"
+
+#: vshaurme/templates/main/_sidebar.html:24
+msgid "Hot Tags"
+msgstr "Горячие тэги"
 
 #: vshaurme/templates/main/index.html:95
 msgid "VShaurme"
