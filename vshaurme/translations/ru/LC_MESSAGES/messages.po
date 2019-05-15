@@ -7,17 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-15 13:03+0300\n"
-"PO-Revision-Date: 2019-05-15 13:02+0300\n"
+"POT-Creation-Date: 2019-05-15 16:52+0300\n"
+"PO-Revision-Date: 2019-05-15 16:54+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: vshaurme/blueprints/admin.py:52
 msgid "Profile updated."
@@ -92,7 +93,7 @@ msgstr "Панель управления"
 msgid "Logout"
 msgstr "Выйти"
 
-#: vshaurme/templates/base.html:81
+#: vshaurme/templates/auth/login.html:4 vshaurme/templates/base.html:81
 msgid "Login"
 msgstr "Войти"
 
@@ -413,6 +414,23 @@ msgstr "Email"
 msgid "No users."
 msgstr "Нет пользователей."
 
+#: vshaurme/templates/auth/login.html:14
+msgid "Log in to Vshaurme"
+msgstr "Войти в Вшаурме"
+
+#: vshaurme/templates/auth/login.html:18
+msgid "Register new account"
+msgstr "Регистрация нового аккаунта"
+
+#: vshaurme/templates/auth/login.html:19
+msgid "Forget password"
+msgstr "Забыли пароль"
+
+#: vshaurme/templates/auth/reset_password.html:4
+#: vshaurme/templates/auth/reset_password.html:8
+msgid "Password Reset"
+msgstr "Сброс пароля"
+
 #: vshaurme/templates/errors/404.html:3 vshaurme/templates/errors/404.html:10
 msgid "404 Error"
 msgstr "Ошибка 404"
@@ -444,4 +462,3 @@ msgstr "Запечатлей и запомни каждый чудесный м�
 #: vshaurme/templates/main/index.html:97
 msgid "Join Now"
 msgstr "Присоединяйся сейчас"
-
