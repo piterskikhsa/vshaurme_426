@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-15 19:45+0300\n"
-"PO-Revision-Date: 2019-05-15 19:46+0300\n"
+"POT-Creation-Date: 2019-05-15 22:02+0300\n"
+"PO-Revision-Date: 2019-05-15 22:03+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -61,7 +61,8 @@ msgstr "Вкл./выкл. навигацию"
 msgid "Home"
 msgstr "На главную"
 
-#: vshaurme/templates/base.html:34 vshaurme/templates/main/index.html:77
+#: vshaurme/templates/base.html:34 vshaurme/templates/main/explore.html:4
+#: vshaurme/templates/main/index.html:77
 msgid "Explore"
 msgstr "Исследовать"
 
@@ -69,7 +70,8 @@ msgstr "Исследовать"
 msgid "Photo, tag or user"
 msgstr "Фото, тэг или юзер"
 
-#: vshaurme/templates/base.html:51
+#: vshaurme/templates/base.html:51 vshaurme/templates/main/upload.html:3
+#: vshaurme/templates/main/upload.html:13
 msgid "Upload"
 msgstr "Загрузить"
 
@@ -82,6 +84,7 @@ msgid "My Home"
 msgstr "Моя страница"
 
 #: vshaurme/templates/admin/index.html:45 vshaurme/templates/base.html:68
+#: vshaurme/templates/main/notifications.html:28
 msgid "Settings"
 msgstr "Настройки"
 
@@ -107,18 +110,23 @@ msgid "Capture and share every wonderful moment."
 msgstr "Запечатлейте и поделитесь каждым чудесным моментом."
 
 #: vshaurme/templates/macros.html:32
+#: vshaurme/templates/main/profile_popup.html:34
 msgid "Unfollow"
 msgstr "Отписаться"
 
 #: vshaurme/templates/macros.html:34
+#: vshaurme/templates/main/profile_popup.html:9
 msgid "Follow each other"
-msgstr "Подписаться друг на друга"
+msgstr "Подписка друг на друга"
 
 #: vshaurme/templates/macros.html:41 vshaurme/templates/macros.html:52
+#: vshaurme/templates/main/profile_popup.html:39
+#: vshaurme/templates/main/profile_popup.html:46
 msgid "Follow"
 msgstr "Подписаться"
 
 #: vshaurme/templates/macros.html:43
+#: vshaurme/templates/main/profile_popup.html:11
 msgid "Follows you"
 msgstr "Подписан на вас"
 
@@ -173,6 +181,7 @@ msgstr "Редактировать"
 #: vshaurme/templates/admin/manage_photo.html:14
 #: vshaurme/templates/admin/manage_tag.html:24
 #: vshaurme/templates/admin/manage_user.html:53
+#: vshaurme/templates/main/profile_popup.html:19
 msgid "Photos"
 msgstr "Фотографии"
 
@@ -233,11 +242,13 @@ msgstr "Управление комментариями"
 
 #: vshaurme/templates/admin/manage_comment.html:19
 #: vshaurme/templates/admin/manage_photo.html:19
+#: vshaurme/templates/main/tag.html:21
 msgid "Order by"
 msgstr "Сортировать по"
 
 #: vshaurme/templates/admin/manage_comment.html:23
 #: vshaurme/templates/admin/manage_photo.html:23
+#: vshaurme/templates/main/tag.html:25
 msgid "Order by Time"
 msgstr "Сортировать по Времени"
 
@@ -280,6 +291,7 @@ msgid "Actions"
 msgstr "Действие"
 
 #: vshaurme/templates/admin/manage_comment.html:50
+#: vshaurme/templates/main/search.html:15
 msgid "Photo"
 msgstr "Фото"
 
@@ -291,6 +303,7 @@ msgstr "Фото"
 #: vshaurme/templates/admin/manage_user.html:81
 #: vshaurme/templates/admin/manage_user.html:89
 #: vshaurme/templates/admin/manage_user.html:96
+#: vshaurme/templates/main/tag.html:14
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
@@ -298,6 +311,8 @@ msgstr "Вы уверены?"
 #: vshaurme/templates/admin/manage_photo.html:77
 #: vshaurme/templates/admin/manage_tag.html:37
 #: vshaurme/templates/main/_comment.html:59
+#: vshaurme/templates/main/photo.html:18 vshaurme/templates/main/photo.html:70
+#: vshaurme/templates/main/tag.html:15
 msgid "Delete"
 msgstr "Удалить"
 
@@ -319,6 +334,7 @@ msgid "Description"
 msgstr "Описание"
 
 #: vshaurme/templates/admin/manage_photo.html:37
+#: vshaurme/templates/main/search.html:19
 msgid "Tag"
 msgstr "Тэг"
 
@@ -355,6 +371,7 @@ msgid "Filter"
 msgstr "Фильтр"
 
 #: vshaurme/templates/admin/manage_user.html:23
+#: vshaurme/templates/main/notifications.html:15
 msgid "All"
 msgstr "Все"
 
@@ -545,11 +562,24 @@ msgstr "Внутренняя ошибка сервера"
 msgid "latest"
 msgstr "последний"
 
+#: vshaurme/templates/main/_comment.html:10
+msgid "Disable"
+msgstr "Выкл."
+
+#: vshaurme/templates/main/_comment.html:10
+msgid "Enable"
+msgstr "Вкл."
+
+#: vshaurme/templates/main/_comment.html:10
+msgid "comment"
+msgstr "комментарий"
+
 #: vshaurme/templates/main/_comment.html:52
 msgid "Reply"
 msgstr "Ответить"
 
 #: vshaurme/templates/main/_comment.html:67
+#: vshaurme/templates/main/photo.html:23
 msgid "Report"
 msgstr "Пожаловаться"
 
@@ -560,6 +590,7 @@ msgstr "Ответить на"
 #: vshaurme/templates/main/_comment.html:100
 #: vshaurme/templates/main/_photo_sidebar.html:49
 #: vshaurme/templates/main/_photo_sidebar.html:75
+#: vshaurme/templates/main/photo.html:69
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -608,7 +639,7 @@ msgstr "Добавить в коллекцию"
 
 #: vshaurme/templates/main/_photo_sidebar.html:120
 msgid "collectors"
-msgstr "коллекторов"
+msgstr "коллекционеров"
 
 #: vshaurme/templates/main/_sidebar.html:16
 msgid "My Photos"
@@ -622,6 +653,19 @@ msgstr "Мои коллекции"
 msgid "Hot Tags"
 msgstr "Горячие тэги"
 
+#: vshaurme/templates/main/collectors.html:5
+#: vshaurme/templates/main/collectors.html:19
+msgid "Collectors"
+msgstr "Коллекционеры"
+
+#: vshaurme/templates/main/collectors.html:12
+msgid "Return"
+msgstr "Вернуться"
+
+#: vshaurme/templates/main/explore.html:16
+msgid "Change"
+msgstr "Изменить"
+
 #: vshaurme/templates/main/index.html:95
 msgid "VShaurme"
 msgstr "ВШаурме"
@@ -633,3 +677,86 @@ msgstr "Запечатлей и запомни каждый чудесный м�
 #: vshaurme/templates/main/index.html:97
 msgid "Join Now"
 msgstr "Присоединяйся сейчас"
+
+#: vshaurme/templates/main/notifications.html:4
+#: vshaurme/templates/main/notifications.html:8
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: vshaurme/templates/main/notifications.html:19
+msgid "Unread"
+msgstr "Непрочитано"
+
+#: vshaurme/templates/main/notifications.html:25
+msgid "unread notifications"
+msgstr "непрочитанных уведомлений"
+
+#: vshaurme/templates/main/notifications.html:33
+msgid "Read all"
+msgstr "Пометить всё прочитанным"
+
+#: vshaurme/templates/main/notifications.html:65
+msgid "No notifications."
+msgstr "Нет уведомлений."
+
+#: vshaurme/templates/main/photo.html:5
+#, python-format
+msgid "%(photoauthorname)s's Photo"
+msgstr "Фото %(photoauthorname)s"
+
+#: vshaurme/templates/main/photo.html:15
+msgid "Share"
+msgstr "Поделиться"
+
+#: vshaurme/templates/main/photo.html:27
+#, fuzzy
+msgid "Upload at"
+msgstr "Загрузить в"
+
+#: vshaurme/templates/main/photo.html:40
+msgid "Permalink"
+msgstr "Пост.ссылка"
+
+#: vshaurme/templates/main/photo.html:59
+msgid "Delete Confirm"
+msgstr "Подтвердить удаление"
+
+#: vshaurme/templates/main/photo.html:64
+msgid "Are you sure you want to delete this item?"
+msgstr "Вы уверены, что хотите удалить этот элемент?"
+
+#: vshaurme/templates/main/profile_popup.html:25
+msgid "Followers"
+msgstr "Поклонники"
+
+#: vshaurme/templates/main/profile_popup.html:28
+msgid "Homepage"
+msgstr "Дом.страница"
+
+#: vshaurme/templates/main/search.html:5 vshaurme/templates/main/search.html:9
+msgid "Search:"
+msgstr "Поиск:"
+
+#: vshaurme/templates/main/search.html:17
+msgid "User"
+msgstr "Пользователь"
+
+#: vshaurme/templates/main/search.html:24
+msgid "results"
+msgstr "результатов"
+
+#: vshaurme/templates/main/search.html:38
+msgid "No results."
+msgstr "Нет результатов."
+
+#: vshaurme/templates/main/tag.html:11
+msgid "photos"
+msgstr "фотографий"
+
+#: vshaurme/templates/main/tag.html:27
+msgid "Order by Collects"
+msgstr "Упорядочить по коллекциям"
+
+#: vshaurme/templates/main/upload.html:19
+msgid "Done"
+msgstr "Выполнено"

@@ -7,7 +7,7 @@
             <form class="inline" method="post" action="{{ url_for('.set_comment', photo_id=photo.id) }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <button type="submit" class="btn btn-xs btn-link float-right">
-                    {% if photo.can_comment %}Disable{% else %}Enable{% endif %} comment
+                    {% if photo.can_comment %}{{ _('Disable') }}{% else %}{{ _('Enable') }}{% endif %} {{ _('comment') }}
                 </button>
             </form>
         {% endif %}
