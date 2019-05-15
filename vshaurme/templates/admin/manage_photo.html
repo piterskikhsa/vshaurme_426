@@ -1,30 +1,28 @@
 {% extends 'admin/index.html' %}
 {% from 'bootstrap/pagination.html' import render_pagination %}
 
-{% block title %}Manage Photos{% endblock %}
+{% block title %}{{ _('Manage Photos') }}{% endblock %}
 
 {% block content %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            {{ render_breadcrumb_item('admin.index', 'Dashboard Home') }}
-            {{ render_breadcrumb_item('admin.manage_photo', 'Manage Photo') }}
+            {{ render_breadcrumb_item('admin.index', _('Dashboard Home')) }}
+            {{ render_breadcrumb_item('admin.manage_photo', _('Manage Photo')) }}
         </ol>
     </nav>
     <div class="page-header">
-        <h1>Photos
+        <h1>{{ _('Photos') }}
             <small class="text-muted">{{ pagination.total }}</small>
             <span class="dropdown">
             <button class="btn btn-secondary btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                Order by {{ order_rule }} <span class="oi oi-elevator"></span>
+                {{ _('Order by') }} {{ order_rule }} <span class="oi oi-elevator"></span>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {% if order_rule == 'flag' %}
-                    <a class="dropdown-item" href="{{ url_for('.manage_photo', order='by_time') }}">Order by
-                    Time</a>
+                    <a class="dropdown-item" href="{{ url_for('.manage_photo', order='by_time') }}">{{ _('Order by Time') }}</a>
                 {% else %}
-                    <a class="dropdown-item" href="{{ url_for('.manage_photo', order='by_flag') }}">Order by
-                    Flag</a>
+                    <a class="dropdown-item" href="{{ url_for('.manage_photo', order='by_flag') }}">{{ _('Order by Flag') }}</a>
                 {% endif %}
             </div>
         </span>
@@ -34,13 +32,13 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Image</th>
-                <th>Description</th>
-                <th>Tag</th>
-                <th>Author</th>
-                <th>Reported</th>
-                <th>Date</th>
-                <th>Actions</th>
+                <th>{{ _('Image') }}</th>
+                <th>{{ _('Description') }}</th>
+                <th>{{ _('Tag') }}</th>
+                <th>{{ _('Author') }}</th>
+                <th>{{ _('Reported') }}</th>
+                <th>{{ _('Date') }}</th>
+                <th>{{ _('Actions') }}</th>
             </tr>
             </thead>
             {% for photo in photos %}
@@ -58,7 +56,7 @@
                                       action="{{ url_for('admin.delete_tag', tag_id=tag.id, next=request.full_path) }}">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                                     <button type="submit" class="btn badge badge-danger mb-1"
-                                            onclick="return confirm('Are you sure?');">
+                                            onclick="return confirm('{{ _('Are you sure?') }}');">
                                         {{ tag.name }} <span class="oi oi-trash" aria-hidden="true">
                                 </span>
                                     </button>
@@ -76,7 +74,7 @@
                               action="{{ url_for('main.delete_photo', photo_id=photo.id, next=request.full_path) }}">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                             <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Are you sure?');">Delete
+                                    onclick="return confirm('{{ _('Are you sure?') }}');">{{ _('Delete') }}
                             </button>
                         </form>
                     </td>
@@ -85,6 +83,6 @@
         </table>
         <div class="page-footer">{{ render_pagination(pagination) }}</div>
     {% else %}
-        <div class="tip"><h5>No photos.</h5></div>
+        <div class="tip"><h5>{{ _('No photos.') }}</h5></div>
     {% endif %}
 {% endblock %}

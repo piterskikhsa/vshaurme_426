@@ -2,7 +2,7 @@
 {% from 'bootstrap/pagination.html' import render_pagination %}
 {% from 'macros.html' import photo_card with context %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ _('Home') }}{% endblock %}
 
 {% block content %}
 {% if current_user.is_authenticated %}
@@ -47,20 +47,20 @@
                                      btn btn-outline-secondary btn-sm uncollect-btn"
                                             data-href="{{ url_for('ajax.uncollect', photo_id=photo.id) }}"
                                             data-id="{{ photo.id }}">
-                                        <span class="oi oi-x"></span> Uncollect
+                                        <span class="oi oi-x"></span> {{ _('Uncollect') }}
                                     </button>
                                     <button class="{% if current_user.is_collecting(photo) %}hide{% endif %}
                                      btn btn-outline-primary btn-sm collect-btn"
                                             data-href="{{ url_for('ajax.collect', photo_id=photo.id) }}"
                                             data-id="{{ photo.id }}">
-                                        <span class="oi oi-star"></span> Collect
+                                        <span class="oi oi-star"></span> {{ _('Collect') }}
                                     </button>
                                 {% else %}
                                     <form class="inline" method="post"
                                           action="{{ url_for('main.collect', photo_id=photo.id) }}">
                                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                         <button type="submit" class="btn btn-outline-primary btn-sm">
-                                            <span class="oi oi-star"></span> Collect
+                                            <span class="oi oi-star"></span> {{ _('Collect') }}
                                         </button>
                                     </form>
                                 {% endif %}
@@ -74,7 +74,7 @@
             {% else %}
                 <div class="tip text-center">
                     <h3>No trends.</h3>
-                    <p><a href="{{ url_for('.explore') }}">Explore</a></p>
+                    <p><a href="{{ url_for('.explore') }}">{{ _('Explore') }}</a></p>
                 </div>
             {% endif %}
         </div>
@@ -92,9 +92,9 @@
                 <img src="{{ url_for('static', filename='images/index.jpg') }}" class="rounded img-fluid">
             </div>
             <div class="col-md-4 align-self-center">
-                <h1>VShaurme</h1>
-                <p>Capture and remember every wonderful moment.</p>
-                <p><a class="btn btn-primary btn-lg" href="{{ url_for('auth.register') }}">Join Now</a></p>
+                <h1>{{ _('VShaurme') }}</h1>
+                <p>{{ _('Capture and remember every wonderful moment.') }}</p>
+                <p><a class="btn btn-primary btn-lg" href="{{ url_for('auth.register') }}">{{ _('Join Now') }}</a></p>
             </div>
         </div>
     </div>

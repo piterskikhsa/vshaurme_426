@@ -1,5 +1,7 @@
 from flask import render_template, flash, Blueprint, request, current_app
 from flask_login import login_required
+from flask_babel import _
+
 
 from vshaurme.decorators import admin_required, permission_required
 from vshaurme.extensions import db
@@ -47,7 +49,7 @@ def edit_profile_admin(user_id):
         user.username = form.username.data
         user.email = form.email.data
         db.session.commit()
-        flash('Profile updated.', 'success')
+        flash(_('Profile updated.'), 'success')
         return redirect_back()
     form.name.data = user.name
     form.role.data = user.role_id
@@ -66,10 +68,10 @@ def edit_profile_admin(user_id):
 def block_user(user_id):
     user = User.query.get_or_404(user_id)
     if user.role.name in ['Administrator', 'Moderator']:
-        flash('Permission denied.', 'warning')
+        flash(_('Permission denied.'), 'warning')
     else:
         user.block()
-        flash('Account blocked.', 'info')
+        flash(_('Account blocked.'), 'info')
     return redirect_back()
 
 
@@ -78,7 +80,7 @@ def block_user(user_id):
 def unblock_user(user_id):
     user = User.query.get_or_404(user_id)
     user.unblock()
-    flash('Block canceled.', 'info')
+    flash(_('Block canceled.'), 'info')
     return redirect_back()
 
 
@@ -87,10 +89,10 @@ def unblock_user(user_id):
 def lock_user(user_id):
     user = User.query.get_or_404(user_id)
     if user.role.name in ['Administrator', 'Moderator']:
-        flash('Permission denied.', 'warning')
+        flash(_('Permission denied.'), 'warning')
     else:
         user.lock()
-        flash('Account locked.', 'info')
+        flash(_('Account locked.'), 'info')
     return redirect_back()
 
 
@@ -99,7 +101,7 @@ def lock_user(user_id):
 def unlock_user(user_id):
     user = User.query.get_or_404(user_id)
     user.unlock()
-    flash('Lock canceled.', 'info')
+    flash(_('Lock canceled.'), 'info')
     return redirect_back()
 
 
@@ -109,7 +111,7 @@ def delete_tag(tag_id):
     tag = Tag.query.get_or_404(tag_id)
     db.session.delete(tag)
     db.session.commit()
-    flash('Tag deleted.', 'info')
+    flash(_('Tag deleted.'), 'info')
     return redirect_back()
 
 

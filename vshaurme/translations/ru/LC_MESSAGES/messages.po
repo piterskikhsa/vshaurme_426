@@ -1,0 +1,447 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-05-15 13:03+0300\n"
+"PO-Revision-Date: 2019-05-15 13:02+0300\n"
+"Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: vshaurme/blueprints/admin.py:52
+msgid "Profile updated."
+msgstr "Профиль обновлён."
+
+#: vshaurme/blueprints/admin.py:71 vshaurme/blueprints/admin.py:92
+msgid "Permission denied."
+msgstr "Доступ запрещён."
+
+#: vshaurme/blueprints/admin.py:74
+msgid "Account blocked."
+msgstr "Аккаунт заблокирован."
+
+#: vshaurme/blueprints/admin.py:83
+msgid "Block canceled."
+msgstr "Блокировка отменена."
+
+#: vshaurme/blueprints/admin.py:95
+msgid "Account locked."
+msgstr "Аккаунт залочен."
+
+#: vshaurme/blueprints/admin.py:104
+msgid "Lock canceled."
+msgstr "Лок отменён."
+
+#: vshaurme/blueprints/admin.py:114
+msgid "Tag deleted."
+msgstr "Тэг удалён."
+
+#: vshaurme/templates/admin/index.html:10 vshaurme/templates/base.html:9
+#: vshaurme/templates/base.html:24
+msgid "Vshaurme"
+msgstr "Вшаурме"
+
+#: vshaurme/templates/admin/index.html:13 vshaurme/templates/base.html:27
+msgid "Toggle navigation"
+msgstr "Вкл./выкл. навигацию"
+
+#: vshaurme/templates/base.html:33 vshaurme/templates/main/index.html:5
+msgid "Home"
+msgstr "На главную"
+
+#: vshaurme/templates/base.html:34 vshaurme/templates/main/index.html:77
+msgid "Explore"
+msgstr "Исследовать"
+
+#: vshaurme/templates/base.html:36
+msgid "Photo, tag or user"
+msgstr "Фото, тэг или юзер"
+
+#: vshaurme/templates/base.html:51
+msgid "Upload"
+msgstr "Загрузить"
+
+#: vshaurme/templates/admin/index.html:39 vshaurme/templates/base.html:62
+msgid "Logged in as "
+msgstr "Вы вошли как "
+
+#: vshaurme/templates/admin/index.html:41 vshaurme/templates/base.html:64
+msgid "My Home"
+msgstr "Моя страница"
+
+#: vshaurme/templates/admin/index.html:45 vshaurme/templates/base.html:68
+msgid "Settings"
+msgstr "Настройки"
+
+#: vshaurme/templates/admin/index.html:4 vshaurme/templates/base.html:72
+msgid "Dashboard"
+msgstr "Панель управления"
+
+#: vshaurme/templates/admin/index.html:48 vshaurme/templates/base.html:76
+msgid "Logout"
+msgstr "Выйти"
+
+#: vshaurme/templates/base.html:81
+msgid "Login"
+msgstr "Войти"
+
+#: vshaurme/templates/base.html:82
+msgid "Join Vshuarme"
+msgstr "Присоединиться к Вшаурме"
+
+#: vshaurme/templates/base.html:108
+msgid "Capture and share every wonderful moment."
+msgstr "Запечатлейте и поделитесь каждым чудесным моментом."
+
+#: vshaurme/templates/macros.html:32
+msgid "Unfollow"
+msgstr "Отписаться"
+
+#: vshaurme/templates/macros.html:34
+msgid "Follow each other"
+msgstr "Подписаться друг на друга"
+
+#: vshaurme/templates/macros.html:41 vshaurme/templates/macros.html:52
+msgid "Follow"
+msgstr "Подписаться"
+
+#: vshaurme/templates/macros.html:43
+msgid "Follows you"
+msgstr "Подписан на вас"
+
+#: vshaurme/templates/admin/edit_profile.html:5
+#: vshaurme/templates/admin/edit_profile.html:16
+#: vshaurme/templates/admin/manage_user.html:104
+msgid "Edit profile"
+msgstr "Редактировать профиль"
+
+#: vshaurme/templates/admin/edit_profile.html:10
+#: vshaurme/templates/admin/index.html:61
+#: vshaurme/templates/admin/manage_comment.html:9
+#: vshaurme/templates/admin/manage_photo.html:9
+#: vshaurme/templates/admin/manage_tag.html:9
+#: vshaurme/templates/admin/manage_user.html:9
+msgid "Dashboard Home"
+msgstr "Панель управления"
+
+#: vshaurme/templates/admin/edit_profile.html:11
+#: vshaurme/templates/admin/manage_user.html:10
+msgid "Manage User"
+msgstr "Управление пользователем"
+
+#: vshaurme/templates/admin/edit_profile.html:12
+#: vshaurme/templates/admin/edit_profile.html:21
+msgid "Edit Profile"
+msgstr "Редактировать профиль"
+
+#: vshaurme/templates/admin/edit_profile.html:17
+#, python-format
+msgid "Return %(username)s's homepage"
+msgstr "Перейти на страницу пользователя %(username)s"
+
+#: vshaurme/templates/admin/index.html:10
+msgid "Vshaurme Dashboard"
+msgstr "Панель управления Вшаурме"
+
+#: vshaurme/templates/admin/index.html:19
+msgid "Return Vsharume"
+msgstr "На главную"
+
+#: vshaurme/templates/admin/index.html:22
+#: vshaurme/templates/admin/index.html:71
+#: vshaurme/templates/admin/index.html:82
+#: vshaurme/templates/admin/index.html:96
+#: vshaurme/templates/admin/index.html:106
+msgid "Manage"
+msgstr "Редактировать"
+
+#: vshaurme/templates/admin/index.html:25
+#: vshaurme/templates/admin/index.html:67
+#: vshaurme/templates/admin/manage_photo.html:14
+#: vshaurme/templates/admin/manage_tag.html:24
+#: vshaurme/templates/admin/manage_user.html:53
+msgid "Photos"
+msgstr "Фотографии"
+
+#: vshaurme/templates/admin/index.html:26
+#: vshaurme/templates/admin/index.html:77
+#: vshaurme/templates/admin/manage_user.html:14
+msgid "Users"
+msgstr "Пользователи"
+
+#: vshaurme/templates/admin/index.html:27
+#: vshaurme/templates/admin/index.html:102
+#: vshaurme/templates/admin/manage_tag.html:14
+msgid "Tags"
+msgstr "Тэги"
+
+#: vshaurme/templates/admin/index.html:28
+#: vshaurme/templates/admin/index.html:92
+#: vshaurme/templates/admin/manage_comment.html:14
+msgid "Comments"
+msgstr "Комментарии"
+
+#: vshaurme/templates/admin/index.html:69
+#: vshaurme/templates/admin/index.html:79
+#: vshaurme/templates/admin/index.html:94
+#: vshaurme/templates/admin/index.html:104
+msgid "Total:"
+msgstr "Всего:"
+
+#: vshaurme/templates/admin/index.html:70
+#: vshaurme/templates/admin/index.html:95
+msgid "Reported:"
+msgstr "Жалоб:"
+
+#: vshaurme/templates/admin/index.html:80
+msgid "Locked:"
+msgstr "Залочено:"
+
+#: vshaurme/templates/admin/index.html:81
+msgid "Blocked:"
+msgstr "Заблокировано:"
+
+#: vshaurme/templates/admin/index.html:83
+msgid "View Locked"
+msgstr "Посмотреть залоченных"
+
+#: vshaurme/templates/admin/index.html:84
+msgid "View Blocked"
+msgstr "Посмотреть заблокированных"
+
+#: vshaurme/templates/admin/manage_comment.html:4
+msgid "Manage Comments"
+msgstr "Управление комментариями"
+
+#: vshaurme/templates/admin/manage_comment.html:10
+msgid "Manage Comment"
+msgstr "Управление комментариями"
+
+#: vshaurme/templates/admin/manage_comment.html:19
+#: vshaurme/templates/admin/manage_photo.html:19
+msgid "Order by"
+msgstr "Сортировать по"
+
+#: vshaurme/templates/admin/manage_comment.html:23
+#: vshaurme/templates/admin/manage_photo.html:23
+msgid "Order by Time"
+msgstr "Сортировать по Времени"
+
+#: vshaurme/templates/admin/manage_comment.html:25
+#: vshaurme/templates/admin/manage_photo.html:25
+msgid "Order by Flag"
+msgstr "Сортировать по Флагу"
+
+#: vshaurme/templates/admin/manage_comment.html:35
+msgid "Body"
+msgstr "Сообщение"
+
+#: vshaurme/templates/admin/manage_comment.html:36
+#: vshaurme/templates/admin/manage_photo.html:38
+msgid "Author"
+msgstr "Автор"
+
+#: vshaurme/templates/admin/manage_comment.html:37
+#: vshaurme/templates/admin/manage_photo.html:35
+msgid "Image"
+msgstr "Картинка"
+
+#: vshaurme/templates/admin/manage_comment.html:38
+#: vshaurme/templates/admin/manage_photo.html:39
+msgid "Reported"
+msgstr "Жалоб"
+
+#: vshaurme/templates/admin/manage_comment.html:39
+#: vshaurme/templates/admin/manage_photo.html:40
+#: vshaurme/templates/admin/manage_user.html:52
+msgid "Date"
+msgstr "Дата"
+
+#: vshaurme/templates/admin/manage_comment.html:40
+#: vshaurme/templates/admin/manage_photo.html:41
+#: vshaurme/templates/admin/manage_tag.html:25
+#: vshaurme/templates/admin/manage_user.html:54
+msgid "Actions"
+msgstr "Действие"
+
+#: vshaurme/templates/admin/manage_comment.html:50
+msgid "Photo"
+msgstr "Фото"
+
+#: vshaurme/templates/admin/manage_comment.html:59
+#: vshaurme/templates/admin/manage_photo.html:59
+#: vshaurme/templates/admin/manage_photo.html:77
+#: vshaurme/templates/admin/manage_tag.html:36
+#: vshaurme/templates/admin/manage_user.html:74
+#: vshaurme/templates/admin/manage_user.html:81
+#: vshaurme/templates/admin/manage_user.html:89
+#: vshaurme/templates/admin/manage_user.html:96
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: vshaurme/templates/admin/manage_comment.html:59
+#: vshaurme/templates/admin/manage_photo.html:77
+#: vshaurme/templates/admin/manage_tag.html:37
+msgid "Delete"
+msgstr "Удалить"
+
+#: vshaurme/templates/admin/manage_comment.html:68
+msgid "No comments."
+msgstr "Нет комментариев."
+
+#: vshaurme/templates/admin/manage_photo.html:4
+msgid "Manage Photos"
+msgstr "Управление фотографиями"
+
+#: vshaurme/templates/admin/manage_photo.html:10
+msgid "Manage Photo"
+msgstr "Управление фотографиями"
+
+#: vshaurme/templates/admin/manage_photo.html:36
+msgid "Description"
+msgstr "Описание"
+
+#: vshaurme/templates/admin/manage_photo.html:37
+msgid "Tag"
+msgstr "Тэг"
+
+#: vshaurme/templates/admin/manage_photo.html:86
+msgid "No photos."
+msgstr "Нет фотографий."
+
+#: vshaurme/templates/admin/manage_tag.html:4
+msgid "Manage Tags"
+msgstr "Управление тэгами"
+
+#: vshaurme/templates/admin/manage_tag.html:10
+msgid "Manage Tag"
+msgstr "Управление тэгами"
+
+#: vshaurme/templates/admin/manage_tag.html:22
+msgid "No."
+msgstr "№"
+
+#: vshaurme/templates/admin/manage_tag.html:23
+msgid "Name"
+msgstr "Название"
+
+#: vshaurme/templates/admin/manage_tag.html:45
+msgid "No tags."
+msgstr "Нет тэгов."
+
+#: vshaurme/templates/admin/manage_user.html:4
+msgid "Manage Users"
+msgstr "Управление пользователями"
+
+#: vshaurme/templates/admin/manage_user.html:19
+msgid "Filter"
+msgstr "Фильтр"
+
+#: vshaurme/templates/admin/manage_user.html:23
+msgid "All"
+msgstr "Все"
+
+#: vshaurme/templates/admin/manage_user.html:27
+msgid "Locked"
+msgstr "Залочен"
+
+#: vshaurme/templates/admin/manage_user.html:31
+msgid "Blocked"
+msgstr "Заблокирован"
+
+#: vshaurme/templates/admin/manage_user.html:35
+msgid "Administrator"
+msgstr "Администратор"
+
+#: vshaurme/templates/admin/manage_user.html:39
+msgid "Moderator"
+msgstr "Модератор"
+
+#: vshaurme/templates/admin/manage_user.html:47
+msgid "Avatars"
+msgstr "Аватары"
+
+#: vshaurme/templates/admin/manage_user.html:48
+msgid "Name/username"
+msgstr "Имя/имя пользователя"
+
+#: vshaurme/templates/admin/manage_user.html:49
+msgid "Role"
+msgstr "Роль"
+
+#: vshaurme/templates/admin/manage_user.html:50
+msgid "Bio"
+msgstr "Био"
+
+#: vshaurme/templates/admin/manage_user.html:51
+msgid "City"
+msgstr "Город"
+
+#: vshaurme/templates/admin/manage_user.html:75
+msgid "Unlock"
+msgstr "Разлочить"
+
+#: vshaurme/templates/admin/manage_user.html:82
+msgid "Lock"
+msgstr "Залочть"
+
+#: vshaurme/templates/admin/manage_user.html:90
+msgid "Block"
+msgstr "Заблокировать"
+
+#: vshaurme/templates/admin/manage_user.html:97
+msgid "Unblock"
+msgstr "Разблокировать"
+
+#: vshaurme/templates/admin/manage_user.html:101
+#, fuzzy
+msgid "Email"
+msgstr "Email"
+
+#: vshaurme/templates/admin/manage_user.html:112
+msgid "No users."
+msgstr "Нет пользователей."
+
+#: vshaurme/templates/errors/404.html:3 vshaurme/templates/errors/404.html:10
+msgid "404 Error"
+msgstr "Ошибка 404"
+
+#: vshaurme/templates/errors/404.html:11
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: vshaurme/templates/errors/404.html:15
+msgid "Return Home"
+msgstr "На главную"
+
+#: vshaurme/templates/main/index.html:50
+msgid "Uncollect"
+msgstr "Убрать из коллекции"
+
+#: vshaurme/templates/main/index.html:56 vshaurme/templates/main/index.html:63
+msgid "Collect"
+msgstr "Добавить в коллекцию"
+
+#: vshaurme/templates/main/index.html:95
+msgid "VShaurme"
+msgstr "ВШаурме"
+
+#: vshaurme/templates/main/index.html:96
+msgid "Capture and remember every wonderful moment."
+msgstr "Запечатлей и запомни каждый чудесный момент."
+
+#: vshaurme/templates/main/index.html:97
+msgid "Join Now"
+msgstr "Присоединяйся сейчас"
+

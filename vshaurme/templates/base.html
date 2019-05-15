@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% block head %}
-        <title>{% block title %}{% endblock %} - Vshaurme</title>
+        <title>{% block title %}{% endblock %} - {{ _('Vshaurme') }}</title>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         {% block styles %}
             <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
@@ -21,19 +21,19 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('main.index') }}">
-                <img src="{{ url_for('static', filename='favicon.ico') }}" alt="Vshaurme">
+                <img src="{{ url_for('static', filename='favicon.ico') }}" alt={{ _('Vshaurme') }}>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label={{ _('Toggle navigation') }}>
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <div class="navbar-nav mr-auto">
-                    {{ render_nav_item('main.index', 'Home') }}
-                    {{ render_nav_item('main.explore', 'Explore') }}
+                    {{ render_nav_item('main.index', _('Home')) }}
+                    {{ render_nav_item('main.explore', _('Explore')) }}
                     <form class="form-inline my-2 my-lg-0" action="{{ url_for('main.search') }}">
-                        <input type="text" name="q" class="form-control mr-sm-1" placeholder="Photo, tag or user"
+                        <input type="text" name="q" class="form-control mr-sm-1" placeholder="{{ _("Photo, tag or user") }}"
                                required>
                         <button class="btn btn-light my-2 my-sm-0" type="submit">
                             <span class="oi oi-magnifying-glass"></span>
@@ -48,7 +48,7 @@
                               class="{% if notification_count == 0 %}hide{% endif %} badge badge-danger badge-notification"
                               data-href="{{ url_for('ajax.notifications_count') }}">{{ notification_count }}</span>
                     </a>
-                    <a class="nav-item nav-link" href="{{ url_for('main.upload') }}" title="Upload">
+                    <a class="nav-item nav-link" href="{{ url_for('main.upload') }}" title={{ _('Upload') }}>
                         <span class="oi oi-cloud-upload"></span>&nbsp;&nbsp;
                     </a>
                     <div class="dropdown nav-item">
@@ -59,27 +59,27 @@
                             <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" role="menu">
-                            <h6 class="dropdown-header">Logged in as {{ current_user.username }}</h6>
+                            <h6 class="dropdown-header">{{ _('Logged in as ') }} {{ current_user.username }}</h6>
                             <a class="dropdown-item" href="{{ url_for('user.index', username=current_user.username) }}">
-                                <span class="oi oi-person"></span> My Home
+                                <span class="oi oi-person"></span> {{ _('My Home') }}
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url_for('user.edit_profile') }}">
-                                <span class="oi oi-cog"></span> Settings
+                                <span class="oi oi-cog"></span> {{ _('Settings') }}
                             </a>
                             {% if current_user.can('MODERATE') %}
                                 <a class="dropdown-item" href="{{ url_for('admin.index') }}">
-                                    <span class="oi oi-dashboard"></span> Dashboard
+                                    <span class="oi oi-dashboard"></span> {{ _('Dashboard') }}
                                 </a>
                             {% endif %}
                             <a class="dropdown-item" href="{{ url_for('auth.logout') }}">
-                                <span class="oi oi-power-standby"></span> Logout
+                                <span class="oi oi-power-standby"></span> {{ _('Logout') }}
                             </a>
                         </div>
                     </div>
                 {% else %}
-                    <a class="btn btn-outline-primary" href="{{ url_for('auth.login') }}">Login</a>&nbsp;&nbsp;
-                    <a class="btn btn-primary" href="{{ url_for('auth.register') }}">Join Vshuarme</a>
+                    <a class="btn btn-outline-primary" href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>&nbsp;&nbsp;
+                    <a class="btn btn-primary" href="{{ url_for('auth.register') }}">{{ _('Join Vshuarme') }}</a>
                 {% endif %}
                 </div>
             </div>
@@ -105,7 +105,7 @@
                     </small>
                 </p>
                 <p class="float-right">
-                    <small>Capture and share every wonderful moment.</small>
+                    <small>{{ _('Capture and share every wonderful moment.') }}</small>
                 </p>
             </footer>
         {% endblock %}
