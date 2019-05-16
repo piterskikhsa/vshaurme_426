@@ -2,26 +2,26 @@
 {% from 'bootstrap/pagination.html' import render_pagination %}
 {% from 'macros.html' import photo_card, user_card with context %}
 
-{% block title %}Search: {{ q }}{% endblock %}
+{% block title %}{{ _('Search:') }} {{ q }}{% endblock %}
 
 {% block content %}
     <div class="page-header">
-        <h1>Search: {{ q }}</h1>
+        <h1>{{ _('Search:') }} {{ q }}</h1>
     </div>
     <div class="row">
         <div class="col-md-3">
             <div class="nav nav-pills flex-column" role="tablist" aria-orientation="vertical">
                 <a class="nav-item nav-link {% if category == 'photo' %}active{% endif %}"
-                   href="{{ url_for('.search', q=q, category='photo') }}">Photo</a>
+                   href="{{ url_for('.search', q=q, category='photo') }}">{{ _('Photo') }}</a>
                 <a class="nav-item nav-link {% if category == 'user' %}active{% endif %}"
-                   href="{{ url_for('.search', q=q, category='user') }}">User</a>
+                   href="{{ url_for('.search', q=q, category='user') }}">{{ _('User') }}</a>
                 <a class="nav-item nav-link {% if category == 'tag' %}active{% endif %}"
-                   href="{{ url_for('.search', q=q, category='tag') }}">Tag</a>
+                   href="{{ url_for('.search', q=q, category='tag') }}">{{ _('Tag') }}</a>
             </div>
         </div>
         <div class="col-md-9">
             {% if results %}
-                <h5>{{ results|length }} results</h5>
+                <h5>{{ results|length }} {{ _('results') }}</h5>
                 {% for item in results %}
                     {% if category == 'photo' %}
                         {{ photo_card(item) }}
@@ -35,7 +35,7 @@
                 {% endfor %}
 
             {% else %}
-                <h5 class="tip">No results.</h5>
+                <h5 class="tip">{{ _('No results.') }}</h5>
             {% endif %}
         </div>
     </div>

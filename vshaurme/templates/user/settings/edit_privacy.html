@@ -1,11 +1,11 @@
 {% extends 'user/settings/base.html' %}
 {% from 'bootstrap/form.html' import render_form %}
 
-{% block title %}Privacy Settings{% endblock %}
+{% block title %}{{ _('Privacy Settings') }}{% endblock %}
 
 {% block setting_content %}
     <div class="card w-100 bg-light">
-        <h3 class="card-header">Edit Privacy</h3>
+        <h3 class="card-header">{{ _('Edit Privacy') }}</h3>
         <div class="card-body">
             {{ render_form(form) }}
         </div>

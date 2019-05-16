@@ -1,17 +1,18 @@
 from wtforms import StringField, SelectField, BooleanField, SubmitField
 from wtforms import ValidationError
 from wtforms.validators import DataRequired, Length, Email
+from flask_babel import lazy_gettext as _l
 
 from vshaurme.forms.user import EditProfileForm
 from vshaurme.models import User, Role
 
 
 class EditProfileAdminForm(EditProfileForm):
-    email = StringField('Email', validators=[DataRequired(), Length(1, 254), Email()])
-    role = SelectField('Role', coerce=int)
-    active = BooleanField('Active')
-    confirmed = BooleanField('Confirmed')
-    submit = SubmitField()
+    email = StringField(_l('Email'), validators=[DataRequired(), Length(1, 254), Email()])
+    role = SelectField(_l('Role'), coerce=int)
+    active = BooleanField(_l('Active'))
+    confirmed = BooleanField(_l('Confirmed'))
+    submit = SubmitField(_l('Submit'))
 
     def __init__(self, user, *args, **kwargs):
         super(EditProfileAdminForm, self).__init__(*args, **kwargs)

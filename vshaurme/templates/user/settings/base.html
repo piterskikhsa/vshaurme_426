@@ -4,18 +4,18 @@
 
 {% block content %}
     <div class="page-header">
-        <h1>Settings</h1>
+        <h1>{{ _('Settings') }}</h1>
     </div>
     <div class="row">
         <div class="col-md-3">
             <div class="nav nav-pills flex-column" role="tablist" aria-orientation="vertical">
-                {{ render_nav_item('user.edit_profile', 'Edit Profile') }}
-                {{ render_nav_item('user.change_avatar', 'Change Avatar') }}
-                {{ render_nav_item('user.change_password', 'Change Password') }}
-                {{ render_nav_item('user.change_email_request', 'Change Email') }}
-                {{ render_nav_item('user.notification_setting', 'Notification') }}
-                {{ render_nav_item('user.privacy_setting', 'Privacy') }}
-                {{ render_nav_item('user.delete_account', 'Delete Account') }}
+                {{ render_nav_item('user.edit_profile', _('Edit Profile')) }}
+                {{ render_nav_item('user.change_avatar', _('Change Avatar')) }}
+                {{ render_nav_item('user.change_password', _('Change Password')) }}
+                {{ render_nav_item('user.change_email_request', _('Change Email')) }}
+                {{ render_nav_item('user.notification_setting', _('Notification')) }}
+                {{ render_nav_item('user.privacy_setting', _('Privacy')) }}
+                {{ render_nav_item('user.delete_account', _('Delete Account')) }}
             </div>
         </div>
         <div class="col-md-9">

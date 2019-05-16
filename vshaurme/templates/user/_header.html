@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-3">
         <a href="{% if current_user == user %}{{ url_for('.change_avatar') }}{% else %}#{% endif %}"
-           title="Change avatar">
+           title="{{ _('Change avatar') }}">
             <img class="img-fluid rounded" src="{{ url_for('main.get_avatar', filename=user.avatar_l) }}">
         </a>
     </div>
@@ -25,7 +25,7 @@
                    target="_blank">{{ user.location|truncate(30) }}</a>&nbsp;&nbsp;
             {% endif %}
             <span class="oi oi-calendar"></span>
-            Joined {{ moment(user.member_since).format('LL') }}
+            {{ _('Joined') }} {{ moment(user.member_since).format('LL') }}
         </p>
         <div>
             {% if current_user != user %}
@@ -33,38 +33,37 @@
                     {% if user.locked %}
                         <form class="inline" action="{{ url_for('admin.unlock_user', user_id=user.id) }}" method="post">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input type="submit" class="btn btn-secondary btn-sm" value="Unlock">
+                            <input type="submit" class="btn btn-secondary btn-sm" value="{{ _('Unlock') }}">
                         </form>
                     {% else %}
                         <form class="inline" action="{{ url_for('admin.lock_user', user_id=user.id) }}" method="post">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input type="submit" class="btn btn-warning btn-sm" value="Lock">
+                            <input type="submit" class="btn btn-warning btn-sm" value="{{ _('Lock') }}">
                         </form>
                     {% endif %}
                     {% if user.active %}
                         <form class="inline" action="{{ url_for('admin.block_user', user_id=user.id) }}" method="post">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input type="submit" class="btn btn-warning btn-sm" value="Block">
+                            <input type="submit" class="btn btn-warning btn-sm" value="{{ _('Block') }}">
                         </form>
                     {% else %}
                         <form class="inline" action="{{ url_for('admin.unblock_user', user_id=user.id) }}"
                               method="post">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input type="submit" class="btn btn-secondary btn-sm" value="Unblock">
+                            <input type="submit" class="btn btn-secondary btn-sm" value="{{ _('Unblock') }}">
                         </form>
                     {% endif %}
-                    <a class="btn btn-light btn-sm" href="mailto:{{ user.email }}">Email</a>
+                    <a class="btn btn-light btn-sm" href="mailto:{{ user.email }}">{{ _('Email') }}</a>
                 {% endif %}
 
                 {% if current_user.is_admin %}
-                    <a class="btn btn-warning btn-sm" href="{{ url_for('admin.edit_profile_admin', user_id=user.id) }}">Edit
-                        profile</a>
+                    <a class="btn btn-warning btn-sm" href="{{ url_for('admin.edit_profile_admin', user_id=user.id) }}">{{ _('Edit profile') }}</a>
                 {% endif %}
             {% endif %}
             <div class="float-right">
                 {{ follow_area(user) }}
                 {% if current_user.is_authenticated and user == current_user %}
-                    <a class="btn btn-outline-primary btn-sm" href="{{ url_for('.edit_profile') }}">Edit profile</a>
+                    <a class="btn btn-outline-primary btn-sm" href="{{ url_for('.edit_profile') }}">{{ _('Edit profile') }}</a>
                 {% endif %}
             </div>
         </div>
@@ -72,9 +71,9 @@
 </div>
 <div class="user-nav">
     <ul class="nav nav-tabs">
-        {{ render_nav_item('user.index', 'Photo', user.photos|length, username=user.username) }}
-        {{ render_nav_item('user.show_collections', 'Collections', user.collections|length, username=user.username) }}
-        {{ render_nav_item('user.show_following', 'Following', user.following.count() - 1, username=user.username) }}
-        {{ render_nav_item('user.show_followers', 'Follower', user.followers.count() - 1, username=user.username) }}
+        {{ render_nav_item('user.index', _('Photo'), user.photos|length, username=user.username) }}
+        {{ render_nav_item('user.show_collections', _('Collections'), user.collections|length, username=user.username) }}
+        {{ render_nav_item('user.show_following', _('Following'), user.following.count() - 1, username=user.username) }}
+        {{ render_nav_item('user.show_followers', _('Follower'), user.followers.count() - 1, username=user.username) }}
     </ul>
 </div>
