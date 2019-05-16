@@ -7,17 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-16 10:54+0300\n"
-"PO-Revision-Date: 2019-05-15 22:24+0300\n"
+"POT-Creation-Date: 2019-05-16 10:59+0300\n"
+"PO-Revision-Date: 2019-05-16 11:00+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: vshaurme/blueprints/admin.py:52
 msgid "Profile updated."
@@ -774,105 +775,101 @@ msgstr "Выполнено"
 
 #: vshaurme/templates/user/_header.html:8
 msgid "Change avatar"
-msgstr ""
+msgstr "Изменить аватар"
 
 #: vshaurme/templates/user/_header.html:28
 msgid "Joined"
-msgstr ""
+msgstr "Присоединился"
 
 #: vshaurme/templates/user/_header.html:75
 msgid "Collections"
-msgstr ""
+msgstr "Коллекции"
 
 #: vshaurme/templates/user/_header.html:76
 msgid "Following"
-msgstr ""
+msgstr "Подписан"
 
 #: vshaurme/templates/user/_header.html:77
 msgid "Follower"
-msgstr ""
+msgstr "Поклонник"
 
 #: vshaurme/templates/user/collections.html:5
 #, python-format
 msgid "%(username)s's collection"
-msgstr ""
+msgstr "Коллекции пользователя %(username)s"
 
 #: vshaurme/templates/user/collections.html:18
 msgid "No collection"
-msgstr ""
+msgstr "Нет коллекций"
 
 #: vshaurme/templates/user/collections.html:23
 msgid "This user's collections was private."
-msgstr ""
+msgstr "Коллекции этого пользователя были частными."
 
 #: vshaurme/templates/user/followers.html:5
 #, python-format
 msgid "%(username)s's followers"
-msgstr ""
+msgstr "Поклонники пользователя %(username)s"
 
 #: vshaurme/templates/user/followers.html:19
 msgid "No followers."
-msgstr ""
+msgstr "Нет поклонников"
 
 #: vshaurme/templates/user/following.html:5
 #, python-format
 msgid "%(username)s's following"
-msgstr ""
+msgstr "Подписки пользователя %(username)s"
 
 #: vshaurme/templates/user/following.html:19
 msgid "No followings."
-msgstr ""
+msgstr "Нет подписок."
 
 #: vshaurme/templates/user/settings/base.html:13
 #: vshaurme/templates/user/settings/change_avatar.html:4
+#: vshaurme/templates/user/settings/change_avatar.html:13
 msgid "Change Avatar"
-msgstr ""
+msgstr "Изменить аватар"
 
 #: vshaurme/templates/user/settings/base.html:14
 #: vshaurme/templates/user/settings/change_password.html:4
 #: vshaurme/templates/user/settings/change_password.html:8
 msgid "Change Password"
-msgstr ""
+msgstr "Изменить пароль"
 
 #: vshaurme/templates/user/settings/base.html:15
 #: vshaurme/templates/user/settings/change_email.html:4
 #: vshaurme/templates/user/settings/change_email.html:8
 msgid "Change Email"
-msgstr ""
+msgstr "Изменить эл.адрес"
 
 #: vshaurme/templates/user/settings/base.html:16
 msgid "Notification"
-msgstr ""
+msgstr "Уведомление"
 
 #: vshaurme/templates/user/settings/base.html:17
 msgid "Privacy"
-msgstr ""
-
-#: vshaurme/templates/user/settings/change_avatar.html:13
-msgid ">Change Avatar"
-msgstr ""
+msgstr "Приватность"
 
 #: vshaurme/templates/user/settings/change_avatar.html:17
 msgid ""
-"Your file's size must be less than 3 MB, the allowed formats are png and "
-"jpg."
+"Your file's size must be less than 3 MB, the allowed formats are png and jpg."
 msgstr ""
+"Размер вашего файла должен быть менее 3 МБ, допустимые форматы: png и jpg."
 
 #: vshaurme/templates/user/settings/delete_account.html:4
 #: vshaurme/templates/user/settings/delete_account.html:8
 msgid "Delete Account"
-msgstr ""
+msgstr "Удалить аккаунт"
 
 #: vshaurme/templates/user/settings/edit_notification.html:4
 #: vshaurme/templates/user/settings/edit_notification.html:8
 msgid "Notification Settings"
-msgstr ""
+msgstr "Настройки уведомлений"
 
 #: vshaurme/templates/user/settings/edit_privacy.html:4
 msgid "Privacy Settings"
-msgstr ""
+msgstr "Настройки приватности"
 
 #: vshaurme/templates/user/settings/edit_privacy.html:8
 msgid "Edit Privacy"
-msgstr ""
-
+msgstr "Редактировать приватность"

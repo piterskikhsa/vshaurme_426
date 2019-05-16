@@ -1,5 +1,6 @@
 from flask import render_template, jsonify, Blueprint
 from flask_login import current_user
+from flask_babel import _
 
 from vshaurme.models import User, Photo, Notification
 from vshaurme.notifications import push_collect_notification, push_follow_notification
@@ -10,7 +11,7 @@ ajax_bp = Blueprint('ajax', __name__)
 @ajax_bp.route('/notifications-count')
 def notifications_count():
     if not current_user.is_authenticated:
-        return jsonify(message='Login required.'), 403
+        return jsonify(message=_('Login required.')), 403
 
     count = Notification.query.with_parent(current_user).filter_by(is_read=False).count()
     return jsonify(count=count)
@@ -39,15 +40,15 @@ def collectors_count(photo_id):
 @ajax_bp.route('/collect/<int:photo_id>', methods=['POST'])
 def collect(photo_id):
     if not current_user.is_authenticated:
-        return jsonify(message='Login required.'), 403
+        return jsonify(message=_('Login required.')), 403
     if not current_user.confirmed:
-        return jsonify(message='Confirm account required.'), 400
+        return jsonify(message=_('Confirm account required.')), 400
     if not current_user.can('COLLECT'):
-        return jsonify(message='No permission.'), 403
+        return jsonify(message=_('No permission.')), 403
 
     photo = Photo.query.get_or_404(photo_id)
     if current_user.is_collecting(photo):
-        return jsonify(message='Already collected.'), 400
+        return jsonify(message=_('Already collected.')), 400
 
     current_user.collect(photo)
     if current_user != photo.author and photo.author.receive_collect_notification:
@@ -58,43 +59,43 @@ def collect(photo_id):
 @ajax_bp.route('/uncollect/<int:photo_id>', methods=['POST'])
 def uncollect(photo_id):
     if not current_user.is_authenticated:
-        return jsonify(message='Login required.'), 403
+        return jsonify(message=_('Login required.')), 403
 
     photo = Photo.query.get_or_404(photo_id)
     if not current_user.is_collecting(photo):
-        return jsonify(message='Not collect yet.'), 400
+        return jsonify(message=_('Not collect yet.')), 400
 
     current_user.uncollect(photo)
-    return jsonify(message='Collect canceled.')
+    return jsonify(message=_('Collect canceled.'))
 
 
 @ajax_bp.route('/follow/<username>', methods=['POST'])
 def follow(username):
     if not current_user.is_authenticated:
-        return jsonify(message='Login required.'), 403
+        return jsonify(message=_('Login required.')), 403
     if not current_user.confirmed:
-        return jsonify(message='Confirm account required.'), 400
+        return jsonify(message=_('Confirm account required.')), 400
     if not current_user.can('FOLLOW'):
-        return jsonify(message='No permission.'), 403
+        return jsonify(message=_('No permission.')), 403
 
     user = User.query.filter_by(username=username).first_or_404()
     if current_user.is_following(user):
-        return jsonify(message='Already followed.'), 400
+        return jsonify(message=_('Already followed.')), 400
 
     current_user.follow(user)
     if user.receive_collect_notification:
         push_follow_notification(follower=current_user, receiver=user)
-    return jsonify(message='User followed.')
+    return jsonify(message=_('User followed.'))
 
 
 @ajax_bp.route('/unfollow/<username>', methods=['POST'])
 def unfollow(username):
     if not current_user.is_authenticated:
-        return jsonify(message='Login required.'), 403
+        return jsonify(message=_('Login required.')), 403
 
     user = User.query.filter_by(username=username).first_or_404()
     if not current_user.is_following(user):
-        return jsonify(message='Not follow yet.'), 400
+        return jsonify(message=_('Not follow yet.')), 400
 
     current_user.unfollow(user)
-    return jsonify(message='Follow canceled.')
+    return jsonify(message=_('Follow canceled.'))
