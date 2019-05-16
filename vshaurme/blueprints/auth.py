@@ -1,5 +1,6 @@
 from flask import render_template, flash, redirect, url_for, Blueprint
 from flask_login import login_user, logout_user, login_required, current_user, login_fresh, confirm_login
+from flask_babel import _
 
 from vshaurme.emails import send_confirm_email, send_reset_password_email
 from vshaurme.extensions import db
@@ -21,10 +22,10 @@ def login():
         user = User.query.filter_by(email=form.email.data.lower()).first()
         if user is not None and user.validate_password(form.password.data):
             if login_user(user, form.remember_me.data):
-                flash('Login success.', 'info')
+                flash(_('Login success.'), 'info')
                 return redirect_back()
             else:
-                flash('Your account is blocked.', 'warning')
+                flash(_('Your account is blocked.'), 'warning')
                 return redirect(url_for('main.index'))
         flash('Invalid email or password.', 'warning')
     return render_template('auth/login.html', form=form)
@@ -47,7 +48,7 @@ def re_authenticate():
 @login_required
 def logout():
     logout_user()
-    flash('Logout success.', 'info')
+    flash(_('Logout success.'), 'info')
     return redirect(url_for('main.index'))
 
 
@@ -68,7 +69,7 @@ def register():
         db.session.commit()
         token = generate_token(user=user, operation='confirm')
         send_confirm_email(user=user, token=token)
-        flash('Confirm email sent, check your inbox.', 'info')
+        flash(_('Confirm email sent, check your inbox.'), 'info')
         return redirect(url_for('.login'))
     return render_template('auth/register.html', form=form)
 
@@ -80,10 +81,10 @@ def confirm(token):
         return redirect(url_for('main.index'))
 
     if validate_token(user=current_user, token=token, operation=Operations.CONFIRM):
-        flash('Account confirmed.', 'success')
+        flash(_('Account confirmed.'), 'success')
         return redirect(url_for('main.index'))
     else:
-        flash('Invalid or expired token.', 'danger')
+        flash(_('Invalid or expired token.'), 'danger')
         return redirect(url_for('.resend_confirm_email'))
 
 
@@ -95,7 +96,7 @@ def resend_confirm_email():
 
     token = generate_token(user=current_user, operation=Operations.CONFIRM)
     send_confirm_email(user=current_user, token=token)
-    flash('New email sent, check your inbox.', 'info')
+    flash(_('New email sent, check your inbox.'), 'info')
     return redirect(url_for('main.index'))
 
 
@@ -110,9 +111,9 @@ def forget_password():
         if user:
             token = generate_token(user=user, operation=Operations.RESET_PASSWORD)
             send_reset_password_email(user=user, token=token)
-            flash('Password reset email sent, check your inbox.', 'info')
+            flash(_('Password reset email sent, check your inbox.'), 'info')
             return redirect(url_for('.login'))
-        flash('Invalid email.', 'warning')
+        flash(_('Invalid email.'), 'warning')
         return redirect(url_for('.forget_password'))
     return render_template('auth/reset_password.html', form=form)
 
@@ -129,9 +130,9 @@ def reset_password(token):
             return redirect(url_for('main.index'))
         if validate_token(user=user, token=token, operation=Operations.RESET_PASSWORD,
                           new_password=form.password.data):
-            flash('Password updated.', 'success')
+            flash(_('Password updated.'), 'success')
             return redirect(url_for('.login'))
         else:
-            flash('Invalid or expired link.', 'danger')
+            flash(_('Invalid or expired link.'), 'danger')
             return redirect(url_for('.forget_password'))
     return render_template('auth/reset_password.html', form=form)
