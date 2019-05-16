@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-16 10:59+0300\n"
-"PO-Revision-Date: 2019-05-16 11:00+0300\n"
+"POT-Creation-Date: 2019-05-16 11:19+0300\n"
+"PO-Revision-Date: 2019-05-16 11:37+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: vshaurme/blueprints/admin.py:52
+#: vshaurme/blueprints/admin.py:52 vshaurme/blueprints/user.py:105
 msgid "Profile updated."
 msgstr "Профиль обновлён."
 
@@ -44,9 +44,196 @@ msgstr "Аккаунт залочен."
 msgid "Lock canceled."
 msgstr "Лок отменён."
 
-#: vshaurme/blueprints/admin.py:114
+#: vshaurme/blueprints/admin.py:114 vshaurme/blueprints/main.py:394
 msgid "Tag deleted."
 msgstr "Тэг удалён."
+
+#: vshaurme/blueprints/ajax.py:14 vshaurme/blueprints/ajax.py:43
+#: vshaurme/blueprints/ajax.py:62 vshaurme/blueprints/ajax.py:75
+#: vshaurme/blueprints/ajax.py:94
+msgid "Login required."
+msgstr "Требуется логин."
+
+#: vshaurme/blueprints/ajax.py:45 vshaurme/blueprints/ajax.py:77
+msgid "Confirm account required."
+msgstr "Требуется подтверждение аккаунта."
+
+#: vshaurme/blueprints/ajax.py:47 vshaurme/blueprints/ajax.py:79
+#: vshaurme/templates/main/_comment.html:116
+msgid "No permission."
+msgstr "Нет прав."
+
+#: vshaurme/blueprints/ajax.py:51 vshaurme/blueprints/main.py:180
+msgid "Already collected."
+msgstr "Уже добавлено в коллекцию."
+
+#: vshaurme/blueprints/ajax.py:66 vshaurme/blueprints/main.py:195
+msgid "Not collect yet."
+msgstr "Ещё не добавлено в коллекцию."
+
+#: vshaurme/blueprints/ajax.py:69
+msgid "Collect canceled."
+msgstr "Добавление в коллекцию отменено"
+
+#: vshaurme/blueprints/ajax.py:83 vshaurme/blueprints/user.py:51
+msgid "Already followed."
+msgstr "Уже подписан"
+
+#: vshaurme/blueprints/ajax.py:88 vshaurme/blueprints/user.py:55
+msgid "User followed."
+msgstr "Подписаны на пользователя."
+
+#: vshaurme/blueprints/ajax.py:98 vshaurme/blueprints/user.py:66
+msgid "Not follow yet."
+msgstr "Ещё не подписан."
+
+#: vshaurme/blueprints/ajax.py:101
+msgid "Follow canceled."
+msgstr "Подписка отменена."
+
+#: vshaurme/blueprints/auth.py:25
+msgid "Login success."
+msgstr "Успешный вход."
+
+#: vshaurme/blueprints/auth.py:28
+msgid "Your account is blocked."
+msgstr "Ваш аккаунт заблокирован."
+
+#: vshaurme/blueprints/auth.py:51
+msgid "Logout success."
+msgstr "Успешный выход."
+
+#: vshaurme/blueprints/auth.py:72 vshaurme/blueprints/user.py:178
+msgid "Confirm email sent, check your inbox."
+msgstr "Письмо с подтверждением отправлено, проверьте свой почтовый ящик."
+
+#: vshaurme/blueprints/auth.py:84
+msgid "Account confirmed."
+msgstr "Аккаунт подтвержден."
+
+#: vshaurme/blueprints/auth.py:87 vshaurme/blueprints/user.py:190
+msgid "Invalid or expired token."
+msgstr "Неверный или просроченный токен."
+
+#: vshaurme/blueprints/auth.py:99
+msgid "New email sent, check your inbox."
+msgstr "Новое письмо отправлено, проверьте свой почтовый ящик."
+
+#: vshaurme/blueprints/auth.py:114
+msgid "Password reset email sent, check your inbox."
+msgstr "Пароль сброшен, письмо отправлено, проверьте свой почтовый ящик."
+
+#: vshaurme/blueprints/auth.py:116
+msgid "Invalid email."
+msgstr "Неверный эл.адрес."
+
+#: vshaurme/blueprints/auth.py:133 vshaurme/blueprints/user.py:164
+msgid "Password updated."
+msgstr "Пароль обновлён."
+
+#: vshaurme/blueprints/auth.py:136
+msgid "Invalid or expired link."
+msgstr "Неверная или просроченная ссылка."
+
+#: vshaurme/blueprints/main.py:47
+msgid "Enter keyword about photo, user or tag."
+msgstr "Введите ключевое слово для фотографии, пользователя или тега."
+
+#: vshaurme/blueprints/main.py:87
+msgid "Notification archived."
+msgstr "Уведомление заархивировано."
+
+#: vshaurme/blueprints/main.py:97
+msgid "All notifications archived."
+msgstr "Все уведомления заархивированы."
+
+#: vshaurme/blueprints/main.py:157
+msgid "This is already the last one."
+msgstr "Это уже последний."
+
+#: vshaurme/blueprints/main.py:168
+msgid "This is already the first one."
+msgstr "Это уже первый."
+
+#: vshaurme/blueprints/main.py:184
+msgid "Photo collected."
+msgstr "Фото добавлено в коллекцию."
+
+#: vshaurme/blueprints/main.py:199
+msgid "Photo uncollected."
+msgstr "Фото удалено из коллекции."
+
+#: vshaurme/blueprints/main.py:210
+msgid "Comment reported."
+msgstr "Жалоба на комментарий отправлена."
+
+#: vshaurme/blueprints/main.py:221
+msgid "Photo reported."
+msgstr "Жалоба на фото отправлена."
+
+#: vshaurme/blueprints/main.py:246
+msgid "Description updated."
+msgstr "Описание обновлено."
+
+#: vshaurme/blueprints/main.py:271
+msgid "Comment published."
+msgstr "Комментарий опубликован."
+
+#: vshaurme/blueprints/main.py:298
+msgid "Tag added."
+msgstr "Тэг добавлен."
+
+#: vshaurme/blueprints/main.py:313
+msgid "Comment disabled"
+msgstr "Комментарии отключены"
+
+#: vshaurme/blueprints/main.py:316
+msgid "Comment enabled."
+msgstr "Комментарии включены."
+
+#: vshaurme/blueprints/main.py:340
+msgid "Photo deleted."
+msgstr "Фото удалено."
+
+#: vshaurme/blueprints/main.py:360
+msgid "Comment deleted."
+msgstr "Комментарий удалён."
+
+#: vshaurme/blueprints/user.py:22
+msgid "Your account is locked."
+msgstr "Ваш аккаунт залочен."
+
+#: vshaurme/blueprints/user.py:70
+msgid "User unfollowed."
+msgstr "Отмена подписки выполнена."
+
+#: vshaurme/blueprints/user.py:134
+msgid "Image uploaded, please crop."
+msgstr "Изображение загружено, пожалуйста, обрежьте."
+
+#: vshaurme/blueprints/user.py:151
+msgid "Avatar updated."
+msgstr "Аватар обновлён."
+
+#: vshaurme/blueprints/user.py:167
+msgid "Old password is incorrect."
+msgstr "Старый пароль неверен."
+
+#: vshaurme/blueprints/user.py:187
+msgid "Email updated."
+msgstr "Эл.адрес обновлён."
+
+#: vshaurme/blueprints/user.py:203
+msgid "Notification settings updated."
+msgstr "Настройки уведомлений обновлены."
+
+#: vshaurme/blueprints/user.py:218
+msgid "Privacy settings updated."
+msgstr "Настройки приватности обновлены."
+
+#: vshaurme/blueprints/user.py:231
+msgid "Your are free, goodbye!"
+msgstr "Вы свободны, до свидания!"
 
 #: vshaurme/templates/admin/index.html:10 vshaurme/templates/base.html:9
 #: vshaurme/templates/base.html:24
@@ -110,13 +297,11 @@ msgstr "Присоединиться к Вшаурме"
 msgid "Capture and share every wonderful moment."
 msgstr "Запечатлейте и поделитесь каждым чудесным моментом."
 
-#: vshaurme/templates/macros.html:32
-#: vshaurme/templates/main/profile_popup.html:34
+#: vshaurme/templates/macros.html:32 vshaurme/templates/main/profile_popup.html:34
 msgid "Unfollow"
 msgstr "Отписаться"
 
-#: vshaurme/templates/macros.html:34
-#: vshaurme/templates/main/profile_popup.html:9
+#: vshaurme/templates/macros.html:34 vshaurme/templates/main/profile_popup.html:9
 msgid "Follow each other"
 msgstr "Подписка друг на друга"
 
@@ -126,16 +311,14 @@ msgstr "Подписка друг на друга"
 msgid "Follow"
 msgstr "Подписаться"
 
-#: vshaurme/templates/macros.html:43
-#: vshaurme/templates/main/profile_popup.html:11
+#: vshaurme/templates/macros.html:43 vshaurme/templates/main/profile_popup.html:11
 msgid "Follows you"
 msgstr "Подписан на вас"
 
 #: vshaurme/templates/admin/edit_profile.html:5
 #: vshaurme/templates/admin/edit_profile.html:16
 #: vshaurme/templates/admin/manage_user.html:104
-#: vshaurme/templates/user/_header.html:60
-#: vshaurme/templates/user/_header.html:66
+#: vshaurme/templates/user/_header.html:60 vshaurme/templates/user/_header.html:66
 msgid "Edit profile"
 msgstr "Редактировать профиль"
 
@@ -174,16 +357,13 @@ msgstr "Панель управления Вшаурме"
 msgid "Return Vsharume"
 msgstr "На главную"
 
-#: vshaurme/templates/admin/index.html:22
-#: vshaurme/templates/admin/index.html:71
-#: vshaurme/templates/admin/index.html:82
-#: vshaurme/templates/admin/index.html:96
+#: vshaurme/templates/admin/index.html:22 vshaurme/templates/admin/index.html:71
+#: vshaurme/templates/admin/index.html:82 vshaurme/templates/admin/index.html:96
 #: vshaurme/templates/admin/index.html:106
 msgid "Manage"
 msgstr "Редактировать"
 
-#: vshaurme/templates/admin/index.html:25
-#: vshaurme/templates/admin/index.html:67
+#: vshaurme/templates/admin/index.html:25 vshaurme/templates/admin/index.html:67
 #: vshaurme/templates/admin/manage_photo.html:14
 #: vshaurme/templates/admin/manage_tag.html:24
 #: vshaurme/templates/admin/manage_user.html:53
@@ -191,34 +371,28 @@ msgstr "Редактировать"
 msgid "Photos"
 msgstr "Фотографии"
 
-#: vshaurme/templates/admin/index.html:26
-#: vshaurme/templates/admin/index.html:77
+#: vshaurme/templates/admin/index.html:26 vshaurme/templates/admin/index.html:77
 #: vshaurme/templates/admin/manage_user.html:14
 msgid "Users"
 msgstr "Пользователи"
 
-#: vshaurme/templates/admin/index.html:27
-#: vshaurme/templates/admin/index.html:102
+#: vshaurme/templates/admin/index.html:27 vshaurme/templates/admin/index.html:102
 #: vshaurme/templates/admin/manage_tag.html:14
 msgid "Tags"
 msgstr "Тэги"
 
-#: vshaurme/templates/admin/index.html:28
-#: vshaurme/templates/admin/index.html:92
+#: vshaurme/templates/admin/index.html:28 vshaurme/templates/admin/index.html:92
 #: vshaurme/templates/admin/manage_comment.html:14
 #: vshaurme/templates/main/_comment.html:2
 msgid "Comments"
 msgstr "Комментарии"
 
-#: vshaurme/templates/admin/index.html:69
-#: vshaurme/templates/admin/index.html:79
-#: vshaurme/templates/admin/index.html:94
-#: vshaurme/templates/admin/index.html:104
+#: vshaurme/templates/admin/index.html:69 vshaurme/templates/admin/index.html:79
+#: vshaurme/templates/admin/index.html:94 vshaurme/templates/admin/index.html:104
 msgid "Total:"
 msgstr "Всего:"
 
-#: vshaurme/templates/admin/index.html:70
-#: vshaurme/templates/admin/index.html:95
+#: vshaurme/templates/admin/index.html:70 vshaurme/templates/admin/index.html:95
 msgid "Reported:"
 msgstr "Жалоб:"
 
@@ -297,8 +471,7 @@ msgid "Actions"
 msgstr "Действие"
 
 #: vshaurme/templates/admin/manage_comment.html:50
-#: vshaurme/templates/main/search.html:15
-#: vshaurme/templates/user/_header.html:74
+#: vshaurme/templates/main/search.html:15 vshaurme/templates/user/_header.html:74
 msgid "Photo"
 msgstr "Фото"
 
@@ -309,17 +482,15 @@ msgstr "Фото"
 #: vshaurme/templates/admin/manage_user.html:74
 #: vshaurme/templates/admin/manage_user.html:81
 #: vshaurme/templates/admin/manage_user.html:89
-#: vshaurme/templates/admin/manage_user.html:96
-#: vshaurme/templates/main/tag.html:14
+#: vshaurme/templates/admin/manage_user.html:96 vshaurme/templates/main/tag.html:14
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
 #: vshaurme/templates/admin/manage_comment.html:59
 #: vshaurme/templates/admin/manage_photo.html:77
 #: vshaurme/templates/admin/manage_tag.html:37
-#: vshaurme/templates/main/_comment.html:59
-#: vshaurme/templates/main/photo.html:18 vshaurme/templates/main/photo.html:70
-#: vshaurme/templates/main/tag.html:15
+#: vshaurme/templates/main/_comment.html:59 vshaurme/templates/main/photo.html:18
+#: vshaurme/templates/main/photo.html:70 vshaurme/templates/main/tag.html:15
 msgid "Delete"
 msgstr "Удалить"
 
@@ -464,8 +635,7 @@ msgstr "Забыли пароль"
 msgid "Register"
 msgstr "Регистрация"
 
-#: vshaurme/templates/auth/register.html:14
-#: vshaurme/templates/emails/confirm.txt:3
+#: vshaurme/templates/auth/register.html:14 vshaurme/templates/emails/confirm.txt:3
 msgid "Welcome to Vshaurme!"
 msgstr "Добро пожаловать в Вшаурме!"
 
@@ -484,8 +654,7 @@ msgstr "Сброс пароля"
 
 #: vshaurme/templates/emails/change_email.html:1
 #: vshaurme/templates/emails/change_email.txt:1
-#: vshaurme/templates/emails/confirm.html:1
-#: vshaurme/templates/emails/confirm.txt:1
+#: vshaurme/templates/emails/confirm.html:1 vshaurme/templates/emails/confirm.txt:1
 #: vshaurme/templates/emails/reset_password.html:1
 #: vshaurme/templates/emails/reset_password.txt:1
 msgid "Hello"
@@ -500,25 +669,22 @@ msgstr ""
 
 #: vshaurme/templates/emails/change_email.html:5
 #: vshaurme/templates/emails/change_email.txt:7
-#: vshaurme/templates/emails/confirm.html:6
-#: vshaurme/templates/emails/confirm.txt:9
+#: vshaurme/templates/emails/confirm.html:6 vshaurme/templates/emails/confirm.txt:9
 #: vshaurme/templates/emails/reset_password.html:5
 #: vshaurme/templates/emails/reset_password.txt:8
 msgid "Please do not reply to this notification, this inbox is not monitored."
 msgstr ""
-"Пожалуйста, не отвечайте на это уведомление, этот почтовый ящик не "
-"отслеживается."
+"Пожалуйста, не отвечайте на это уведомление, этот почтовый ящик не отслеживается."
 
 #: vshaurme/templates/emails/confirm.html:2
 msgid "Welcome to <b>Vshaurme</b>!"
 msgstr "Добро пожаловать в <b>Вшаурме</b>!"
 
-#: vshaurme/templates/emails/confirm.html:3
-#: vshaurme/templates/emails/confirm.txt:5
+#: vshaurme/templates/emails/confirm.html:3 vshaurme/templates/emails/confirm.txt:5
 msgid "Please visit the link below to verify your email address:"
 msgstr ""
-"Пожалуйста, перейдите по ссылке ниже, чтобы подтвердить свой адрес "
-"электронной почты:"
+"Пожалуйста, перейдите по ссылке ниже, чтобы подтвердить свой адрес электронной "
+"почты:"
 
 #: vshaurme/templates/emails/reset_password.html:2
 #: vshaurme/templates/emails/reset_password.txt:3
@@ -591,8 +757,7 @@ msgstr "комментарий"
 msgid "Reply"
 msgstr "Ответить"
 
-#: vshaurme/templates/main/_comment.html:67
-#: vshaurme/templates/main/photo.html:23
+#: vshaurme/templates/main/_comment.html:67 vshaurme/templates/main/photo.html:23
 msgid "Report"
 msgstr "Пожаловаться"
 
@@ -607,10 +772,6 @@ msgstr "Ответить на"
 msgid "Cancel"
 msgstr "Отменить"
 
-#: vshaurme/templates/main/_comment.html:116
-msgid "No permission."
-msgstr "Нет прав."
-
 #: vshaurme/templates/main/_comment.html:122
 msgid "or"
 msgstr "или"
@@ -621,7 +782,7 @@ msgstr "Зарегистрироваться</a>, чтобы оставить к
 
 #: vshaurme/templates/main/_comment.html:128
 msgid "Comment disabled."
-msgstr "Комментарии отключены"
+msgstr "Комментарии отключены."
 
 #: vshaurme/templates/main/_photo_sidebar.html:6
 msgid "Previous"
@@ -813,7 +974,7 @@ msgstr "Поклонники пользователя %(username)s"
 
 #: vshaurme/templates/user/followers.html:19
 msgid "No followers."
-msgstr "Нет поклонников"
+msgstr "Нет поклонников."
 
 #: vshaurme/templates/user/following.html:5
 #, python-format
@@ -850,16 +1011,16 @@ msgstr "Уведомление"
 msgid "Privacy"
 msgstr "Приватность"
 
-#: vshaurme/templates/user/settings/change_avatar.html:17
-msgid ""
-"Your file's size must be less than 3 MB, the allowed formats are png and jpg."
-msgstr ""
-"Размер вашего файла должен быть менее 3 МБ, допустимые форматы: png и jpg."
-
+#: vshaurme/templates/user/settings/base.html:18
 #: vshaurme/templates/user/settings/delete_account.html:4
 #: vshaurme/templates/user/settings/delete_account.html:8
 msgid "Delete Account"
 msgstr "Удалить аккаунт"
+
+#: vshaurme/templates/user/settings/change_avatar.html:17
+msgid ""
+"Your file's size must be less than 3 MB, the allowed formats are png and jpg."
+msgstr "Размер вашего файла должен быть менее 3 МБ, допустимые форматы: png и jpg."
 
 #: vshaurme/templates/user/settings/edit_notification.html:4
 #: vshaurme/templates/user/settings/edit_notification.html:8
