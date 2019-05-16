@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-16 11:56+0300\n"
-"PO-Revision-Date: 2019-05-16 11:58+0300\n"
+"POT-Creation-Date: 2019-05-16 12:04+0300\n"
+"PO-Revision-Date: 2019-05-16 12:07+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -255,7 +255,10 @@ msgid "Confirmed"
 msgstr "Подтверждённый"
 
 #: vshaurme/forms/admin.py:15 vshaurme/forms/auth.py:26 vshaurme/forms/auth.py:39
-#: vshaurme/forms/auth.py:47
+#: vshaurme/forms/auth.py:47 vshaurme/forms/main.py:9 vshaurme/forms/main.py:14
+#: vshaurme/forms/main.py:19 vshaurme/forms/user.py:19 vshaurme/forms/user.py:31
+#: vshaurme/forms/user.py:44 vshaurme/forms/user.py:56 vshaurme/forms/user.py:63
+#: vshaurme/forms/user.py:68 vshaurme/forms/user.py:73
 msgid "Submit"
 msgstr "Отправить"
 
@@ -271,11 +274,12 @@ msgstr "Запомнить меня"
 msgid "Log in"
 msgstr "Войти"
 
-#: vshaurme/forms/auth.py:18 vshaurme/templates/admin/manage_tag.html:23
+#: vshaurme/forms/auth.py:18 vshaurme/forms/user.py:12
+#: vshaurme/templates/admin/manage_tag.html:23
 msgid "Name"
 msgstr "Имя"
 
-#: vshaurme/forms/auth.py:20
+#: vshaurme/forms/auth.py:20 vshaurme/forms/user.py:13 vshaurme/forms/user.py:72
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -283,13 +287,83 @@ msgstr "Имя пользователя"
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
-#: vshaurme/forms/auth.py:30
+#: vshaurme/forms/auth.py:30 vshaurme/forms/user.py:48
 msgid "The email is already in use."
 msgstr "Эл.адрес уже используется."
 
 #: vshaurme/forms/auth.py:34
 msgid "The username is already in use."
 msgstr "Такое имя пользователя уже используется."
+
+#: vshaurme/forms/main.py:8 vshaurme/templates/admin/manage_photo.html:36
+msgid "Description"
+msgstr "Описание"
+
+#: vshaurme/forms/main.py:13
+msgid "Add Tag (use space to separate)"
+msgstr "Добавить тег (используйте пробел в качестве разделителя)"
+
+#: vshaurme/forms/user.py:16
+msgid "Website"
+msgstr "Вебсайт"
+
+#: vshaurme/forms/user.py:17 vshaurme/templates/admin/manage_user.html:51
+msgid "City"
+msgstr "Город"
+
+#: vshaurme/forms/user.py:18 vshaurme/templates/admin/manage_user.html:50
+msgid "Bio"
+msgstr "Био"
+
+#: vshaurme/forms/user.py:27 vshaurme/templates/base.html:51
+#: vshaurme/templates/main/upload.html:3 vshaurme/templates/main/upload.html:13
+#: vshaurme/templates/user/index.html:19
+msgid "Upload"
+msgstr "Загрузить"
+
+#: vshaurme/forms/user.py:29
+msgid "The file format should be .jpg or .png."
+msgstr "Формат файла должен быть .jpg или .png."
+
+#: vshaurme/forms/user.py:39
+msgid "Crop and Update"
+msgstr "Обрезать и обновить"
+
+#: vshaurme/forms/user.py:43
+msgid "New Email"
+msgstr "Новый эл.адрес"
+
+#: vshaurme/forms/user.py:52
+msgid "Old Password"
+msgstr "Старый пароль"
+
+#: vshaurme/forms/user.py:53
+msgid "New Password"
+msgstr "Новый пароль"
+
+#: vshaurme/forms/user.py:55
+msgid "Confirm Password"
+msgstr "Подтвердите пароль"
+
+#: vshaurme/forms/user.py:60
+msgid "New comment"
+msgstr "Новый комментарий"
+
+#: vshaurme/forms/user.py:61
+msgid "New follower"
+msgstr "Новый поклонник"
+
+#: vshaurme/forms/user.py:62
+msgid "New collector"
+msgstr "Новый коллекционер"
+
+#: vshaurme/forms/user.py:67
+msgid "Public my collection"
+msgstr "Опубликовать мою коллекцию"
+
+#: vshaurme/forms/user.py:77
+msgid "Wrong username."
+msgstr "Неверное имя пользователя"
 
 #: vshaurme/templates/admin/index.html:10 vshaurme/templates/base.html:9
 #: vshaurme/templates/base.html:24
@@ -312,11 +386,6 @@ msgstr "Исследовать"
 #: vshaurme/templates/base.html:36
 msgid "Photo, tag or user"
 msgstr "Фото, тэг или юзер"
-
-#: vshaurme/templates/base.html:51 vshaurme/templates/main/upload.html:3
-#: vshaurme/templates/main/upload.html:13 vshaurme/templates/user/index.html:19
-msgid "Upload"
-msgstr "Загрузить"
 
 #: vshaurme/templates/admin/index.html:39 vshaurme/templates/base.html:62
 msgid "Logged in as "
@@ -563,10 +632,6 @@ msgstr "Управление фотографиями"
 msgid "Manage Photo"
 msgstr "Управление фотографиями"
 
-#: vshaurme/templates/admin/manage_photo.html:36
-msgid "Description"
-msgstr "Описание"
-
 #: vshaurme/templates/admin/manage_photo.html:37
 #: vshaurme/templates/main/search.html:19
 msgid "Tag"
@@ -629,14 +694,6 @@ msgstr "Аватары"
 #: vshaurme/templates/admin/manage_user.html:48
 msgid "Name/username"
 msgstr "Имя/имя пользователя"
-
-#: vshaurme/templates/admin/manage_user.html:50
-msgid "Bio"
-msgstr "Био"
-
-#: vshaurme/templates/admin/manage_user.html:51
-msgid "City"
-msgstr "Город"
 
 #: vshaurme/templates/admin/manage_user.html:75
 #: vshaurme/templates/user/_header.html:36
