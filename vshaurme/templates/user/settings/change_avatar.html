@@ -1,7 +1,7 @@
 {% extends 'user/settings/base.html' %}
 {% from 'bootstrap/form.html' import render_form %}
 
-{% block title %}Change Avatar{% endblock %}
+{% block title %}{{ _('Change Avatar') }}{% endblock %}
 
 {% block head %}
     {{ super() }}
@@ -10,11 +10,11 @@
 
 {% block setting_content %}
     <div class="card w-100 bg-light">
-        <h3 class="card-header">Change Avatar</h3>
+        <h3 class="card-header"{{ _('>Change Avatar') }}</h3>
         <div class="card-body">
             {{ render_form(upload_form, action=url_for('.upload_avatar')) }}
             <small class="text-muted">
-                Your file's size must be less than 3 MB, the allowed formats are png and jpg.
+                {{ _('Your file\'s size must be less than 3 MB, the allowed formats are png and jpg.') }}
             </small>
         </div>
         <div class="card-body">
