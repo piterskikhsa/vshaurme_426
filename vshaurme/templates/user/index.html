@@ -14,11 +14,11 @@
                 {% endfor %}
             {% else %}
                 <div class="tip text-center">
-                    <h3>No photos.</h3>
+                    <h3>{{ _('No photos.') }}</h3>
                     {% if user == current_user %}
-                        <a class="btn btn-link" href="{{ url_for('main.upload') }}">Upload</a>
+                        <a class="btn btn-link" href="{{ url_for('main.upload') }}">{{ _('Upload') }}</a>
                     {% else %}
-                        <a class="btn btn-link" href="{{ url_for('main.explore') }}">Explore</a>
+                        <a class="btn btn-link" href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
                     {% endif %}
                 </div>
             {% endif %}

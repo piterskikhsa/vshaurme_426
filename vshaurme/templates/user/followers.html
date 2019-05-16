@@ -2,7 +2,7 @@
 {% from 'bootstrap/pagination.html' import render_pagination %}
 {% from 'macros.html' import user_card with context %}
 
-{% block title %}{{ user.name }}'s followers{% endblock %}
+{% block title %}{{ _("%(username)s's followers", username=user.name ) }}{% endblock %}
 
 {% block content %}
     {% include 'user/_header.html' %}
@@ -16,7 +16,7 @@
                 {% endfor %}
             {% else %}
                 <div class="tip">
-                    <h3>No followers.</h3>
+                    <h3>{{ _('No followers.') }}</h3>
                 </div>
             {% endif %}
         </div>
