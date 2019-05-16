@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-16 12:04+0300\n"
-"PO-Revision-Date: 2019-05-16 12:07+0300\n"
+"POT-Creation-Date: 2019-05-16 14:51+0300\n"
+"PO-Revision-Date: 2019-05-16 14:52+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 "X-Generator: Poedit 2.2.1\n"
+
+#: vshaurme/settings.py:63
+msgid "Drop files here to upload"
+msgstr "Перетащите файлы сюда, чтобы загрузить"
 
 #: vshaurme/blueprints/admin.py:52 vshaurme/blueprints/user.py:105
 msgid "Profile updated."

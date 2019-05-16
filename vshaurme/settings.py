@@ -1,6 +1,8 @@
 import os
 import sys
 
+from flask_babel import lazy_gettext as _l
+
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # SQLite URI compatible
@@ -58,6 +60,8 @@ class BaseConfig:
     DROPZONE_MAX_FILE_SIZE = 3
     DROPZONE_MAX_FILES = 30
     DROPZONE_ENABLE_CSRF = True
+    DROPZONE_DEFAULT_MESSAGE = _l("Drop files here to upload")
+
 
     WHOOSHEE_MIN_STRING_LEN = 1
 
