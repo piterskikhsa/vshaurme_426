@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-16 11:19+0300\n"
-"PO-Revision-Date: 2019-05-16 11:37+0300\n"
+"POT-Creation-Date: 2019-05-16 11:47+0300\n"
+"PO-Revision-Date: 2019-05-16 11:50+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -234,6 +234,27 @@ msgstr "Настройки приватности обновлены."
 #: vshaurme/blueprints/user.py:231
 msgid "Your are free, goodbye!"
 msgstr "Вы свободны, до свидания!"
+
+#: vshaurme/forms/admin.py:11 vshaurme/templates/admin/manage_user.html:101
+#: vshaurme/templates/user/_header.html:56
+msgid "Email"
+msgstr "Эл. адрес"
+
+#: vshaurme/forms/admin.py:12 vshaurme/templates/admin/manage_user.html:49
+msgid "Role"
+msgstr "Роль"
+
+#: vshaurme/forms/admin.py:13
+msgid "Active"
+msgstr "Активный"
+
+#: vshaurme/forms/admin.py:14
+msgid "Confirmed"
+msgstr "Подтверждённый"
+
+#: vshaurme/forms/admin.py:15
+msgid "Submit"
+msgstr "Отправить"
 
 #: vshaurme/templates/admin/index.html:10 vshaurme/templates/base.html:9
 #: vshaurme/templates/base.html:24
@@ -578,10 +599,6 @@ msgstr "Аватары"
 msgid "Name/username"
 msgstr "Имя/имя пользователя"
 
-#: vshaurme/templates/admin/manage_user.html:49
-msgid "Role"
-msgstr "Роль"
-
 #: vshaurme/templates/admin/manage_user.html:50
 msgid "Bio"
 msgstr "Био"
@@ -609,11 +626,6 @@ msgstr "Заблокировать"
 #: vshaurme/templates/user/_header.html:53
 msgid "Unblock"
 msgstr "Разблокировать"
-
-#: vshaurme/templates/admin/manage_user.html:101
-#: vshaurme/templates/user/_header.html:56
-msgid "Email"
-msgstr "Эл. адрес"
 
 #: vshaurme/templates/admin/manage_user.html:112
 msgid "No users."
