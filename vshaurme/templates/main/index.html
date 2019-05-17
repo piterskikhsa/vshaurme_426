@@ -73,7 +73,7 @@
                 {% endfor %}
             {% else %}
                 <div class="tip text-center">
-                    <h3>No trends.</h3>
+                    <h3>{{ _('No trends.') }}</h3>
                     <p><a href="{{ url_for('.explore') }}">{{ _('Explore') }}</a></p>
                 </div>
             {% endif %}
