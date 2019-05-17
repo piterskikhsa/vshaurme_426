@@ -53,7 +53,7 @@ def collect(photo_id):
     current_user.collect(photo)
     if current_user != photo.author and photo.author.receive_collect_notification:
         push_collect_notification(collector=current_user, photo_id=photo_id, receiver=photo.author)
-    return jsonify(message='Photo collected.')
+    return jsonify(message=_('Photo collected.'))
 
 
 @ajax_bp.route('/uncollect/<int:photo_id>', methods=['POST'])
