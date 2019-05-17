@@ -17,7 +17,7 @@ from vshaurme.blueprints.user import user_bp
 from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf
 from vshaurme.models import Role, User, Photo, Tag, Follow, Notification, Comment, Collect, Permission
 from vshaurme.settings import config
-from flask_babel import Babel, get_locale
+from flask_babel import Babel
 from flask import request, g
 
 
