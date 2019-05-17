@@ -40,7 +40,6 @@ def create_app(config_name=None):
 
     @app.before_request
     def before_request():
-        # ...
         g.locale = str(get_locale())
 
     return app
