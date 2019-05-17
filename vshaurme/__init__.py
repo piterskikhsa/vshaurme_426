@@ -5,6 +5,10 @@ from flask import Flask, render_template
 from flask_login import current_user
 from flask_wtf.csrf import CSRFError
 
+import rollbar
+import rollbar.contrib.flask
+from flask import got_request_exception
+
 from vshaurme.blueprints.admin import admin_bp
 from vshaurme.blueprints.ajax import ajax_bp
 from vshaurme.blueprints.auth import auth_bp
@@ -43,6 +47,7 @@ def create_app(config_name=None):
         # ...
         g.locale = str(get_locale())
 
+    register_rollbar(app)
     return app
 
 
@@ -82,6 +87,16 @@ def register_template_context(app):
         else:
             notification_count = None
         return dict(notification_count=notification_count)
+
+
+def register_rollbar(app):
+    @app.before_first_request
+    def init_rollbar():
+        rollbar.init(os.getenv('ROLLBAR_TOKEN'),
+                     root=os.path.dirname(os.path.realpath(__file__)),
+                     allow_logging_basic_config=False
+                     )
+        got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 
 
 def register_errorhandlers(app):
