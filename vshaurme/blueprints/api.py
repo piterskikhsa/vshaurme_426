@@ -6,16 +6,15 @@ import subprocess
 from flask import Blueprint, request, abort, jsonify, json, current_app
 from flask_login import login_required
 from flask_babel import _
-from flask_wtf import CSRFProtect
+
 
 from vshaurme.decorators import admin_required, permission_required
-from vshaurme.extensions import db
+from vshaurme.extensions import csrf
 from vshaurme.forms.admin import EditProfileAdminForm
 from vshaurme.models import Role, User, Tag, Photo, Comment
 from vshaurme.utils import redirect_back
 
 api_bp = Blueprint('api', __name__)
-csrf = CSRFProtect(current_app)
 
 
 @api_bp.route('/hook', methods=['POST'])
