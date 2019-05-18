@@ -24,20 +24,13 @@ def hook():
     basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
     command = os.path.join(basedir, 'deploy.sh')
 
-    def sig_blob(body):
-        return 'sha1={}'.format(hmac.new(key.encode(), body, digestmod='sha1')
-                                .hexdigest())
+    signature = request.headers.get('X-Hub-Signature')
+    sha, signature = signature.split('=')
 
-    received_sig = request.headers.get('x-hub-signature')
-    computed_sig = sig_blob(request.data)
+    secret = str.encode(key)
 
-    if received_sig != computed_sig:
-        return abort(404)
+    hashhex = hmac.new(secret, request.data, digestmod='sha1').hexdigest()
+    if hmac.compare_digest(hashhex, signature):
+       subprocess.call(command, stdout=subprocess.PIPE, shell=True)
 
-    ref = json.loads(request.data).get('ref')
-    if ref and 'master' not in ref:
-        return abort(404)
-
-    subprocess.call(command, stdout=subprocess.PIPE, shell=True)
-
-    return jsonify({'success': True}), 200, {'ContentType': 'application/json'}
+    return jsonify({'success': True}), 200
