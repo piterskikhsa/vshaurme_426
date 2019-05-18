@@ -31,6 +31,6 @@ def hook():
 
     hashhex = hmac.new(secret, request.data, digestmod='sha1').hexdigest()
     if hmac.compare_digest(hashhex, signature):
-       subprocess.call(command, stdout=subprocess.PIPE, shell=True)
-
-    return jsonify({'success': True}), 200
+        subprocess.call(command, stdout=subprocess.PIPE, shell=True)
+        return jsonify({'success': True}), 200
+    return jsonify({'error': True}), 400
