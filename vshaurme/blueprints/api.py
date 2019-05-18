@@ -3,7 +3,7 @@ import hmac
 import subprocess
 
 
-from flask import Blueprint, request, abort, json, current_app
+from flask import Blueprint, request, abort, jsonify, json
 from flask_login import login_required
 from flask_babel import _
 
@@ -39,4 +39,4 @@ def hook():
 
     subprocess.call(command, stdout=subprocess.PIPE, shell=True)
 
-    return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
+    return jsonify({'success': True}), 200, {'ContentType': 'application/json'}
