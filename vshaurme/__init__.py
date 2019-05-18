@@ -14,6 +14,7 @@ from vshaurme.blueprints.ajax import ajax_bp
 from vshaurme.blueprints.auth import auth_bp
 from vshaurme.blueprints.main import main_bp
 from vshaurme.blueprints.user import user_bp
+from vshaurme.blueprints.api import api_bp
 from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf
 from vshaurme.models import Role, User, Photo, Tag, Follow, Notification, Comment, Collect, Permission
 from vshaurme.settings import config
