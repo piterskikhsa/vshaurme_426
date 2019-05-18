@@ -16,9 +16,10 @@ from vshaurme.utils import redirect_back
 
 api_bp = Blueprint('api', __name__)
 csrf = CSRFProtect(current_app)
-csrf.exempt(api_bp)
+
 
 @api_bp.route('/hook', methods=['POST'])
+@csrf.exempt
 def hook():
     key = os.environ['API_TOKEN']
     basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
