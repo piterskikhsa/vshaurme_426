@@ -113,3 +113,4 @@ uploads/avatars/*
 !uploads/avatars/.gitkeep
 
 whooshee
+deploy.txt
