@@ -68,6 +68,7 @@ def register_blueprints(app):
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(ajax_bp, url_prefix='/ajax')
+    app.register_blueprint(api_bp, url_prefix='/api')
 
 
 def register_shell_context(app):
