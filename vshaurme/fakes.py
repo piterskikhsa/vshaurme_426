@@ -1,6 +1,10 @@
 import os
 import random
 
+import imageio
+import numpy as np
+from scipy import ndimage
+
 from PIL import Image
 from faker import Faker
 from flask import current_app
@@ -28,13 +32,13 @@ def fake_admin():
 
 def fake_user(count=10):
     for user_number in range(count):
-        user = User(name='Grey Li',
+        user = User(name=fake.name(),
                     confirmed=True,
-                    username='greyli{0}'.format(user_number),
-                    bio='My name is Grey Li.',
-                    location='Longon',
-                    website='http://greyli.com',
-                    email='admin{0}@helloflask.com'.format(user_number))
+                    username=fake.profile()['username'],
+                    bio=fake.sentence(),
+                    location=fake.city(),
+                    website=fake.url(),
+                    email=fake.ascii_email())
         user.set_password('123456')
         db.session.add(user)
         try:
@@ -52,7 +56,7 @@ def fake_follow(count=30):
 
 def fake_tag(count=20):
     for tag_number in range(count):
-        tag = Tag(name='my_tag{0}'.format(tag_number))
+        tag = Tag(name=fake.slug())
         db.session.add(tag)
         try:
             db.session.commit()
@@ -66,7 +70,15 @@ def fake_photo(count=30):
     for photo_number in range(count):
         filename = 'random_%d.jpg' % photo_number
         # TODO: generate image
-
+        n, l = 10, 256
+        im = np.zeros((l, l))
+        points = l * np.random.random((2, n ** 2))
+        im[(points[0]).astype(np.int), (points[1]).astype(np.int)] = 1
+        im = ndimage.gaussian_filter(im, sigma=l / n)
+        mask = (im > im.mean()).astype(np.float)
+        mask += 0.1 * im
+        img = mask + 0.2 * np.random.randn(*mask.shape)
+        imageio.imsave(os.path.join(upload_path,filename), img)
         photo = Photo(
             description=fake.text(),
             filename=filename,
