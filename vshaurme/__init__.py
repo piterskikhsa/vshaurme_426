@@ -93,6 +93,7 @@ def register_template_context(app):
 def register_rollbar(app):
     @app.before_first_request
     def init_rollbar():
+        print(os.getenv('ROLLBAR_TOKEN'), os.getenv('ACCESS_TOKEN'))
         rollbar.init(os.getenv('ROLLBAR_TOKEN'),
                      root=os.path.dirname(os.path.realpath(__file__)),
                      allow_logging_basic_config=False
