@@ -1,7 +1,7 @@
 import os
 
 import click
-from flask import Flask, render_template
+from flask import Flask, render_template, g
 from flask_login import current_user
 from flask_wtf.csrf import CSRFError
 
@@ -15,11 +15,10 @@ from vshaurme.blueprints.auth import auth_bp
 from vshaurme.blueprints.main import main_bp
 from vshaurme.blueprints.user import user_bp
 from vshaurme.blueprints.api import api_bp
-from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf
+from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf, babel
 from vshaurme.models import Role, User, Photo, Tag, Follow, Notification, Comment, Collect, Permission
 from vshaurme.settings import config
-from flask_babel import Babel
-from flask import request, g
+from flask_babel import get_locale
 
 
 def create_app(config_name=None):
@@ -27,8 +26,6 @@ def create_app(config_name=None):
         config_name = os.getenv('FLASK_CONFIG', 'development')
 
     app = Flask('vshaurme')
-
-    babel = Babel(app)
 
     app.config.from_object(config[config_name])
 
@@ -38,10 +35,6 @@ def create_app(config_name=None):
     register_errorhandlers(app)
     register_shell_context(app)
     register_template_context(app)
-
-    @babel.localeselector
-    def get_locale():
-        return request.accept_languages.best_match(app.config['LANGUAGES'])
 
     @app.before_request
     def before_request():
@@ -61,6 +54,7 @@ def register_extensions(app):
     whooshee.init_app(app)
     avatars.init_app(app)
     csrf.init_app(app)
+    babel.init_app(app)
 
 
 def register_blueprints(app):

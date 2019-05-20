@@ -1,3 +1,5 @@
+from flask import request, current_app, g
+
 from flask_avatars import Avatars
 from flask_bootstrap import Bootstrap
 from flask_dropzone import Dropzone
@@ -7,6 +9,7 @@ from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask_whooshee import Whooshee
 from flask_wtf import CSRFProtect
+from flask_babel import Babel
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
@@ -17,6 +20,7 @@ moment = Moment()
 whooshee = Whooshee()
 avatars = Avatars()
 csrf = CSRFProtect()
+babel = Babel()
 
 
 @login_manager.user_loader
@@ -24,6 +28,11 @@ def load_user(user_id):
     from vshaurme.models import User
     user = User.query.get(int(user_id))
     return user
+
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(current_app.config['LANGUAGES'])
 
 
 login_manager.login_view = 'auth.login'
