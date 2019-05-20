@@ -12,7 +12,7 @@ class EditProfileForm(FlaskForm):
     name = StringField(_l('Name'), validators=[DataRequired(), Length(1, 30)])
     username = StringField(_l('Username'), validators=[DataRequired(), Length(1, 20),
                                                    Regexp('^[a-zA-Z0-9]*$',
-                                                          message='The username should contain only a-z, A-Z and 0-9.')])
+                                                          message=_l('The username should contain only a-z, A-Z and 0-9.'))])
     website = StringField(_l('Website'), validators=[Optional(), Length(0, 255)])
     location = StringField(_l('City'), validators=[Optional(), Length(0, 50)])
     bio = TextAreaField(_l('Bio'), validators=[Optional(), Length(0, 120)])
@@ -20,7 +20,7 @@ class EditProfileForm(FlaskForm):
 
     def validate_username(self, field):
         if field.data != current_user.username and User.query.filter_by(username=field.data).first():
-            raise ValidationError('The username is already in use.')
+            raise ValidationError(_l('The username is already in use.'))
 
 
 class UploadAvatarForm(FlaskForm):
