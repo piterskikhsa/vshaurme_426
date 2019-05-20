@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-17 22:01+0300\n"
-"PO-Revision-Date: 2019-05-17 22:02+0300\n"
+"PO-Revision-Date: 2019-05-20 11:05+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -51,11 +51,11 @@ msgstr "Блокировка отменена."
 
 #: vshaurme/blueprints/admin.py:95
 msgid "Account locked."
-msgstr "Аккаунт залочен."
+msgstr "Аккаунт заморожен."
 
 #: vshaurme/blueprints/admin.py:104
 msgid "Lock canceled."
-msgstr "Лок отменён."
+msgstr "Заморозка отменена."
 
 #: vshaurme/blueprints/admin.py:114 vshaurme/blueprints/main.py:394
 msgid "Tag deleted."
@@ -214,7 +214,7 @@ msgstr "Комментарий удалён."
 
 #: vshaurme/blueprints/user.py:24
 msgid "Your account is locked."
-msgstr "Ваш аккаунт залочен."
+msgstr "Ваш аккаунт заморожен."
 
 #: vshaurme/blueprints/user.py:71
 msgid "User unfollowed."
@@ -536,7 +536,7 @@ msgstr "Жалоб:"
 
 #: vshaurme/templates/admin/index.html:80
 msgid "Locked:"
-msgstr "Залочено:"
+msgstr "Заморожено:"
 
 #: vshaurme/templates/admin/index.html:81
 msgid "Blocked:"
@@ -686,11 +686,11 @@ msgstr "Все"
 
 #: vshaurme/templates/admin/manage_user.html:27
 msgid "Locked"
-msgstr "Залочен"
+msgstr "Заморожено"
 
 #: vshaurme/templates/admin/manage_user.html:31
 msgid "Blocked"
-msgstr "Заблокирован"
+msgstr "Заблокировано"
 
 #: vshaurme/templates/admin/manage_user.html:35
 msgid "Administrator"
@@ -716,7 +716,7 @@ msgstr "Разлочить"
 #: vshaurme/templates/admin/manage_user.html:82
 #: vshaurme/templates/user/_header.html:41
 msgid "Lock"
-msgstr "Залочть"
+msgstr "Заморозить"
 
 #: vshaurme/templates/admin/manage_user.html:90
 #: vshaurme/templates/user/_header.html:47
