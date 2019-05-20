@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-05-20 22:23+0300\n"
-"PO-Revision-Date: 2019-05-20 22:25+0300\n"
+"PO-Revision-Date: 2019-05-20 23:06+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: vshaurme/emails.py:16
 msgid "Email Confirm"
-msgstr ""
+msgstr "Подверждение эл. адреса"
 
 #: vshaurme/emails.py:20 vshaurme/templates/auth/reset_password.html:4
 #: vshaurme/templates/auth/reset_password.html:8
@@ -40,7 +40,7 @@ msgstr "Сброс пароля"
 
 #: vshaurme/emails.py:24
 msgid "Change Email Confirm"
-msgstr ""
+msgstr "Изменить email подтверждение"
 
 #: vshaurme/settings.py:63
 msgid "Drop files here to upload"
@@ -76,11 +76,11 @@ msgstr "Тэг удалён."
 
 #: vshaurme/blueprints/admin.py:149
 msgid "flag"
-msgstr "Флагу"
+msgstr "флагу"
 
 #: vshaurme/blueprints/admin.py:152
 msgid "time"
-msgstr "Времени"
+msgstr "времени"
 
 #: vshaurme/blueprints/ajax.py:14 vshaurme/blueprints/ajax.py:43
 #: vshaurme/blueprints/ajax.py:62 vshaurme/blueprints/ajax.py:75
@@ -327,7 +327,7 @@ msgstr "Имя пользователя"
 
 #: vshaurme/forms/auth.py:22 vshaurme/forms/user.py:15
 msgid "The username should contain only a-z, A-Z and 0-9."
-msgstr ""
+msgstr "Имя пользователя должно содержать только символы a-z, A-Z и 0-9."
 
 #: vshaurme/forms/auth.py:25 vshaurme/forms/auth.py:46
 msgid "Confirm password"
