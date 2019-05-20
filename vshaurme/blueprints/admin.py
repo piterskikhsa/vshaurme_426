@@ -172,10 +172,10 @@ def manage_tag():
 def manage_comment(order):
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_COMMENT_PER_PAGE']
-    order_rule = 'flag'
+    order_rule = _l('flag')
     if order == 'by_time':
         pagination = Comment.query.order_by(Comment.timestamp.desc()).paginate(page, per_page)
-        order_rule = 'time'
+        order_rule = _('time')
     else:
         pagination = Comment.query.order_by(Comment.flag.desc()).paginate(page, per_page)
     comments = pagination.items
