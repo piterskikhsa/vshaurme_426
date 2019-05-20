@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd ~/vshaurme/
 git pull
 . ~/vshaurme/venv/bin/activate
 
