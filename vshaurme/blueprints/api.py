@@ -18,7 +18,7 @@ api_bp = Blueprint('api', __name__)
 def hook():
     key = os.getenv('API_TOKEN')
     basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-    command = os.path.join(basedir, 'deploy.sh')
+    command = os.path.join(basedir, '..', 'deploy.sh')
 
     signature = request.headers.get('X-Hub-Signature')
     sha, signature = signature.split('=')
