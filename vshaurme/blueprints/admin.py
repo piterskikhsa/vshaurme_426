@@ -1,7 +1,7 @@
 from flask import render_template, flash, Blueprint, request, current_app
 from flask_login import login_required
 from flask_babel import _
-
+from flask_babel import lazy_gettext as _l
 
 from vshaurme.decorators import admin_required, permission_required
 from vshaurme.extensions import db
@@ -146,10 +146,10 @@ def manage_user():
 def manage_photo(order):
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_PHOTO_PER_PAGE']
-    order_rule = 'flag'
+    order_rule = _l('flag')
     if order == 'by_time':
         pagination = Photo.query.order_by(Photo.timestamp.desc()).paginate(page, per_page)
-        order_rule = 'time'
+        order_rule = _l('time')
     else:
         pagination = Photo.query.order_by(Photo.flag.desc()).paginate(page, per_page)
     photos = pagination.items
