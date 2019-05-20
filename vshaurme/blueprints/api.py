@@ -2,11 +2,7 @@ import os
 import hmac
 import subprocess
 
-
 from flask import Blueprint, request, abort, jsonify, json, current_app
-from flask_login import login_required
-from flask_babel import _
-
 
 from vshaurme.decorators import admin_required, permission_required
 from vshaurme.extensions import csrf
@@ -14,13 +10,14 @@ from vshaurme.forms.admin import EditProfileAdminForm
 from vshaurme.models import Role, User, Tag, Photo, Comment
 from vshaurme.utils import redirect_back
 
+
 api_bp = Blueprint('api', __name__)
 
 
 @api_bp.route('/hook', methods=['POST'])
 @csrf.exempt
 def hook():
-    key = os.environ['API_TOKEN']
+    key = os.getenv('API_TOKEN')
     basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
     command = os.path.join(basedir, 'deploy.sh')
 

@@ -8,6 +8,7 @@ from flask_wtf.csrf import CSRFError
 import rollbar
 import rollbar.contrib.flask
 from flask import got_request_exception
+from dotenv import load_dotenv
 
 from vshaurme.blueprints.admin import admin_bp
 from vshaurme.blueprints.ajax import ajax_bp
@@ -24,6 +25,8 @@ from flask_babel import get_locale
 def create_app(config_name=None):
     if config_name is None:
         config_name = os.getenv('FLASK_CONFIG', 'development')
+    
+    load_dotenv()
 
     app = Flask('vshaurme')
 
