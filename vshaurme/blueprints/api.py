@@ -10,7 +10,6 @@ from vshaurme.forms.admin import EditProfileAdminForm
 from vshaurme.models import Role, User, Tag, Photo, Comment
 from vshaurme.utils import redirect_back
 
-
 api_bp = Blueprint('api', __name__)
 
 
