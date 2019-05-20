@@ -8,6 +8,7 @@ from flask_wtf.csrf import CSRFError
 import rollbar
 import rollbar.contrib.flask
 from flask import got_request_exception
+from dotenv import load_dotenv
 
 from vshaurme.blueprints.admin import admin_bp
 from vshaurme.blueprints.ajax import ajax_bp
@@ -25,6 +26,8 @@ from flask import request, g
 def create_app(config_name=None):
     if config_name is None:
         config_name = os.getenv('FLASK_CONFIG', 'development')
+    
+    load_dotenv()
 
     app = Flask('vshaurme')
 
@@ -93,7 +96,6 @@ def register_template_context(app):
 def register_rollbar(app):
     @app.before_first_request
     def init_rollbar():
-        print(os.getenv('ROLLBAR_TOKEN'), os.getenv('ACCESS_TOKEN'))
         rollbar.init(os.getenv('ROLLBAR_TOKEN'),
                      root=os.path.dirname(os.path.realpath(__file__)),
                      allow_logging_basic_config=False
