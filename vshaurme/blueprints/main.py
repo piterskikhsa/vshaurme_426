@@ -310,7 +310,7 @@ def set_comment(photo_id):
 
     if photo.can_comment:
         photo.can_comment = False
-        flash(_('Comment disabled'), 'info')
+        flash(_('Comment disabled.'), 'info')
     else:
         photo.can_comment = True
         flash(_('Comment enabled.'), 'info')
