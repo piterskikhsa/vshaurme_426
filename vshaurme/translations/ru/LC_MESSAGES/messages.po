@@ -401,7 +401,7 @@ msgstr "Опубликовать мою коллекцию"
 
 #: vshaurme/forms/user.py:77
 msgid "Wrong username."
-msgstr "Неверное имя пользователя"
+msgstr "Неверное имя пользователя."
 
 #: vshaurme/templates/admin/index.html:10 vshaurme/templates/base.html:9
 #: vshaurme/templates/base.html:24
