@@ -221,10 +221,6 @@ msgstr "Комментарий опубликован."
 msgid "Tag added."
 msgstr "Тэг добавлен."
 
-#: vshaurme/blueprints/main.py:313
-msgid "Comment disabled"
-msgstr "Комментарии отключены"
-
 #: vshaurme/blueprints/main.py:316
 msgid "Comment enabled."
 msgstr "Комментарии включены."
@@ -918,6 +914,7 @@ msgid "Register</a> to leave a comment."
 msgstr "Зарегистрироваться</a>, чтобы оставить комментарий."
 
 #: vshaurme/templates/main/_comment.html:128
+#: vshaurme/blueprints/main.py:313
 msgid "Comment disabled."
 msgstr "Комментарии отключены."
 
