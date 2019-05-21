@@ -115,7 +115,7 @@ msgstr "Добавление в коллекцию отменено"
 
 #: vshaurme/blueprints/ajax.py:83 vshaurme/blueprints/user.py:52
 msgid "Already followed."
-msgstr "Уже подписан"
+msgstr "Уже подписан."
 
 #: vshaurme/blueprints/ajax.py:88 vshaurme/blueprints/user.py:56
 msgid "User followed."
