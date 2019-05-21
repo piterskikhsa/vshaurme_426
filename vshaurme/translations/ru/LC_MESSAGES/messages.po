@@ -137,6 +137,10 @@ msgstr "Успешный вход."
 msgid "Your account is blocked."
 msgstr "Ваш аккаунт заблокирован."
 
+#: vshaurme/blueprints/auth.py:30
+msgid "Invalid email or password."
+msgstr "Неверный адрес электронной почты или пароль."
+
 #: vshaurme/blueprints/auth.py:51
 msgid "Logout success."
 msgstr "Успешный выход."
