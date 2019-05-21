@@ -111,7 +111,7 @@ msgstr "Ещё не добавлено в коллекцию."
 
 #: vshaurme/blueprints/ajax.py:69
 msgid "Collect canceled."
-msgstr "Добавление в коллекцию отменено"
+msgstr "Добавление в коллекцию отменено."
 
 #: vshaurme/blueprints/ajax.py:83 vshaurme/blueprints/user.py:52
 msgid "Already followed."
