@@ -13,6 +13,7 @@ from sqlalchemy.exc import IntegrityError
 from vshaurme.extensions import db
 from vshaurme.models import User, Photo, Tag, Comment, Notification
 
+
 fake = Faker()
 
 

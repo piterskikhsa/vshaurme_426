@@ -12,13 +12,12 @@ from vshaurme.notifications import push_follow_notification
 from vshaurme.settings import Operations
 from vshaurme.utils import generate_token, validate_token, redirect_back, flash_errors
 
+
 user_bp = Blueprint('user', __name__)
 
 
 @user_bp.route('/<username>')
 def index(username):
-    raise Exception('Text exception')
-
     user = User.query.filter_by(username=username).first_or_404()
     if user == current_user and user.locked:
         flash(_('Your account is locked.'), 'danger')
