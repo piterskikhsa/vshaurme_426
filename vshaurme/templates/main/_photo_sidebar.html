@@ -116,8 +116,10 @@
             </form>
         {% endif %}
         {% if photo.collectors %}
-            <a href="{{ url_for('main.show_collectors', photo_id=photo.id) }}">{{ photo.collectors|length }}
-                {{ _('collectors') }}</a>
+            <br>
+            <a href="{{ url_for('main.show_collectors', photo_id=photo.id) }}">
+                {{ ngettext('%(num)d collector', '%(num)d collectors', photo.collectors|length) }}
+            </a>
         {% endif %}
     </div>
 </div>
