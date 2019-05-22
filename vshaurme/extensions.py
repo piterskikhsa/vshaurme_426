@@ -1,4 +1,4 @@
-from flask import request, current_app, g
+from flask import current_app
 
 from flask_avatars import Avatars
 from flask_bootstrap import Bootstrap
@@ -28,11 +28,6 @@ def load_user(user_id):
     from vshaurme.models import User
     user = User.query.get(int(user_id))
     return user
-
-
-@babel.localeselector
-def get_locale():
-    return request.accept_languages.best_match(current_app.config['LANGUAGES'])
 
 
 login_manager.login_view = 'auth.login'

@@ -19,6 +19,7 @@ main_bp = Blueprint('main', __name__)
 @main_bp.route('/')
 def index():
     if current_user.is_authenticated:
+        print(request.accept_languages)
         page = request.args.get('page', 1, type=int)
         per_page = current_app.config['VSHAURME_PHOTO_PER_PAGE']
         pagination = Photo.query \

@@ -64,10 +64,8 @@ class BaseConfig:
     DROPZONE_ENABLE_CSRF = True
     DROPZONE_DEFAULT_MESSAGE = _l("Drop files here to upload")
 
-
     WHOOSHEE_MIN_STRING_LEN = 1
 
-    # available languages
     LANGUAGES = ['en', 'ru']
 
 
