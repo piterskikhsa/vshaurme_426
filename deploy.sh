@@ -13,6 +13,6 @@ REVISION=`git log -n 1 --pretty=format:"%H"`
 ENVIRONMENT=production
 
 curl https://api.rollbar.com/api/1/deploy/ \
-  -F access_token=$API_TOKEN \
+  -F access_token=$POST_ROLLBAR_TOKEN \
   -F environment=$ENVIRONMENT \
-  -F revision=$REVISION \
+  -F revision=$REVISION
