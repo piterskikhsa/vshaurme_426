@@ -8,8 +8,12 @@ from vshaurme.extensions import mail
 
 
 def send_mail(to, subject, template, **kwargs):
-    # TODO: implement
-    pass
+    with mail.connect() as conn:
+        msg = Message(current_app.config['VSHAURME_MAIL_SUBJECT_PREFIX'] + subject,
+                    sender=current_app.config['VSHAURME_ADMIN_EMAIL'], recipients=[to])
+        msg.body = render_template(template + '.txt', **kwargs)
+        msg.html = render_template(template + '.html', **kwargs)
+        conn.send(msg)
 
 
 def send_confirm_email(user, token, to=None):
