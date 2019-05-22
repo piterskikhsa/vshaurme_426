@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-22 10:04+0300\n"
-"PO-Revision-Date: 2019-05-22 10:05+0300\n"
+"POT-Creation-Date: 2019-05-22 11:05+0300\n"
+"PO-Revision-Date: 2019-05-22 11:06+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -553,7 +553,6 @@ msgstr "Тэги"
 
 #: vshaurme/templates/admin/index.html:28 vshaurme/templates/admin/index.html:92
 #: vshaurme/templates/admin/manage_comment.html:14
-#: vshaurme/templates/main/_comment.html:2
 msgid "Comments"
 msgstr "Комментарии"
 
@@ -877,6 +876,14 @@ msgstr "Ошибка 500"
 msgid "Internal Server Error"
 msgstr "Внутренняя ошибка сервера"
 
+#: vshaurme/templates/main/_comment.html:2
+#, python-format
+msgid "%(num)d Comment"
+msgid_plural "%(num)d Comments"
+msgstr[0] "%(num)d комментарий"
+msgstr[1] "%(num)d комментария"
+msgstr[2] "%(num)d комментариев"
+
 #: vshaurme/templates/main/_comment.html:4
 msgid "latest"
 msgstr "последний"
@@ -947,9 +954,13 @@ msgstr "Убрать из коллекции"
 msgid "Collect"
 msgstr "Добавить в коллекцию"
 
-#: vshaurme/templates/main/_photo_sidebar.html:120
-msgid "collectors"
-msgstr "коллекционеров"
+#: vshaurme/templates/main/_photo_sidebar.html:121
+#, python-format
+msgid "%(num)d collector"
+msgid_plural "%(num)d collectors"
+msgstr[0] "%(num)d коллекционер"
+msgstr[1] "%(num)d коллекционера"
+msgstr[2] "%(num)d коллекционеров"
 
 #: vshaurme/templates/main/_sidebar.html:16
 msgid "My Photos"
@@ -1184,3 +1195,6 @@ msgstr "Редактировать приватность"
 
 #~ msgid "Invalid email or password."
 #~ msgstr "Неверный адрес электронной почты или пароль."
+
+#~ msgid "collectors"
+#~ msgstr "коллекционеров"

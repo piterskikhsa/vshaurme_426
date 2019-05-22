@@ -1,5 +1,5 @@
 <div class="comments" id="comments">
-    <h3>{{ photo.comments|length }} {{ _('Comments') }}
+    <h3>{{ ngettext('%(num)d Comment', '%(num)d Comments', photo.comments|length) }}
         <small>
             <a href="{{ url_for('.show_photo', photo_id=photo.id, page=pagination.pages or 1) }}#comment-form">{{ _('latest') }}</a>
         </small>
