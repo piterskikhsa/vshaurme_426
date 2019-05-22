@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 import click
 from flask import Flask, render_template, g, request
@@ -37,7 +38,7 @@ def create_app(config_name=None):
     register_errorhandlers(app)
     register_shell_context(app)
     register_template_context(app)
-    register_locale(app)
+    register_locale_language(app)
     register_rollbar(app)
     return app
 
@@ -92,10 +93,14 @@ def register_rollbar(app):
         got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 
 
-def register_locale(app):
+def register_locale_language(app):
     @babel.localeselector
     def get_locale():
         return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+    @app.before_request
+    def add_locale_in_g():
+        g.locale = get_locale()
 
 
 def register_errorhandlers(app):
