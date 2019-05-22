@@ -52,9 +52,11 @@ class BaseConfig:
     MAIL_SERVER = os.getenv('MAIL_SERVER')
     MAIL_PORT = 465
     MAIL_USE_SSL = True
+    MAIL_DEBUG = True
     MAIL_USERNAME = os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = ('Vshaurme Admin', MAIL_USERNAME)
+    SECURITY_EMAIL_SENDER = os.getenv('VSHAURME_ADMIN')
 
     DROPZONE_ALLOWED_FILE_TYPE = 'image'
     DROPZONE_MAX_FILE_SIZE = 3
