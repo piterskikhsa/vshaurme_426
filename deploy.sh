@@ -11,9 +11,9 @@ touch /var/www/www_vshaurme_su_wsgi.py
 REVISION=`git log -n 1 --pretty=format:"%H"`
 ENVIRONMENT=production
 
-curl https://api.rollbar.com/api/1/deploy/ \
+RESPONSE=`curl https://api.rollbar.com/api/1/deploy/ \
   -F access_token=$POST_ROLLBAR_TOKEN \
   -F environment=$ENVIRONMENT \
-  -F revision=$REVISION
+  -F revision=$REVISION`
 
-echo "Deployed at $(date) $REVISION" >> deploy.txt
+echo "Deployed at $(date) $REVISION $RESPONSE" >> deploy.txt
