@@ -13,13 +13,13 @@ from vshaurme.models import User, Photo, Tag, Follow, Collect, Comment, Notifica
 from vshaurme.notifications import push_comment_notification, push_collect_notification
 from vshaurme.utils import rename_image, resize_image, redirect_back, flash_errors
 
+
 main_bp = Blueprint('main', __name__)
 
 
 @main_bp.route('/')
 def index():
     if current_user.is_authenticated:
-        print(request.accept_languages)
         page = request.args.get('page', 1, type=int)
         per_page = current_app.config['VSHAURME_PHOTO_PER_PAGE']
         pagination = Photo.query \
