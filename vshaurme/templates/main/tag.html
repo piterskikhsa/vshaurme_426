@@ -21,7 +21,7 @@
                 {{ _('Order by') }} {{ order_rule }} <span class="oi oi-elevator"></span>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% if order_rule == 'collects' %}
+                {% if order_rule == _('collects') %}
                     <a class="dropdown-item" href="{{ url_for('.show_tag', tag_id=tag.id, order='by_time') }}">{{ _('Order by Time') }}</a>
                 {% else %}
                     <a class="dropdown-item" href="{{ url_for('.show_tag', tag_id=tag.id, order='by_collects') }}">{{ _('Order by Collects') }}</a>
