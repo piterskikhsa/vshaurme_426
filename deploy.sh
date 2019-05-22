@@ -16,4 +16,4 @@ curl https://api.rollbar.com/api/1/deploy/ \
   -F environment=$ENVIRONMENT \
   -F revision=$REVISION
 
-echo "Deployed at $(date) $(REVISION)" >> deploy.txt
+echo "Deployed at $(date) $REVISION" >> deploy.txt
