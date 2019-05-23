@@ -12,7 +12,6 @@ from vshaurme.notifications import push_follow_notification
 from vshaurme.settings import Operations
 from vshaurme.utils import generate_token, validate_token, redirect_back, flash_errors
 
-
 user_bp = Blueprint('user', __name__)
 
 
@@ -146,7 +145,13 @@ def crop_avatar():
         y = form.y.data
         w = form.w.data
         h = form.h.data
-        # TODO: crop avatar
+
+        filenames = avatars.crop_avatar(current_user.avatar_raw, x, y, w, h)
+
+        current_user.avatar_s = filenames[0]
+        current_user.avatar_m = filenames[1]
+        current_user.avatar_l = filenames[2]
+
         db.session.commit()
         flash(_('Avatar updated.'), 'success')
     flash_errors(form)
