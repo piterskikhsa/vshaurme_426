@@ -95,6 +95,7 @@ def resend_confirm_email():
         return redirect(url_for('main.index'))
 
     token = generate_token(user=current_user, operation=Operations.CONFIRM)
+    token = token.decode('Utf-8')
     send_confirm_email(user=current_user, token=token)
     flash(_('New email sent, check your inbox.'), 'info')
     return redirect(url_for('main.index'))
