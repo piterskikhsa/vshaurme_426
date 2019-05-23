@@ -37,7 +37,11 @@ def index():
 
 @main_bp.route('/explore')
 def explore():
-    photos = Photo.query.limit(12)
+    if str(db.get_engine().url).startswith('mysql'):
+        random_function = func.rand()
+    else:
+        random_function = func.random()
+    photos = Photo.query.order_by(random_function).limit(current_app.config['VSHAURME_PHOTO_PER_PAGE'])
     return render_template('main/explore.html', photos=photos)
 
 
