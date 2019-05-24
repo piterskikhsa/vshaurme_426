@@ -2,6 +2,10 @@ import os
 import sys
 
 from flask_babel import lazy_gettext as _l
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
@@ -49,9 +53,9 @@ class BaseConfig:
     AVATARS_SAVE_PATH = os.path.join(VSHAURME_UPLOAD_PATH, 'avatars')
     AVATARS_SIZE_TUPLE = (30, 100, 200)
 
-    MAIL_SERVER = 'smtp.beget.com'
-    MAIL_PORT = 2525
-    MAIL_USE_SSL = False
+    MAIL_SERVER = os.getenv('MAIL_USERNAME')
+    MAIL_PORT = 465
+    MAIL_USE_SSL = True
     MAIL_DEBUG = True
     MAIL_USERNAME = os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
