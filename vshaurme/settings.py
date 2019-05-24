@@ -54,8 +54,8 @@ class BaseConfig:
     AVATARS_SIZE_TUPLE = (30, 100, 200)
 
     MAIL_SERVER = os.getenv('MAIL_USERNAME')
-    MAIL_PORT = 465
-    MAIL_USE_SSL = True
+    MAIL_PORT = 25
+    MAIL_USE_SSL = False
     MAIL_DEBUG = True
     MAIL_USERNAME = os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')

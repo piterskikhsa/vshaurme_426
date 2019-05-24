@@ -23,11 +23,11 @@ from vshaurme.settings import config
 
 
 def create_app(config_name=None):
+    load_dotenv()
+
     if config_name is None:
         config_name = os.getenv('FLASK_CONFIG', 'development')
     
-    load_dotenv()
-
     app = Flask('vshaurme')
 
     app.config.from_object(config[config_name])
