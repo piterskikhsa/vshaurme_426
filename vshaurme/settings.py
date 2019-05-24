@@ -53,12 +53,11 @@ class BaseConfig:
     AVATARS_SAVE_PATH = os.path.join(VSHAURME_UPLOAD_PATH, 'avatars')
     AVATARS_SIZE_TUPLE = (30, 100, 200)
 
-    MAIL_SERVER = os.getenv('MAIL_USERNAME')
-    MAIL_PORT = 25
-    MAIL_USE_SSL = False
-    MAIL_DEBUG = True
-    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
-    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
+    MAIL_SERVER = os.getenv('MAIL_HOST')
+    MAIL_PORT = 465
+    MAIL_USE_SSL = True
+    MAIL_USERNAME = os.getenv('MAIL_USER')
+    MAIL_PASSWORD = os.getenv('MAIL_PASS')
     MAIL_DEFAULT_SENDER = ('Vshaurme Admin', MAIL_USERNAME)
     SECURITY_EMAIL_SENDER = os.getenv('VSHAURME_ADMIN')
 
