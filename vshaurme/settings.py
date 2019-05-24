@@ -49,7 +49,7 @@ class BaseConfig:
     AVATARS_SAVE_PATH = os.path.join(VSHAURME_UPLOAD_PATH, 'avatars')
     AVATARS_SIZE_TUPLE = (30, 100, 200)
 
-    MAIL_SERVER = os.getenv('MAIL_SERVER')
+    MAIL_SERVER = 'smtp.beget.com'
     MAIL_PORT = 2525
     MAIL_USE_SSL = False
     MAIL_DEBUG = True
