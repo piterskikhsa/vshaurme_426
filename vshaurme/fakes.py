@@ -20,7 +20,7 @@ fake = Faker()
 def fake_admin():
     admin = User(name='Grey Li',
                  username='greyli',
-                 email='admin@helloflask.com',
+                 email=current_app.config['VSHAURME_ADMIN_EMAIL'],
                  bio=fake.sentence(),
                  website='http://greyli.com',
                  confirmed=True)
