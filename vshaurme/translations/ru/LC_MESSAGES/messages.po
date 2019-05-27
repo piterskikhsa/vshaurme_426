@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-22 11:05+0300\n"
-"PO-Revision-Date: 2019-05-22 11:06+0300\n"
+"POT-Creation-Date: 2019-05-27 17:36+0300\n"
+"PO-Revision-Date: 2019-05-27 17:37+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -29,24 +29,32 @@ msgstr ""
 "Пожалуйста, подтвердите свой аккаунт в первую очередь. Ничего не пришло? <a "
 "class=\"alert-link\" href=\"%(url)s\"> Отправить подтверждение повторно. </а>"
 
-#: vshaurme/emails.py:16
+#: vshaurme/emails.py:19
 msgid "Email Confirm"
 msgstr "Подверждение эл. адреса"
 
-#: vshaurme/emails.py:20 vshaurme/templates/auth/reset_password.html:4
+#: vshaurme/emails.py:23 vshaurme/templates/auth/reset_password.html:4
 #: vshaurme/templates/auth/reset_password.html:8
 msgid "Password Reset"
 msgstr "Сброс пароля"
 
-#: vshaurme/emails.py:24
+#: vshaurme/emails.py:27
 msgid "Change Email Confirm"
 msgstr "Изменить email подтверждение"
 
-#: vshaurme/settings.py:63
+#: vshaurme/extensions.py:34
+msgid "Please log in to access this page."
+msgstr "Пожалуйста, войдите, чтобы получить доступ к этой странице."
+
+#: vshaurme/extensions.py:38
+msgid "Please reauthenticate to access this page."
+msgstr "Пожалуйста, пройдите повторную аутентификацию для доступа к этой странице."
+
+#: vshaurme/settings.py:68
 msgid "Drop files here to upload"
 msgstr "Перетащите файлы сюда, чтобы загрузить"
 
-#: vshaurme/blueprints/admin.py:52 vshaurme/blueprints/user.py:105
+#: vshaurme/blueprints/admin.py:52 vshaurme/blueprints/user.py:104
 msgid "Profile updated."
 msgstr "Профиль обновлён."
 
@@ -70,7 +78,7 @@ msgstr "Аккаунт заморожен."
 msgid "Lock canceled."
 msgstr "Заморозка отменена."
 
-#: vshaurme/blueprints/admin.py:114 vshaurme/blueprints/main.py:394
+#: vshaurme/blueprints/admin.py:114 vshaurme/blueprints/main.py:399
 msgid "Tag deleted."
 msgstr "Тэг удалён."
 
@@ -81,7 +89,7 @@ msgid "flag"
 msgstr "флагу"
 
 #: vshaurme/blueprints/admin.py:152 vshaurme/blueprints/admin.py:178
-#: vshaurme/blueprints/main.py:370
+#: vshaurme/blueprints/main.py:375
 msgid "time"
 msgstr "времени"
 
@@ -100,15 +108,15 @@ msgstr "Требуется подтверждение аккаунта."
 msgid "No permission."
 msgstr "Нет прав."
 
-#: vshaurme/blueprints/ajax.py:51 vshaurme/blueprints/main.py:180
+#: vshaurme/blueprints/ajax.py:51 vshaurme/blueprints/main.py:185
 msgid "Already collected."
 msgstr "Уже добавлено в коллекцию."
 
-#: vshaurme/blueprints/ajax.py:56 vshaurme/blueprints/main.py:184
+#: vshaurme/blueprints/ajax.py:56 vshaurme/blueprints/main.py:189
 msgid "Photo collected."
 msgstr "Фото добавлено в коллекцию."
 
-#: vshaurme/blueprints/ajax.py:66 vshaurme/blueprints/main.py:195
+#: vshaurme/blueprints/ajax.py:66 vshaurme/blueprints/main.py:200
 msgid "Not collect yet."
 msgstr "Ещё не добавлено в коллекцию."
 
@@ -116,15 +124,15 @@ msgstr "Ещё не добавлено в коллекцию."
 msgid "Collect canceled."
 msgstr "Добавление в коллекцию отменено."
 
-#: vshaurme/blueprints/ajax.py:83 vshaurme/blueprints/user.py:51
+#: vshaurme/blueprints/ajax.py:83 vshaurme/blueprints/user.py:50
 msgid "Already followed."
 msgstr "Уже подписан."
 
-#: vshaurme/blueprints/ajax.py:88 vshaurme/blueprints/user.py:55
+#: vshaurme/blueprints/ajax.py:88 vshaurme/blueprints/user.py:54
 msgid "User followed."
 msgstr "Подписаны на пользователя."
 
-#: vshaurme/blueprints/ajax.py:98 vshaurme/blueprints/user.py:66
+#: vshaurme/blueprints/ajax.py:98 vshaurme/blueprints/user.py:65
 msgid "Not follow yet."
 msgstr "Ещё не подписан."
 
@@ -144,7 +152,7 @@ msgstr "Ваш аккаунт заблокирован."
 msgid "Logout success."
 msgstr "Успешный выход."
 
-#: vshaurme/blueprints/auth.py:72 vshaurme/blueprints/user.py:178
+#: vshaurme/blueprints/auth.py:72 vshaurme/blueprints/user.py:183
 msgid "Confirm email sent, check your inbox."
 msgstr "Письмо с подтверждением отправлено, проверьте свой почтовый ящик."
 
@@ -152,7 +160,7 @@ msgstr "Письмо с подтверждением отправлено, пр�
 msgid "Account confirmed."
 msgstr "Аккаунт подтвержден."
 
-#: vshaurme/blueprints/auth.py:87 vshaurme/blueprints/user.py:190
+#: vshaurme/blueprints/auth.py:87 vshaurme/blueprints/user.py:195
 msgid "Invalid or expired token."
 msgstr "Неверный или просроченный токен."
 
@@ -168,7 +176,7 @@ msgstr "Пароль сброшен, письмо отправлено, пров
 msgid "Invalid email."
 msgstr "Неверный эл.адрес."
 
-#: vshaurme/blueprints/auth.py:133 vshaurme/blueprints/user.py:164
+#: vshaurme/blueprints/auth.py:133 vshaurme/blueprints/user.py:169
 msgid "Password updated."
 msgstr "Пароль обновлён."
 
@@ -176,103 +184,103 @@ msgstr "Пароль обновлён."
 msgid "Invalid or expired link."
 msgstr "Неверная или просроченная ссылка."
 
-#: vshaurme/blueprints/main.py:47
+#: vshaurme/blueprints/main.py:52
 msgid "Enter keyword about photo, user or tag."
 msgstr "Введите ключевое слово для фотографии, пользователя или тега."
 
-#: vshaurme/blueprints/main.py:87
+#: vshaurme/blueprints/main.py:92
 msgid "Notification archived."
 msgstr "Уведомление заархивировано."
 
-#: vshaurme/blueprints/main.py:97
+#: vshaurme/blueprints/main.py:102
 msgid "All notifications archived."
 msgstr "Все уведомления заархивированы."
 
-#: vshaurme/blueprints/main.py:157
+#: vshaurme/blueprints/main.py:162
 msgid "This is already the last one."
 msgstr "Это уже последний."
 
-#: vshaurme/blueprints/main.py:168
+#: vshaurme/blueprints/main.py:173
 msgid "This is already the first one."
 msgstr "Это уже первый."
 
-#: vshaurme/blueprints/main.py:199
+#: vshaurme/blueprints/main.py:204
 msgid "Photo uncollected."
 msgstr "Фото удалено из коллекции."
 
-#: vshaurme/blueprints/main.py:210
+#: vshaurme/blueprints/main.py:215
 msgid "Comment reported."
 msgstr "Жалоба на комментарий отправлена."
 
-#: vshaurme/blueprints/main.py:221
+#: vshaurme/blueprints/main.py:226
 msgid "Photo reported."
 msgstr "Жалоба на фото отправлена."
 
-#: vshaurme/blueprints/main.py:246
+#: vshaurme/blueprints/main.py:251
 msgid "Description updated."
 msgstr "Описание обновлено."
 
-#: vshaurme/blueprints/main.py:271
+#: vshaurme/blueprints/main.py:276
 msgid "Comment published."
 msgstr "Комментарий опубликован."
 
-#: vshaurme/blueprints/main.py:298
+#: vshaurme/blueprints/main.py:303
 msgid "Tag added."
 msgstr "Тэг добавлен."
 
-#: vshaurme/blueprints/main.py:313 vshaurme/templates/main/_comment.html:128
+#: vshaurme/blueprints/main.py:318 vshaurme/templates/main/_comment.html:128
 msgid "Comment disabled."
 msgstr "Комментарии отключены."
 
-#: vshaurme/blueprints/main.py:316
+#: vshaurme/blueprints/main.py:321
 msgid "Comment enabled."
 msgstr "Комментарии включены."
 
-#: vshaurme/blueprints/main.py:340
+#: vshaurme/blueprints/main.py:345
 msgid "Photo deleted."
 msgstr "Фото удалено."
 
-#: vshaurme/blueprints/main.py:360
+#: vshaurme/blueprints/main.py:365
 msgid "Comment deleted."
 msgstr "Комментарий удалён."
 
-#: vshaurme/blueprints/main.py:376 vshaurme/templates/main/tag.html:24
+#: vshaurme/blueprints/main.py:381 vshaurme/templates/main/tag.html:24
 msgid "collects"
 msgstr "коллекциям"
 
-#: vshaurme/blueprints/user.py:23
+#: vshaurme/blueprints/user.py:22
 msgid "Your account is locked."
 msgstr "Ваш аккаунт заморожен."
 
-#: vshaurme/blueprints/user.py:70
+#: vshaurme/blueprints/user.py:69
 msgid "User unfollowed."
 msgstr "Отмена подписки выполнена."
 
-#: vshaurme/blueprints/user.py:134
+#: vshaurme/blueprints/user.py:133
 msgid "Image uploaded, please crop."
 msgstr "Изображение загружено, пожалуйста, обрежьте."
 
-#: vshaurme/blueprints/user.py:151
+#: vshaurme/blueprints/user.py:156
 msgid "Avatar updated."
 msgstr "Аватар обновлён."
 
-#: vshaurme/blueprints/user.py:167
+#: vshaurme/blueprints/user.py:172
 msgid "Old password is incorrect."
 msgstr "Старый пароль неверен."
 
-#: vshaurme/blueprints/user.py:187
+#: vshaurme/blueprints/user.py:192
 msgid "Email updated."
 msgstr "Эл.адрес обновлён."
 
-#: vshaurme/blueprints/user.py:203
+#: vshaurme/blueprints/user.py:208
 msgid "Notification settings updated."
 msgstr "Настройки уведомлений обновлены."
 
-#: vshaurme/blueprints/user.py:218
+#: vshaurme/blueprints/user.py:223
 msgid "Privacy settings updated."
 msgstr "Настройки приватности обновлены."
 
-#: vshaurme/blueprints/user.py:231
+#: vshaurme/blueprints/user.py:236
 msgid "Your are free, goodbye!"
 msgstr "Вы свободны, до свидания!"
 

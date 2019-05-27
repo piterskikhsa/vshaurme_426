@@ -9,7 +9,7 @@ from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask_whooshee import Whooshee
 from flask_wtf import CSRFProtect
-from flask_babel import Babel
+from flask_babel import Babel, _
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
@@ -31,11 +31,11 @@ def load_user(user_id):
 
 
 login_manager.login_view = 'auth.login'
-# login_manager.login_message = 'Your custom message'
+login_manager.login_message = _('Please log in to access this page.')
 login_manager.login_message_category = 'warning'
 
 login_manager.refresh_view = 'auth.re_authenticate'
-# login_manager.needs_refresh_message = 'Your custom message'
+login_manager.needs_refresh_message = _('Please reauthenticate to access this page.')
 login_manager.needs_refresh_message_category = 'warning'
 
 
