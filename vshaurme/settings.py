@@ -36,6 +36,7 @@ class BaseConfig:
     VSHAURME_SEARCH_RESULT_PER_PAGE = 20
     VSHAURME_MAIL_SUBJECT_PREFIX = '[Vshaurme]'
     VSHAURME_UPLOAD_PATH = os.path.join(basedir, 'uploads')
+    VSHAURME_BADWORDS_PATH = os.path.join(basedir, 'badwords')
     VSHAURME_PHOTO_SIZE = {'small': 400,
                            'medium': 800}
     VSHAURME_PHOTO_SUFFIX = {

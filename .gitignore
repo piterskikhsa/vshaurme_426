@@ -114,3 +114,5 @@ uploads/avatars/*
 
 whooshee
 deploy.txt
+badwords/*
+!badwords/.gitkeep

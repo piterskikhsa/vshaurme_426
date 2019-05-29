@@ -20,6 +20,7 @@ from vshaurme.blueprints.api import api_bp
 from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf, babel
 from vshaurme.models import Role, User, Photo, Tag, Follow, Notification, Comment, Collect, Permission
 from vshaurme.settings import config
+from vshaurme.bad_words import init_badwords_files
 
 
 def create_app(config_name=None):
@@ -215,3 +216,10 @@ def register_commands(app):
         """Compile all languages."""
         if os.system('pybabel compile -d vshaurme/translations'):
             raise RuntimeError('compile command failed')
+
+    @app.cli.command()
+    def getbadwords():
+        """Downloading Bad Words."""
+        click.echo('Downloading bad words...')
+        init_badwords_files()
+        click.echo('Done.')
