@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-27 17:36+0300\n"
-"PO-Revision-Date: 2019-05-27 17:37+0300\n"
+"POT-Creation-Date: 2019-05-29 22:01+0300\n"
+"PO-Revision-Date: 2019-05-29 22:02+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -42,53 +42,53 @@ msgstr "Сброс пароля"
 msgid "Change Email Confirm"
 msgstr "Изменить email подтверждение"
 
-#: vshaurme/extensions.py:34
+#: vshaurme/extensions.py:35
 msgid "Please log in to access this page."
 msgstr "Пожалуйста, войдите, чтобы получить доступ к этой странице."
 
-#: vshaurme/extensions.py:38
+#: vshaurme/extensions.py:39
 msgid "Please reauthenticate to access this page."
 msgstr "Пожалуйста, пройдите повторную аутентификацию для доступа к этой странице."
 
-#: vshaurme/settings.py:68
+#: vshaurme/settings.py:69
 msgid "Drop files here to upload"
 msgstr "Перетащите файлы сюда, чтобы загрузить"
 
-#: vshaurme/blueprints/admin.py:52 vshaurme/blueprints/user.py:104
+#: vshaurme/blueprints/admin.py:53 vshaurme/blueprints/user.py:104
 msgid "Profile updated."
 msgstr "Профиль обновлён."
 
-#: vshaurme/blueprints/admin.py:71 vshaurme/blueprints/admin.py:92
+#: vshaurme/blueprints/admin.py:73 vshaurme/blueprints/admin.py:96
 msgid "Permission denied."
 msgstr "Доступ запрещён."
 
-#: vshaurme/blueprints/admin.py:74
+#: vshaurme/blueprints/admin.py:76
 msgid "Account blocked."
 msgstr "Аккаунт заблокирован."
 
-#: vshaurme/blueprints/admin.py:83
+#: vshaurme/blueprints/admin.py:86
 msgid "Block canceled."
 msgstr "Блокировка отменена."
 
-#: vshaurme/blueprints/admin.py:95
+#: vshaurme/blueprints/admin.py:99
 msgid "Account locked."
 msgstr "Аккаунт заморожен."
 
-#: vshaurme/blueprints/admin.py:104
+#: vshaurme/blueprints/admin.py:109
 msgid "Lock canceled."
 msgstr "Заморозка отменена."
 
-#: vshaurme/blueprints/admin.py:114 vshaurme/blueprints/main.py:399
+#: vshaurme/blueprints/admin.py:120 vshaurme/blueprints/main.py:399
 msgid "Tag deleted."
 msgstr "Тэг удалён."
 
-#: vshaurme/blueprints/admin.py:149 vshaurme/blueprints/admin.py:175
+#: vshaurme/blueprints/admin.py:157 vshaurme/blueprints/admin.py:185
 #: vshaurme/templates/admin/manage_comment.html:22
 #: vshaurme/templates/admin/manage_photo.html:22
 msgid "flag"
 msgstr "флагу"
 
-#: vshaurme/blueprints/admin.py:152 vshaurme/blueprints/admin.py:178
+#: vshaurme/blueprints/admin.py:160 vshaurme/blueprints/admin.py:188
 #: vshaurme/blueprints/main.py:375
 msgid "time"
 msgstr "времени"
@@ -284,8 +284,8 @@ msgstr "Настройки приватности обновлены."
 msgid "Your are free, goodbye!"
 msgstr "Вы свободны, до свидания!"
 
-#: vshaurme/forms/admin.py:11 vshaurme/forms/auth.py:11 vshaurme/forms/auth.py:19
-#: vshaurme/forms/auth.py:38 vshaurme/forms/auth.py:43
+#: vshaurme/forms/admin.py:11 vshaurme/forms/auth.py:21 vshaurme/forms/auth.py:29
+#: vshaurme/forms/auth.py:56 vshaurme/forms/auth.py:61
 #: vshaurme/templates/admin/manage_user.html:101
 #: vshaurme/templates/user/_header.html:56
 msgid "Email"
@@ -303,48 +303,52 @@ msgstr "Активный"
 msgid "Confirmed"
 msgstr "Подтверждённый"
 
-#: vshaurme/forms/admin.py:15 vshaurme/forms/auth.py:26 vshaurme/forms/auth.py:39
-#: vshaurme/forms/auth.py:47 vshaurme/forms/main.py:9 vshaurme/forms/main.py:14
+#: vshaurme/forms/admin.py:15 vshaurme/forms/auth.py:44 vshaurme/forms/auth.py:57
+#: vshaurme/forms/auth.py:65 vshaurme/forms/main.py:9 vshaurme/forms/main.py:14
 #: vshaurme/forms/main.py:19 vshaurme/forms/user.py:19 vshaurme/forms/user.py:31
 #: vshaurme/forms/user.py:44 vshaurme/forms/user.py:56 vshaurme/forms/user.py:63
 #: vshaurme/forms/user.py:68 vshaurme/forms/user.py:73
 msgid "Submit"
 msgstr "Отправить"
 
-#: vshaurme/forms/admin.py:25 vshaurme/forms/auth.py:34 vshaurme/forms/user.py:23
+#: vshaurme/forms/admin.py:25 vshaurme/forms/auth.py:52 vshaurme/forms/user.py:23
 msgid "The username is already in use."
 msgstr "Такое имя пользователя уже используется."
 
-#: vshaurme/forms/admin.py:29 vshaurme/forms/auth.py:30 vshaurme/forms/user.py:48
+#: vshaurme/forms/admin.py:29 vshaurme/forms/auth.py:48 vshaurme/forms/user.py:48
 msgid "The email is already in use."
 msgstr "Эл.адрес уже используется."
 
-#: vshaurme/forms/auth.py:12 vshaurme/forms/auth.py:23 vshaurme/forms/auth.py:44
+#: vshaurme/forms/auth.py:16
+msgid "The username should not contain any obscene words."
+msgstr "Имя пользователя не должно содержать каких-либо нецензурных слов."
+
+#: vshaurme/forms/auth.py:22 vshaurme/forms/auth.py:41 vshaurme/forms/auth.py:62
 msgid "Password"
 msgstr "Пароль"
 
-#: vshaurme/forms/auth.py:13
+#: vshaurme/forms/auth.py:23
 msgid "Remember me"
 msgstr "Запомнить меня"
 
-#: vshaurme/forms/auth.py:14
+#: vshaurme/forms/auth.py:24
 msgid "Log in"
 msgstr "Войти"
 
-#: vshaurme/forms/auth.py:18 vshaurme/forms/user.py:12
+#: vshaurme/forms/auth.py:28 vshaurme/forms/user.py:12
 #: vshaurme/templates/admin/manage_tag.html:23
 msgid "Name"
 msgstr "Имя"
 
-#: vshaurme/forms/auth.py:20 vshaurme/forms/user.py:13 vshaurme/forms/user.py:72
+#: vshaurme/forms/auth.py:30 vshaurme/forms/user.py:13 vshaurme/forms/user.py:72
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: vshaurme/forms/auth.py:22 vshaurme/forms/user.py:15
+#: vshaurme/forms/auth.py:36 vshaurme/forms/user.py:15
 msgid "The username should contain only a-z, A-Z and 0-9."
 msgstr "Имя пользователя должно содержать только символы a-z, A-Z и 0-9."
 
-#: vshaurme/forms/auth.py:25 vshaurme/forms/auth.py:46
+#: vshaurme/forms/auth.py:43 vshaurme/forms/auth.py:64
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
