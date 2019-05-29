@@ -101,8 +101,7 @@ def flash_errors(form):
 
 
 def load_badwords():
-    # badwords_dir = current_app.config['VSHAURME_BADWORDS_PATH']
-    badwords_dir = 'badwords'
+    badwords_dir = current_app.config['VSHAURME_BADWORDS_PATH']
     datafiles = [f for f in os.listdir(badwords_dir) if
                  os.path.isfile(os.path.join(badwords_dir, f)) and os.path.splitext(f)[1] == ".json"]
     data = []
