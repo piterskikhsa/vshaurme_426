@@ -20,10 +20,7 @@ def get_ru_bad_words():
     response = requests.get(url)
     if response.ok:
         data = response.json()
-        bad_words = []
-        for word in data:
-            if len(word['fields']['word'].split()) < 2: # отбрасываем фразы из словаря
-                bad_words = word['fields']['word']
+        bad_words = [word['fields']['word'] for word in data if len(word['fields']['word'].split()) < 2]
         trans_bad_words = list(map(lambda p: translit(p, reversed=True), bad_words))
         trans_bad_words_filetered = set(word.split("'")[0] for word in trans_bad_words if len(word.split("'")[0]) > 2)
         return list(trans_bad_words_filetered)
