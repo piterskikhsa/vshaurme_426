@@ -108,5 +108,4 @@ def load_badwords():
     for datafile in datafiles:
         with open(os.path.join(badwords_dir, datafile), "r") as f:
             data += json.loads(f.read())["words"]
-    data = data
     return data
