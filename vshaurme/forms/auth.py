@@ -12,7 +12,7 @@ from vshaurme.utils import load_badwords
 def bad_words_check(form, field):
     data = load_badwords()
     for word in data:
-        if field.data.find(word) :
+        if field.data.find(word) >= 0:
             raise ValidationError(_l('The username should not contain any obscene words.'))
 
 
