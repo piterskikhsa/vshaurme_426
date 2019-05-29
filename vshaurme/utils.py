@@ -1,5 +1,6 @@
 import os
 import uuid
+import json
 
 try:
     from urlparse import urlparse, urljoin
@@ -97,3 +98,16 @@ def flash_errors(form):
                 getattr(form, field).label.text,
                 error
             ))
+
+
+def load_badwords():
+    # badwords_dir = current_app.config['VSHAURME_BADWORDS_PATH']
+    badwords_dir = 'badwords'
+    datafiles = [f for f in os.listdir(badwords_dir) if
+                 os.path.isfile(os.path.join(badwords_dir, f)) and os.path.splitext(f)[1] == ".json"]
+    data = []
+    for datafile in datafiles:
+        with open(os.path.join(badwords_dir, datafile), "r") as f:
+            data += json.loads(f.read())["words"]
+    data = data
+    return data
