@@ -6,13 +6,15 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, Optional, R
 from flask_babel import lazy_gettext as _l
 
 from vshaurme.models import User
+from .auth import has_has_numeric_and_alpha_check, has_upper_and_lower_letters_check
 
 
 class EditProfileForm(FlaskForm):
     name = StringField(_l('Name'), validators=[DataRequired(), Length(1, 30)])
     username = StringField(_l('Username'), validators=[DataRequired(), Length(1, 20),
-                                                   Regexp('^[a-zA-Z0-9]*$',
-                                                          message=_l('The username should contain only a-z, A-Z and 0-9.'))])
+                                                       Regexp('^[a-zA-Z0-9]*$',
+                                                              message=_l(
+                                                                  'The username should contain only a-z, A-Z and 0-9.'))])
     website = StringField(_l('Website'), validators=[Optional(), Length(0, 255)])
     location = StringField(_l('City'), validators=[Optional(), Length(0, 50)])
     bio = TextAreaField(_l('Bio'), validators=[Optional(), Length(0, 120)])
@@ -50,8 +52,14 @@ class ChangeEmailForm(FlaskForm):
 
 class ChangePasswordForm(FlaskForm):
     old_password = PasswordField(_l('Old Password'), validators=[DataRequired()])
-    password = PasswordField(_l('New Password'), validators=[
-        DataRequired(), Length(8, 128), EqualTo('password2')])
+    password = PasswordField(_l('New Password'),
+                             validators=[
+                                 DataRequired(),
+                                 Length(10, 128),
+                                 has_has_numeric_and_alpha_check,
+                                 has_upper_and_lower_letters_check,
+                                 EqualTo('password2'),
+                             ])
     password2 = PasswordField(_l('Confirm Password'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
