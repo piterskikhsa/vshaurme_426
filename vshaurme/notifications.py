@@ -12,6 +12,14 @@ def push_follow_notification(follower, receiver):
         follower_username=follower.username
     )
     notification = Notification(message=message, receiver=receiver)
+    try:
+        db.session.add(notification)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    finally:
+        db.session.close()
 
 
 def push_comment_notification(photo_id, receiver, page=1):
@@ -20,6 +28,14 @@ def push_comment_notification(photo_id, receiver, page=1):
         url_main_show_photo=url_for('main.show_photo', photo_id=photo_id, page=page)
     )
     notification = Notification(message=message, receiver=receiver)
+    try:
+        db.session.add(notification)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    finally:
+        db.session.close()
 
 
 def push_collect_notification(collector, photo_id, receiver):
@@ -30,3 +46,11 @@ def push_collect_notification(collector, photo_id, receiver):
         url_main_show_photo=url_for('main.show_photo', photo_id=photo_id)
     )
     notification = Notification(message=message, receiver=receiver)
+    try:
+        db.session.add(notification)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    finally:
+        db.session.close()
