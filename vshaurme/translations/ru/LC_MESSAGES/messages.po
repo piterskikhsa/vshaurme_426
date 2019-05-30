@@ -352,6 +352,14 @@ msgstr "Имя пользователя должно содержать толь
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
+#: vshaurme/forms/auth.py
+msgid "The password should contain both letters and digits."
+msgstr "Пароль должен содержать буквы и цифры."
+
+#: vshaurme/forms/auth.py
+msgid "The password should contain letters in different registers."
+msgstr "Пароль должен содержать буквы разного регистра."
+
 #: vshaurme/forms/main.py:8 vshaurme/templates/admin/manage_photo.html:36
 msgid "Description"
 msgstr "Описание"
