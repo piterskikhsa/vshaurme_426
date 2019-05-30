@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-29 22:01+0300\n"
-"PO-Revision-Date: 2019-05-29 22:02+0300\n"
+"POT-Creation-Date: 2019-05-30 17:35+0300\n"
+"PO-Revision-Date: 2019-05-30 17:39+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -49,6 +49,31 @@ msgstr "Пожалуйста, войдите, чтобы получить дос
 #: vshaurme/extensions.py:39
 msgid "Please reauthenticate to access this page."
 msgstr "Пожалуйста, пройдите повторную аутентификацию для доступа к этой странице."
+
+#: vshaurme/notifications.py:11
+#, python-format
+msgid "User <a href=\"%(url_username)s\">%(follower_username)s</a> followed you."
+msgstr ""
+"Пользователь <a href=\"%(url_username)s\">%(follower_username)s</a> подписался "
+"на вас."
+
+#: vshaurme/notifications.py:22
+#, python-format
+msgid ""
+"<a href=\"%(url_main_show_photo)s#comments\">This photo</a> has new comment/"
+"reply."
+msgstr ""
+"<a href=\"%(url_main_show_photo)s#comments\">У этого фото</a> появился новый "
+"комментарий/ответ."
+
+#: vshaurme/notifications.py:34
+#, python-format
+msgid ""
+"User <a href=\"%(url_username)s\">%(collector_username)s</a> collected your <a "
+"href=\"%(url_main_show_photo)s\">photo</a>"
+msgstr ""
+"Пользователь <a href=\"%(url_username)s\">%(collector_username)s</a> добавил в "
+"коллекцию ваше <a href=\"%(url_main_show_photo)s\">фото</a>"
 
 #: vshaurme/settings.py:69
 msgid "Drop files here to upload"
