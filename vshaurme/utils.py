@@ -1,6 +1,7 @@
 import os
 import uuid
 import json
+import csv
 
 try:
     from urlparse import urlparse, urljoin
@@ -117,3 +118,10 @@ def load_badwords():
         with open(os.path.join(badwords_dir, datafile), "r") as f:
             data += json.loads(f.read())["words"]
     return data
+
+def export_users_to_csv(filepath):
+    with open(filepath, "w", newline='', encoding="utf-8") as csv_file:
+        writer = csv.writer(csv_file, delimiter=";")
+        for instance in db.session.query(User):
+            writer.writerow([instance.username, instance.name, instance.email])
+    return db.session.query(User).count()

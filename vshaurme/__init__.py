@@ -21,6 +21,7 @@ from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, mo
 from vshaurme.models import Role, User, Photo, Tag, Follow, Notification, Comment, Collect, Permission
 from vshaurme.settings import config
 from vshaurme.bad_words import init_badwords_files
+from vshaurme.utils import export_users_to_csv
 
 
 def create_app(config_name=None):
@@ -222,4 +223,14 @@ def register_commands(app):
         """Downloading Bad Words."""
         click.echo('Downloading bad words...')
         click.echo(init_badwords_files())
+        click.echo('Done.')
+
+    @app.cli.command()
+    @click.option('--path', default=app.config['VSHAURME_UPLOAD_PATH'])
+    @click.option('--filename', default="users.csv")
+    def getuseremails(path, filename):
+        """Export User Emails to csv file."""
+        filepath = os.path.join(path, filename)
+        click.echo(f'Exporting to {filepath}...')
+        click.echo(f'{export_users_to_csv(filepath)} users exported')
         click.echo('Done.')
