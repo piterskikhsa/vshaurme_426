@@ -221,5 +221,5 @@ def register_commands(app):
     def getbadwords():
         """Downloading Bad Words."""
         click.echo('Downloading bad words...')
-        init_badwords_files()
+        click.echo(init_badwords_files())
         click.echo('Done.')
