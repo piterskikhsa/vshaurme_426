@@ -1,5 +1,5 @@
 def has_numeric_and_alpha(password: str) -> bool:
-    return (not password.isnumeric()) and (not password.isalpha())
+    return not (password.isnumeric() or password.isalpha())
 
 
 def has_upper_and_lower_letters(password: str) -> bool:
