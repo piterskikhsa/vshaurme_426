@@ -5,13 +5,7 @@ from vshaurme.models import Notification
 from flask_babel import _
 
 
-def push_follow_notification(follower, receiver):
-    message = _(
-        'User <a href="%(url_username)s">%(follower_username)s</a> followed you.',
-        url_username=url_for('user.index', username=follower.username),
-        follower_username=follower.username
-    )
-    notification = Notification(message=message, receiver=receiver)
+def commit_notification(notification):
     try:
         db.session.add(notification)
         db.session.commit()
@@ -20,6 +14,16 @@ def push_follow_notification(follower, receiver):
         raise
     finally:
         db.session.close()
+
+
+def push_follow_notification(follower, receiver):
+    message = _(
+        'User <a href="%(url_username)s">%(follower_username)s</a> followed you.',
+        url_username=url_for('user.index', username=follower.username),
+        follower_username=follower.username
+    )
+    notification = Notification(message=message, receiver=receiver)
+    commit_notification(notification)
 
 
 def push_comment_notification(photo_id, receiver, page=1):
@@ -28,14 +32,7 @@ def push_comment_notification(photo_id, receiver, page=1):
         url_main_show_photo=url_for('main.show_photo', photo_id=photo_id, page=page)
     )
     notification = Notification(message=message, receiver=receiver)
-    try:
-        db.session.add(notification)
-        db.session.commit()
-    except:
-        db.session.rollback()
-        raise
-    finally:
-        db.session.close()
+    commit_notification(notification)
 
 
 def push_collect_notification(collector, photo_id, receiver):
@@ -46,11 +43,4 @@ def push_collect_notification(collector, photo_id, receiver):
         url_main_show_photo=url_for('main.show_photo', photo_id=photo_id)
     )
     notification = Notification(message=message, receiver=receiver)
-    try:
-        db.session.add(notification)
-        db.session.commit()
-    except:
-        db.session.rollback()
-        raise
-    finally:
-        db.session.close()
+    commit_notification(notification)
