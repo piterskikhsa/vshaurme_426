@@ -7,14 +7,8 @@ def has_upper_and_lower_letters(password: str) -> bool:
 
 
 def has_upper_letters(password: str) -> bool:
-    for character in set(password):
-        if character.isupper():
-            return True
-    return False
+    return any(character.isupper() for character in set(password))
 
 
 def has_lower_letters(password: str) -> bool:
-    for character in set(password):
-        if character.islower():
-            return True
-    return False
+    return any(character.islower() for character in set(password))
