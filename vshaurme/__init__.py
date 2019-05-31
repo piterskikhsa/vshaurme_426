@@ -17,7 +17,7 @@ from vshaurme.blueprints.auth import auth_bp
 from vshaurme.blueprints.main import main_bp
 from vshaurme.blueprints.user import user_bp
 from vshaurme.blueprints.api import api_bp
-from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf, babel
+from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf, babel, migrate
 from vshaurme.models import Role, User, Photo, Tag, Follow, Notification, Comment, Collect, Permission
 from vshaurme.settings import config
 from vshaurme.bad_words import init_badwords_files
@@ -56,6 +56,7 @@ def register_extensions(app):
     avatars.init_app(app)
     csrf.init_app(app)
     babel.init_app(app)
+    migrate.init_app(app, db)
 
 
 def register_blueprints(app):
