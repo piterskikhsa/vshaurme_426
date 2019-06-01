@@ -256,6 +256,7 @@ def edit_description(photo_id):
 
 @main_bp.route('/photo/<int:photo_id>/comment/new', methods=['POST'])
 @login_required
+@confirm_required
 @permission_required('COMMENT')
 def new_comment(photo_id):
     photo = Photo.query.get_or_404(photo_id)
@@ -325,6 +326,7 @@ def set_comment(photo_id):
 
 @main_bp.route('/reply/comment/<int:comment_id>')
 @login_required
+@confirm_required
 @permission_required('COMMENT')
 def reply_comment(comment_id):
     comment = Comment.query.get_or_404(comment_id)
