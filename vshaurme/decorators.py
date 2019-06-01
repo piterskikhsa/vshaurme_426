@@ -17,6 +17,7 @@ def confirm_required(func):
             flash(message, 'warning')
             return redirect(url_for('main.index'))
         return func(*args, **kwargs)
+
     return decorated_function
 
 
@@ -27,9 +28,15 @@ def permission_required(permission_name):
             if not current_user.can(permission_name):
                 abort(403)
             return func(*args, **kwargs)
+
         return decorated_function
+
     return decorator
 
 
 def admin_required(func):
     return permission_required('ADMINISTER')(func)
+
+
+def moderator_required(func):
+    return permission_required('MODERATE')(func)
