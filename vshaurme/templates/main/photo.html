@@ -6,7 +6,8 @@
 
 {% block head %}
 {{ super() }}
-<script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
+<script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+<script src="//yastatic.net/share2/share.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -17,9 +18,7 @@
                     <img class="img-fluid" src="{{ url_for('.get_image', filename=photo.filename_m) }}">
                 </a>
             </div>
-            <div>
-                <script type="text/javascript">document.write(VK.Share.button());</script>
-            </div>
+            <div class="ya-share2" data-services="vkontakte,facebook,twitter"></div>
             <a class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#share-modal">{{ _('Share') }}</a>
             {% if current_user == photo.author or current_user.can('MODERATE') %}
                 <a class="btn btn-danger btn-sm text-white" data-toggle="modal" data-target="#confirm-delete"
