@@ -3,7 +3,7 @@ from flask_login import login_required
 from flask_babel import _
 from flask_babel import lazy_gettext as _l
 
-from vshaurme.decorators import admin_required, permission_required
+from vshaurme.decorators import admin_required, moderator_required
 from vshaurme.extensions import db
 from vshaurme.forms.admin import EditProfileAdminForm
 from vshaurme.models import Role, User, Tag, Photo, Comment
@@ -14,7 +14,7 @@ admin_bp = Blueprint('admin', __name__)
 
 @admin_bp.route('/')
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def index():
     user_count = User.query.count()
     locked_user_count = User.query.filter_by(locked=True).count()
@@ -66,7 +66,7 @@ def edit_profile_admin(user_id):
 
 @admin_bp.route('/block/user/<int:user_id>', methods=['POST'])
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def block_user(user_id):
     user = User.query.get_or_404(user_id)
     if user.role.name in ['Administrator', 'Moderator']:
@@ -79,7 +79,7 @@ def block_user(user_id):
 
 @admin_bp.route('/unblock/user/<int:user_id>', methods=['POST'])
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def unblock_user(user_id):
     user = User.query.get_or_404(user_id)
     user.unblock()
@@ -89,7 +89,7 @@ def unblock_user(user_id):
 
 @admin_bp.route('/lock/user/<int:user_id>', methods=['POST'])
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def lock_user(user_id):
     user = User.query.get_or_404(user_id)
     if user.role.name in ['Administrator', 'Moderator']:
@@ -102,7 +102,7 @@ def lock_user(user_id):
 
 @admin_bp.route('/unlock/user/<int:user_id>', methods=['POST'])
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def unlock_user(user_id):
     user = User.query.get_or_404(user_id)
     user.unlock()
@@ -112,7 +112,7 @@ def unlock_user(user_id):
 
 @admin_bp.route('/delete/tag/<int:tag_id>', methods=['GET', 'POST'])
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def delete_tag(tag_id):
     tag = Tag.query.get_or_404(tag_id)
     db.session.delete(tag)
@@ -123,7 +123,7 @@ def delete_tag(tag_id):
 
 @admin_bp.route('/manage/user')
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def manage_user():
     filter_rule = request.args.get('filter', 'all')  # 'all', 'locked', 'blocked', 'administrator', 'moderator'
     page = request.args.get('page', 1, type=int)
@@ -150,7 +150,7 @@ def manage_user():
 @admin_bp.route('/manage/photo', defaults={'order': 'by_flag'})
 @admin_bp.route('/manage/photo/<order>')
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def manage_photo(order):
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_PHOTO_PER_PAGE']
@@ -166,7 +166,7 @@ def manage_photo(order):
 
 @admin_bp.route('/manage/tag')
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def manage_tag():
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_TAG_PER_PAGE']
@@ -178,7 +178,7 @@ def manage_tag():
 @admin_bp.route('/manage/comment', defaults={'order': 'by_flag'})
 @admin_bp.route('/manage/comment/<order>')
 @login_required
-@permission_required('MODERATE')
+@moderator_required
 def manage_comment(order):
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_COMMENT_PER_PAGE']
