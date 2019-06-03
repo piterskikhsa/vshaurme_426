@@ -19,6 +19,12 @@ def get_en_bad_words():
 
 
 def get_ru_bad_words():
+    data = download_ru_bad_words()
+    translited_words = translit_bad_words(data)
+    return filter_trans_bad_words(translited_words)
+
+
+def download_ru_bad_words():
     url = "https://raw.githubusercontent.com/PixxxeL/djantimat/master/djantimat/fixtures/initial_data.json"
     response = requests.get(url)
     if response.ok:
@@ -28,18 +34,23 @@ def get_ru_bad_words():
             bad_word = result['fields']['word']
             if len(bad_word.split()) < 2:       # отбрасываем фразы, нас интересуют только слова
                 bad_words.append(bad_word)
+        return bad_words
 
-        # Конвертируем с русского языка в транслит:
-        trans_bad_words = list(map(lambda p: translit(p, reversed=True), bad_words))
 
-        # Отфильтровываем некоторые словоформы и короткие слова:
-        trans_bad_words_filetered = set()
-        for word in trans_bad_words:
-            word_form = word.split("'")[0]
-            if len(word_form) > 2:
-                trans_bad_words_filetered.add(word_form)
+def translit_bad_words(bad_words):
+    '''Конвертируем с русского языка в транслит:'''
+    trans_bad_words = map(lambda p: translit(p, reversed=True), bad_words)
+    return list(trans_bad_words)
 
-        return list(trans_bad_words_filetered)
+
+def filter_trans_bad_words(trans_bad_words):
+    '''Отфильтровываем некоторые словоформы и короткие слова:'''
+    trans_bad_words_filetered = set()
+    for word in trans_bad_words:
+        word_form = word.split("'")[0]
+        if len(word_form) > 2:
+            trans_bad_words_filetered.add(word_form)
+    return list(trans_bad_words_filetered)
 
 
 def write_to_file(data):
