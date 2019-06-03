@@ -32,19 +32,17 @@ def download_ru_bad_words():
         bad_words = []
         for result in data:
             bad_word = result['fields']['word']
-            if len(bad_word.split()) < 2:       # отбрасываем фразы, нас интересуют только слова
+            if len(bad_word.split()) < 2:
                 bad_words.append(bad_word)
         return bad_words
 
 
 def translit_bad_words(bad_words):
-    '''Конвертируем с русского языка в транслит:'''
     trans_bad_words = map(lambda p: translit(p, reversed=True), bad_words)
     return list(trans_bad_words)
 
 
 def filter_trans_bad_words(trans_bad_words):
-    '''Отфильтровываем некоторые словоформы и короткие слова:'''
     trans_bad_words_filetered = set()
     for word in trans_bad_words:
         word_form = word.split("'")[0]
