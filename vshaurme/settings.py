@@ -72,6 +72,8 @@ class BaseConfig:
 
     LANGUAGES = ['en', 'ru']
 
+    VK_CLIENT_ID = os.getenv('VK_CLIENT_ID')
+    VK_CLIENT_SECRET = os.getenv('VK_CLIENT_SECRET')
 
 class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = \

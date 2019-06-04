@@ -17,7 +17,9 @@ from vshaurme.blueprints.auth import auth_bp
 from vshaurme.blueprints.main import main_bp
 from vshaurme.blueprints.user import user_bp
 from vshaurme.blueprints.api import api_bp
-from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf, babel
+from vshaurme.blueprints.vk_auth import vkoauth_bp
+
+from vshaurme.extensions import bootstrap, db, login_manager, mail, dropzone, moment, whooshee, avatars, csrf, babel, oauth
 from vshaurme.models import Role, User, Photo, Tag, Follow, Notification, Comment, Collect, Permission
 from vshaurme.settings import config
 from vshaurme.bad_words import init_badwords_files
@@ -56,6 +58,7 @@ def register_extensions(app):
     avatars.init_app(app)
     csrf.init_app(app)
     babel.init_app(app)
+    oauth.init_app(app)
 
 
 def register_blueprints(app):
@@ -65,6 +68,7 @@ def register_blueprints(app):
     app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(ajax_bp, url_prefix='/ajax')
     app.register_blueprint(api_bp, url_prefix='/api')
+    app.register_blueprint(vkoauth_bp, url_prefix='/vk')
 
 
 def register_shell_context(app):

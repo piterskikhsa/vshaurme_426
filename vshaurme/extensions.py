@@ -11,6 +11,7 @@ from flask_whooshee import Whooshee
 from flask_wtf import CSRFProtect
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
+from authlib.flask.client import OAuth
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
@@ -22,7 +23,7 @@ whooshee = Whooshee()
 avatars = Avatars()
 csrf = CSRFProtect()
 babel = Babel()
-
+oauth = OAuth()
 
 @login_manager.user_loader
 def load_user(user_id):
