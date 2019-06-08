@@ -1,5 +1,5 @@
 from flask import current_app, g
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms import ValidationError
 from wtforms.validators import DataRequired, Length, Email, EqualTo, Regexp, NoneOf
@@ -56,6 +56,7 @@ class RegisterForm(FlaskForm):
                                  EqualTo('password2'),
                              ])
     password2 = PasswordField(_l('Confirm password'), validators=[DataRequired()])
+    recaptcha = RecaptchaField()
     submit = SubmitField(_l('Submit'))
 
     def validate_email(self, field):

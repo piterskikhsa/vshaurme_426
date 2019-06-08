@@ -72,6 +72,10 @@ class BaseConfig:
 
     LANGUAGES = ['en', 'ru']
 
+    RECAPTCHA_USE_SSL = False
+    RECAPTCHA_PUBLIC_KEY = os.getenv('CAPTCHA_PUB_KEY')
+    RECAPTCHA_PRIVATE_KEY = os.getenv('CAPTCHA_PR_KEY')
+
 
 class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = \
@@ -89,6 +93,7 @@ class ProductionConfig(BaseConfig):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL',
                                         prefix + os.path.join(basedir, 'data.db'))
+    RECAPTCHA_USE_SSL = True
 
 
 config = {
