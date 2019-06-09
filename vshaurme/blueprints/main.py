@@ -1,10 +1,11 @@
 import os
 
+from datetime import datetime, timedelta
 from flask import render_template, flash, redirect, url_for, current_app, \
     send_from_directory, request, abort, Blueprint
 from flask_login import login_required, current_user
 from flask_babel import _
-from sqlalchemy.sql.expression import func
+from sqlalchemy.sql.expression import func, desc
 
 from vshaurme.decorators import confirm_required, permission_required
 from vshaurme.extensions import db
@@ -400,3 +401,28 @@ def delete_tag(photo_id, tag_id):
 
     flash(_('Tag deleted.'), 'info')
     return redirect(url_for('.show_photo', photo_id=photo_id))
+
+@main_bp.route('/trends')
+@login_required
+def trends():
+    one_week = timedelta(days=7)
+    one_month = timedelta(days=30)
+    one_year = timedelta(days=365)
+
+    today_week = datetime.now() - one_week
+    today_month = datetime.now() - one_month
+    today_year = datetime.now() - one_year
+
+    page = request.args.get('page', 1, type=int)
+    per_page = current_app.config['VSHAURME_MANAGE_PHOTO_PER_PAGE']
+
+    # отбрасываем старых коллекционеров
+    pagination = db.session.query(Photo, Collect).\
+                    filter(Photo.id == Collect.collected_id).\
+                    group_by(Photo.id).\
+                    filter(Photo.timestamp >= today_month).\
+                    order_by(desc(func.count(Collect.collected_id))).\
+                    paginate(page, per_page)
+
+    photos_collects = pagination.items
+    return render_template('main/trends.html', pagination=pagination, photos_collects=photos_collects)
