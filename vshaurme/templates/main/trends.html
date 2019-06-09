@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+
+{% block title %}{{ _('Trends') }}{% endblock %}
+
+{% block content %}
+{% if photos_collects %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ _('Photo') }}</th>
+                <th>{{ _('Description') }}</th>
+                <th>{{ _('Date') }}</th>
+                <th>{{ _('Collects') }}</th>
+                <th>{{ _('Comments') }}</th>
+                <th>{{ _('Tags') }}</th>
+            </tr>
+            </thead>
+            {% for photo, collect in photos_collects %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('main.show_photo', photo_id=photo.id) }}">
+                            <img src="{{ url_for('main.get_image', filename=photo.filename_s) }}" width="250">
+                        </a>
+                    </td>
+                    <td>{{ photo.description }}</td>
+                    <td>{{ moment(photo.timestamp).format('LL') }}</td>
+                    <td>
+                        {% if photo.collectors %}
+                            {{ photo.collectors|length }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ photo.comments|length }}
+                    </td>
+                    <td>
+                        {% if photo.tags %}
+                            {% for tag in photo.tags %}
+                                {{ tag.name }}
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="page-footer">{{ render_pagination(pagination) }}</div>
+{% else %}
+        <div class="tip"><h5>{{ _('No photos.') }}</h5></div>
+{% endif %}
+{% endblock %}
