@@ -111,6 +111,7 @@ class User(db.Model, UserMixin):
                                 lazy='dynamic', cascade='all')
     followers = db.relationship('Follow', foreign_keys=[Follow.followed_id], back_populates='followed',
                                 lazy='dynamic', cascade='all')
+    photohits = db.relationship('PhotoHits', back_populates='user', cascade='all')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
@@ -232,6 +233,7 @@ class Photo(db.Model):
     comments = db.relationship('Comment', back_populates='photo', cascade='all')
     collectors = db.relationship('Collect', back_populates='collected', cascade='all')
     tags = db.relationship('Tag', secondary=tagging, back_populates='photos')
+    photohits = db.relationship('PhotoHits', back_populates='photo', cascade='all')
 
 
 @whooshee.register_model('name')
@@ -267,6 +269,18 @@ class Notification(db.Model):
     receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     receiver = db.relationship('User', back_populates='notifications')
+
+
+class PhotoHits(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+
+    photo_id = db.Column(db.Integer, db.ForeignKey('photo.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    photo = db.relationship('Photo', back_populates='photohits')
+    user = db.relationship('User', back_populates='photohits')
+
 
 
 @db.event.listens_for(User, 'after_delete', named=True)
