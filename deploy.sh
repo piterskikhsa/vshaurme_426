@@ -7,6 +7,7 @@ git pull
 pip install -r requirements.txt
 pybabel compile -d vshaurme/translations
 flask getbadwords
+flask db upgrade
 touch /var/www/www_vshaurme_su_wsgi.py
 
 REVISION=`git log -n 1 --pretty=format:"%H"`

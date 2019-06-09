@@ -11,6 +11,7 @@ from flask_whooshee import Whooshee
 from flask_wtf import CSRFProtect
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
+from flask_migrate import Migrate
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
@@ -22,6 +23,7 @@ whooshee = Whooshee()
 avatars = Avatars()
 csrf = CSRFProtect()
 babel = Babel()
+migrate = Migrate()
 
 
 @login_manager.user_loader
