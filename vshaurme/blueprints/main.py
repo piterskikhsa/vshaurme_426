@@ -2,7 +2,7 @@ import os
 
 from datetime import datetime, timedelta
 from flask import render_template, flash, redirect, url_for, current_app, \
-    send_from_directory, request, abort, Blueprint
+    send_from_directory, request, abort, Blueprint, session
 from flask_login import login_required, current_user
 from flask_babel import _
 from sqlalchemy.sql.expression import func, desc
@@ -10,7 +10,7 @@ from sqlalchemy.sql.expression import func, desc
 from vshaurme.decorators import confirm_required, permission_required
 from vshaurme.extensions import db
 from vshaurme.forms.main import DescriptionForm, TagForm, CommentForm
-from vshaurme.models import User, Photo, Tag, Follow, Collect, Comment, Notification
+from vshaurme.models import User, Photo, Tag, Follow, Collect, Comment, Notification, PhotoHits
 from vshaurme.notifications import push_comment_notification, push_collect_notification
 from vshaurme.utils import rename_image, resize_image, redirect_back, flash_errors
 
@@ -149,6 +149,17 @@ def show_photo(photo_id):
     tag_form = TagForm()
 
     description_form.description.data = photo.description
+
+    if current_user.is_authenticated and f'phvis_{photo_id}' not in session:
+        session[f'phvis_{photo_id}'] = 1
+        hit = PhotoHits(
+            photo_id=photo_id,
+            user=current_user._get_current_object()
+        )
+
+        db.session.add(hit)
+        db.session.commit()
+
     return render_template('main/photo.html', photo=photo, comment_form=comment_form,
                            description_form=description_form, tag_form=tag_form,
                            pagination=pagination, comments=comments)
