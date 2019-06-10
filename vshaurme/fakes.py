@@ -11,7 +11,7 @@ from flask import current_app
 from sqlalchemy.exc import IntegrityError
 
 from vshaurme.extensions import db
-from vshaurme.models import User, Photo, Tag, Comment, Notification
+from vshaurme.models import User, Photo, Tag, Comment, Notification, PhotoHits
 
 
 fake = Faker()
@@ -115,4 +115,15 @@ def fake_comment(count=100):
             photo=Photo.query.get(random.randint(1, Photo.query.count()))
         )
         db.session.add(comment)
+    db.session.commit()
+
+
+def fake_hits(count=1000):
+    for i in range(count):
+        hit = PhotoHits(
+            photo=Photo.query.get(random.randint(1, Photo.query.count())),
+            user=User.query.get(random.randint(1, User.query.count())),
+            timestamp=fake.date_time_this_year()
+        )
+        db.session.add(hit)
     db.session.commit()
