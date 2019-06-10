@@ -35,6 +35,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
+                            <span class="oi oi-eye"></span> {{ photo.photohits|length }}
                             <span class="oi oi-star"></span>
                             <span id="collectors-count-{{ photo.id }}"
                                   data-href="{{ url_for('ajax.collectors_count', photo_id=photo.id) }}">
