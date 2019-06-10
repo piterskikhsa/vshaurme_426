@@ -4,7 +4,7 @@
 {% block title %}{{ _('Trends') }}{% endblock %}
 
 {% block content %}
-{% if photos_collects %}
+{% if photos %}
         <table class="table table-striped">
             <thead>
             <tr>
@@ -16,7 +16,7 @@
                 <th>{{ _('Tags') }}</th>
             </tr>
             </thead>
-            {% for photo, collect in photos_collects %}
+            {% for photo in photos %}
                 <tr>
                     <td>
                         <a href="{{ url_for('main.show_photo', photo_id=photo.id) }}">

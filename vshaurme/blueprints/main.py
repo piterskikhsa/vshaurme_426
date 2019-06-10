@@ -428,12 +428,12 @@ def trends():
     per_page = current_app.config['VSHAURME_MANAGE_PHOTO_PER_PAGE']
 
     # отбрасываем старых коллекционеров
-    pagination = db.session.query(Photo, Collect).\
-                    filter(Photo.id == Collect.collected_id).\
-                    group_by(Photo.id).\
-                    filter(Photo.timestamp >= today_month).\
-                    order_by(desc(func.count(Collect.collected_id))).\
-                    paginate(page, per_page)
+    pagination = Photo.query.\
+        join(Photo.collectors).\
+        group_by(Photo.id).\
+        filter(Photo.timestamp >= today_month). \
+        order_by(func.count(Photo.collectors).desc()). \
+        paginate(page, per_page)
 
-    photos_collects = pagination.items
-    return render_template('main/trends.html', pagination=pagination, photos_collects=photos_collects)
+    photos = pagination.items
+    return render_template('main/trends.html', pagination=pagination, photos=photos)
