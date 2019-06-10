@@ -9,7 +9,7 @@
             <thead>
             <tr>
                 <th>{{ _('Photo') }}</th>
-                <th>{{ _('Description') }}</th>
+                <th>{{ _('Photo Views') }}</th>
                 <th>{{ _('Date') }}</th>
                 <th>{{ _('Collects') }}</th>
                 <th>{{ _('Comments') }}</th>
@@ -23,7 +23,7 @@
                             <img src="{{ url_for('main.get_image', filename=photo.filename_s) }}" width="250">
                         </a>
                     </td>
-                    <td>{{ photo.description }}</td>
+                    <td>{{ photo.photohits|length }}</td>
                     <td>{{ moment(photo.timestamp).format('LL') }}</td>
                     <td>
                         {% if photo.collectors %}

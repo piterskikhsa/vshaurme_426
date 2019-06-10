@@ -416,13 +416,9 @@ def delete_tag(photo_id, tag_id):
 @main_bp.route('/trends')
 @login_required
 def trends():
-    one_week = timedelta(days=7)
-    one_month = timedelta(days=30)
-    one_year = timedelta(days=365)
-
-    today_week = datetime.now() - one_week
-    today_month = datetime.now() - one_month
-    today_year = datetime.now() - one_year
+    today_week = datetime.now() - timedelta(days=7)
+    today_month = datetime.now() - timedelta(days=30)
+    today_year = datetime.now() - timedelta(days=365)
 
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_PHOTO_PER_PAGE']
