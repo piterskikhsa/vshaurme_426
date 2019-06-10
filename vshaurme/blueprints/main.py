@@ -5,6 +5,7 @@ from flask import render_template, flash, redirect, url_for, current_app, \
     send_from_directory, request, abort, Blueprint, session
 from flask_login import login_required, current_user
 from flask_babel import _
+from flask_babel import lazy_gettext as _l
 from sqlalchemy.sql.expression import func, desc
 
 from vshaurme.decorators import confirm_required, permission_required
@@ -413,9 +414,10 @@ def delete_tag(photo_id, tag_id):
     flash(_('Tag deleted.'), 'info')
     return redirect(url_for('.show_photo', photo_id=photo_id))
 
-@main_bp.route('/trends')
+@main_bp.route('/trends', defaults={'order': 'by_views'})
+@main_bp.route('/trends/<order>')
 @login_required
-def trends():
+def trends(order):
     today_week = datetime.now() - timedelta(days=7)
     today_month = datetime.now() - timedelta(days=30)
     today_year = datetime.now() - timedelta(days=365)
@@ -423,13 +425,21 @@ def trends():
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_PHOTO_PER_PAGE']
 
-    # отбрасываем старых коллекционеров
-    pagination = Photo.query.\
-        join(Photo.collectors).\
-        group_by(Photo.id).\
-        filter(Photo.timestamp >= today_month). \
-        order_by(func.count(Photo.collectors).desc()). \
-        paginate(page, per_page)
-
+    order_rule = _l('views')
+    if order == 'by_collectors':
+        pagination = Photo.query.\
+            join(Photo.collectors).\
+            group_by(Photo.id).\
+            filter(Photo.timestamp >= today_month). \
+            order_by(func.count(Photo.collectors).desc()). \
+            paginate(page, per_page)
+        order_rule = _l('collectors')
+    else:
+        pagination = Photo.query.\
+            join(Photo.photohits).\
+            filter(PhotoHits.timestamp >= today_month).\
+            group_by(Photo.id).\
+            order_by(func.count(Photo.photohits).desc()).\
+            paginate(page, per_page)
     photos = pagination.items
-    return render_template('main/trends.html', pagination=pagination, photos=photos)
+    return render_template('main/trends.html', pagination=pagination, photos=photos, order_rule=order_rule)
