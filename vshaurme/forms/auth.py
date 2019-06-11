@@ -61,7 +61,7 @@ class RegisterForm(FlaskForm):
     recaptcha = RecaptchaField()
     submit = SubmitField(_l('Submit'),
                          render_kw={
-                             "onclick": "ym({}, 'reachGoal', {}); return true;".format(
+                             "onclick": "ym({}, 'reachGoal', '{}'); return true;".format(
                                  YM_TARGET_REGISTRATION_DICT['counter'],
                                  YM_TARGET_REGISTRATION_DICT['target_name']
                              )})

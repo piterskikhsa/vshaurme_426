@@ -20,7 +20,7 @@ class CommentForm(FlaskForm):
     body = TextAreaField('', validators=[DataRequired()])
     submit = SubmitField(_l('Submit'),
                          render_kw={
-                             "onclick": "ym({}, 'reachGoal', {}); return true;".format(
+                             "onclick": "ym({}, 'reachGoal', '{}'); return true;".format(
                                  YM_TARGET_POSTING_COMMENT_DICT['counter'],
                                  YM_TARGET_POSTING_COMMENT_DICT['target_name']
                              )})
