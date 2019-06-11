@@ -134,8 +134,8 @@ def upload():
         db.session.add(photo)
         db.session.commit()
     context = dict()
-    context['ya_counter'] = current_app.config['YA_COUNTER']
-    context['ya_target'] = current_app.config['YA_IMAGE_UPLOAD']
+    context['ya_counter'] = os.getenv('YA_COUNTER')
+    context['ya_target'] = os.getenv('YA_IMAGE_UPLOAD')
     return render_template('main/upload.html', context=context)
 
 
