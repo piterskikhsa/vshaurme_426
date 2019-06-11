@@ -10,6 +10,8 @@ from vshaurme.utils import load_badwords
 
 from vshaurme.password_utils import has_numeric_and_alpha, has_upper_and_lower_letters
 
+from vshaurme.yandex_metrika import YM_TARGET_REGISTRATION_DICT
+
 
 def bad_words_check(form, field):
     data = load_badwords()
@@ -57,7 +59,12 @@ class RegisterForm(FlaskForm):
                              ])
     password2 = PasswordField(_l('Confirm password'), validators=[DataRequired()])
     recaptcha = RecaptchaField()
-    submit = SubmitField(_l('Submit'))
+    submit = SubmitField(_l('Submit'),
+                         render_kw={
+                             "onclick": "ym({}, 'reachGoal', {}); return true;".format(
+                                 YM_TARGET_REGISTRATION_DICT['counter'],
+                                 YM_TARGET_REGISTRATION_DICT['target_name']
+                             )})
 
     def validate_email(self, field):
         if User.query.filter_by(email=field.data.lower()).first():
