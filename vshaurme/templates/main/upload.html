@@ -16,7 +16,7 @@
         <div class="col-md-12">
             {{ dropzone.create(action='main.upload') }}
             <a class="btn btn-light float-right"
-               onclick="ym({{ ya_counter }}, 'reachGoal', '{{ ya_target }}'); return true;"
+               onclick="ym({{ context.ya_counter }}, 'reachGoal', '{{ context.ya_target }}'); return true;"
                href="{{ url_for('user.index', username=current_user.username) }}">
                 {{ _('Done') }}
             </a>
