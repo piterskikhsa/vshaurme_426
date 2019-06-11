@@ -124,6 +124,7 @@ def upload():
         f.save(os.path.join(current_app.config['VSHAURME_UPLOAD_PATH'], filename))
         filename_s = resize_image(f, filename, current_app.config['VSHAURME_PHOTO_SIZE']['small'])
         filename_m = resize_image(f, filename, current_app.config['VSHAURME_PHOTO_SIZE']['medium'])
+
         photo = Photo(
             filename=filename,
             filename_s=filename_s,
@@ -132,7 +133,10 @@ def upload():
         )
         db.session.add(photo)
         db.session.commit()
-    return render_template('main/upload.html')
+    context = dict()
+    context['ya_counter'] = current_app.config['YA_COUNTER']
+    context['ya_target'] = current_app.config['YA_IMAGE_UPLOAD']
+    return render_template('main/upload.html', context=context)
 
 
 @main_bp.route('/photo/<int:photo_id>')

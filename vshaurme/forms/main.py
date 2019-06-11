@@ -1,9 +1,8 @@
+import os
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Optional, Length
 from flask_babel import lazy_gettext as _l
-
-from vshaurme.yandex_metrika import YM_TARGET_POSTING_COMMENT_DICT
 
 
 class DescriptionForm(FlaskForm):
@@ -21,6 +20,6 @@ class CommentForm(FlaskForm):
     submit = SubmitField(_l('Submit'),
                          render_kw={
                              "onclick": "ym({}, 'reachGoal', '{}'); return true;".format(
-                                 YM_TARGET_POSTING_COMMENT_DICT['counter'],
-                                 YM_TARGET_POSTING_COMMENT_DICT['target_name']
+                                 os.getenv('YA_COUNTER'),
+                                 os.getenv('YA_POSTING_COMMENT')
                              )})

@@ -1,4 +1,4 @@
-from flask import current_app, g
+import os
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms import ValidationError
@@ -9,8 +9,6 @@ from vshaurme.models import User
 from vshaurme.utils import load_badwords
 
 from vshaurme.password_utils import has_numeric_and_alpha, has_upper_and_lower_letters
-
-from vshaurme.yandex_metrika import YM_TARGET_REGISTRATION_DICT
 
 
 def bad_words_check(form, field):
@@ -62,8 +60,8 @@ class RegisterForm(FlaskForm):
     submit = SubmitField(_l('Submit'),
                          render_kw={
                              "onclick": "ym({}, 'reachGoal', '{}'); return true;".format(
-                                 YM_TARGET_REGISTRATION_DICT['counter'],
-                                 YM_TARGET_REGISTRATION_DICT['target_name']
+                                 os.getenv('YA_COUNTER'),
+                                 os.getenv('YA_REGISTRATION')
                              )})
 
     def validate_email(self, field):
