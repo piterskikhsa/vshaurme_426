@@ -4,6 +4,37 @@
 {% block title %}{{ _('Trends') }}{% endblock %}
 
 {% block content %}
+    <div class="page-header">
+        <h1>{{ _('Trends') }}
+            <small class="text-muted">{{ pagination.total }}</small>
+            <span class="dropdown">
+            <button class="btn btn-secondary btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                {{ _('Trend for') }} {{ period_rule }} <span class="oi oi-elevator"></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% if period_rule == _('day')  %}
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='week') }}">{{ _('Trend for week') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='month') }}">{{ _('Trend for month') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='year') }}">{{ _('Trend for year') }}</a>
+                {% elif period_rule == _('week') %}
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='day') }}">{{ _('Trend for day') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='month') }}">{{ _('Trend for month') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='year') }}">{{ _('Trend for year') }}</a>
+                {% elif period_rule == _('year') %}
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='day') }}">{{ _('Trend for day') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='month') }}">{{ _('Trend for week') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='year') }}">{{ _('Trend for month') }}</a>
+                {% else %}
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='day') }}">{{ _('Trend for day') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='week') }}">{{ _('Trend for week') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('.trends', period='year') }}">{{ _('Trend for year') }}</a>
+                {% endif %}
+            </div>
+        </span>
+        </h1>
+    </div>
+    <p class="lead">The number of Photo views by registered users for {{ period_rule }}.</p>
     <div class="row">
         <div class="col-md-12">
             {% for photo, counter in photos %}

@@ -418,10 +418,12 @@ def delete_tag(photo_id, tag_id):
     flash(_('Tag deleted.'), 'info')
     return redirect(url_for('.show_photo', photo_id=photo_id))
 
-@main_bp.route('/trends', defaults={'order': 'by_views'})
-@main_bp.route('/trends/<order>')
+@main_bp.route('/trends', defaults={'period': 'month'})
+@main_bp.route('/trends/<period>')
 @login_required
-def trends(order):
+def trends(period):
+
+    today_day = datetime.now() - timedelta(days=1)
     today_week = datetime.now() - timedelta(days=7)
     today_month = datetime.now() - timedelta(days=30)
     today_year = datetime.now() - timedelta(days=365)
@@ -429,23 +431,32 @@ def trends(order):
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['VSHAURME_MANAGE_PHOTO_PER_PAGE']
 
-    order_rule = _l('views')
-    if order == 'by_collectors':
-        pagination = Photo.query.\
-            join(Photo.collectors).\
-            group_by(Photo.id).\
-            filter(Photo.timestamp >= today_month).\
-            order_by(func.count(Photo.collectors).desc()).\
-            add_columns(func.count(Photo.collectors)).\
-            paginate(page, per_page)
-        order_rule = _l('collectors')
+    period_rule = _l('month')
+    if period == 'day':
+        period_filter = today_day
+        period_rule = 'day'
+    elif period == 'week':
+        period_filter = today_week
+        period_rule = 'week'
+    elif period == 'year':
+        period_filter = today_year
+        period_rule = 'year'
     else:
-        pagination = Photo.query.\
-            join(Photo.photohits).\
-            filter(PhotoHits.timestamp >= today_month).\
-            group_by(Photo.id).\
-            order_by(func.count(Photo.photohits).desc()). \
-            add_columns(func.count(Photo.photohits)).\
-            paginate(page, per_page)
+        period_filter = today_month
+
+    order_col = Photo.photohits
+    pagination = Photo.query.\
+        join(order_col).\
+        filter(PhotoHits.timestamp >= period_filter).\
+        group_by(Photo.id).\
+        order_by(func.count(order_col).desc()). \
+        add_columns(func.count(order_col)).\
+        paginate(page, per_page)
+
     photos = pagination.items
-    return render_template('main/trends_.html', pagination=pagination, photos=photos, order_rule=order_rule)
+    return render_template(
+        'main/trends_.html',
+        pagination=pagination,
+        photos=photos,
+        period_rule=period_rule
+    )
