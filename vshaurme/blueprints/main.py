@@ -418,6 +418,7 @@ def delete_tag(photo_id, tag_id):
     flash(_('Tag deleted.'), 'info')
     return redirect(url_for('.show_photo', photo_id=photo_id))
 
+
 @main_bp.route('/trends', defaults={'period': 'month'})
 @main_bp.route('/trends/<period>')
 @login_required
@@ -462,7 +463,7 @@ def trends(period):
     )
 
 
-@main_bp.route('/set-archive-photo/<int:photo_id>', methods=['POST'])
+@main_bp.route('/set-archive-photo/<int:photo_id>')
 @login_required
 def set_archive_photo(photo_id):
     photo = Photo.query.get_or_404(photo_id)

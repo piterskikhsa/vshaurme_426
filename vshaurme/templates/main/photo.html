@@ -24,15 +24,11 @@
 
             <a class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#share-modal">{{ _('Share') }}</a>
             {% if current_user == photo.author or current_user.can('MODERATE') %}
+                <a href="{{ url_for('.set_archive_photo', photo_id=photo.id) }}" class="btn btn-sm btn-secondary">
+                    {% if photo.in_archive %}{{ _('Extract') }}{% else %}{{ _('Archive') }}{% endif %} {{ _('photo') }}
+                </a>
                 <a class="btn btn-danger btn-sm text-white" data-toggle="modal" data-target="#confirm-delete"
                    data-href="{{ url_for('.delete_photo', photo_id=photo.id) }}">{{ _('Delete') }}</a>
-
-                <form class="inline" method="post" action="{{ url_for('.set_archive_photo', photo_id=photo.id) }}">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <button type="submit" class="btn btn-xs btn-link float-right">
-                    {% if photo.in_archive %}{{ _('Extract') }}{% else %}{{ _('Archive') }}{% endif %} {{ _('photo') }}
-                </button>
-            </form>
             {% endif %}
             {% if current_user.is_authenticated and current_user != photo.author %}
                 <form class="inline" method="post" action="{{ url_for('.report_photo', photo_id=photo.id) }}">

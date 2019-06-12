@@ -13,7 +13,6 @@ from vshaurme.utils import redirect_back
 api_bp = Blueprint('api', __name__)
 
 
-
 @api_bp.route('/hook', methods=['POST'])
 @csrf.exempt
 def hook():
