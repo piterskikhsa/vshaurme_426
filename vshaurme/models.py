@@ -226,6 +226,7 @@ class Photo(db.Model):
     filename_m = db.Column(db.String(64))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     can_comment = db.Column(db.Boolean, default=True)
+    in_archive = db.Column(db.Boolean, default=False)
     flag = db.Column(db.Integer, default=0)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
