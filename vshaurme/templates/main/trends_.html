@@ -38,7 +38,9 @@
     <div class="row">
         <div class="col-md-12">
             {% for photo, counter in photos %}
+                {% if current_user == photo.author or current_user.can('MODERATE') or photo.in_archive != True %}
                 {{ photo_card_trends(photo, counter) }}
+                {% endif %}
             {% endfor %}
         </div>
     </div>

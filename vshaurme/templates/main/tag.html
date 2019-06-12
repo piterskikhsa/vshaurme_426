@@ -32,7 +32,9 @@
     </div>
     <div class="row">
         {% for photo in photos %}
+            {% if current_user == photo.author or current_user.can('MODERATE') or photo.in_archive != True %}
             {{ photo_card(photo) }}
+            {% endif %}
         {% endfor %}
     </div>
     <div class="page-footer">

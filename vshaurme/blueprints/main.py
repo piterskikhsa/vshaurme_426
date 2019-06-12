@@ -460,3 +460,20 @@ def trends(period):
         photos=photos,
         period_rule=period_rule
     )
+
+
+@main_bp.route('/set-archive-photo/<int:photo_id>', methods=['POST'])
+@login_required
+def set_archive_photo(photo_id):
+    photo = Photo.query.get_or_404(photo_id)
+    if current_user != photo.author:
+        abort(403)
+
+    if photo.in_archive:
+        photo.in_archive = False
+        flash(_('Photo extracted from archive.'), 'info')
+    else:
+        photo.in_archive = True
+        flash(_('Photo archived.'), 'info')
+    db.session.commit()
+    return redirect(url_for('.show_photo', photo_id=photo_id))

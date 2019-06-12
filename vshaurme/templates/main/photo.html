@@ -12,16 +12,27 @@
 
 {% block content %}
     <div class="row">
+    {% if current_user == photo.author or current_user.can('MODERATE') or photo.in_archive != True %}
         <div class="col-md-8">
+
+
             <div class="photo">
                 <a href="{{ url_for('.get_image', filename=photo.filename) }}" target="_blank">
                     <img class="img-fluid" src="{{ url_for('.get_image', filename=photo.filename_m) }}">
                 </a>
             </div>
+
             <a class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#share-modal">{{ _('Share') }}</a>
             {% if current_user == photo.author or current_user.can('MODERATE') %}
                 <a class="btn btn-danger btn-sm text-white" data-toggle="modal" data-target="#confirm-delete"
                    data-href="{{ url_for('.delete_photo', photo_id=photo.id) }}">{{ _('Delete') }}</a>
+
+                <form class="inline" method="post" action="{{ url_for('.set_archive_photo', photo_id=photo.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-xs btn-link float-right">
+                    {% if photo.in_archive %}{{ _('Extract') }}{% else %}{{ _('Archive') }}{% endif %} {{ _('photo') }}
+                </button>
+            </form>
             {% endif %}
             {% if current_user.is_authenticated and current_user != photo.author %}
                 <form class="inline" method="post" action="{{ url_for('.report_photo', photo_id=photo.id) }}">
@@ -34,6 +45,9 @@
             </p>
             {% include 'main/_comment.html' %}
         </div>
+    {% else %}
+        <div class="col-md-8"> Photo archived </div>
+    {% endif %}
         <div class="col-md-4">
             {% include 'main/_photo_sidebar.html' %}
         </div>
