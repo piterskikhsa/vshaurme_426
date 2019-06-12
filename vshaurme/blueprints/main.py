@@ -430,8 +430,9 @@ def trends(order):
         pagination = Photo.query.\
             join(Photo.collectors).\
             group_by(Photo.id).\
-            filter(Photo.timestamp >= today_month). \
-            order_by(func.count(Photo.collectors).desc()). \
+            filter(Photo.timestamp >= today_month).\
+            order_by(func.count(Photo.collectors).desc()).\
+            add_columns(func.count(Photo.collectors)).\
             paginate(page, per_page)
         order_rule = _l('collectors')
     else:
@@ -439,7 +440,8 @@ def trends(order):
             join(Photo.photohits).\
             filter(PhotoHits.timestamp >= today_month).\
             group_by(Photo.id).\
-            order_by(func.count(Photo.photohits).desc()).\
+            order_by(func.count(Photo.photohits).desc()). \
+            add_columns(func.count(Photo.photohits)).\
             paginate(page, per_page)
     photos = pagination.items
     return render_template('main/trends.html', pagination=pagination, photos=photos, order_rule=order_rule)

@@ -16,14 +16,14 @@
                 <th>{{ _('Tags') }}</th>
             </tr>
             </thead>
-            {% for photo in photos %}
+            {% for photo, counter in photos %}
                 <tr>
                     <td>
                         <a href="{{ url_for('main.show_photo', photo_id=photo.id) }}">
                             <img src="{{ url_for('main.get_image', filename=photo.filename_s) }}" width="250">
                         </a>
                     </td>
-                    <td>{{ photo.photohits|length }}</td>
+                    <td>{{ counter }}</td>
                     <td>{{ moment(photo.timestamp).format('LL') }}</td>
                     <td>
                         {% if photo.collectors %}
