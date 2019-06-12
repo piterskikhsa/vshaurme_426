@@ -11,7 +11,9 @@
             {% if user.public_collections or current_user == user %}
                 {% if collects %}
                     {% for collect in collects %}
+                        {% if current_user == collect.collected.author or current_user.can('MODERATE') or collect.collected.in_archive != True %}
                         {{ photo_card(collect.collected) }}
+                        {% endif %}
                     {% endfor %}
                 {% else %}
                     <div class="tip">
