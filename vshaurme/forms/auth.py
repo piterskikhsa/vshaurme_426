@@ -1,4 +1,4 @@
-from flask import current_app, g
+import os
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms import ValidationError
@@ -57,7 +57,12 @@ class RegisterForm(FlaskForm):
                              ])
     password2 = PasswordField(_l('Confirm password'), validators=[DataRequired()])
     recaptcha = RecaptchaField()
-    submit = SubmitField(_l('Submit'))
+    submit = SubmitField(_l('Submit'),
+                         render_kw={
+                             "onclick": "ym({}, 'reachGoal', '{}'); return true;".format(
+                                 os.getenv('YA_COUNTER'),
+                                 os.getenv('YA_REGISTRATION')
+                             )})
 
     def validate_email(self, field):
         if User.query.filter_by(email=field.data.lower()).first():
