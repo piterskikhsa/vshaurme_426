@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-12 18:17+0300\n"
-"PO-Revision-Date: 2019-06-12 18:18+0300\n"
+"PO-Revision-Date: 2019-06-12 18:44+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -1171,7 +1171,7 @@ msgstr "Тренд за неделю"
 #: vshaurme/templates/main/trends_.html:18 vshaurme/templates/main/trends_.html:22
 #: vshaurme/templates/main/trends_.html:27
 msgid "Trend for month"
-msgstr "Тенденция за месяц"
+msgstr "Тренд за месяц"
 
 #: vshaurme/templates/main/trends_.html:19 vshaurme/templates/main/trends_.html:23
 #: vshaurme/templates/main/trends_.html:31
