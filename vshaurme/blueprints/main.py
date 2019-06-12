@@ -434,13 +434,13 @@ def trends(period):
     period_rule = _l('month')
     if period == 'day':
         period_filter = today_day
-        period_rule = 'day'
+        period_rule = _l('day')
     elif period == 'week':
         period_filter = today_week
-        period_rule = 'week'
+        period_rule = _l('week')
     elif period == 'year':
         period_filter = today_year
-        period_rule = 'year'
+        period_rule = _l('year')
     else:
         period_filter = today_month
 
