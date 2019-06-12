@@ -466,7 +466,7 @@ def trends(period):
 @login_required
 def set_archive_photo(photo_id):
     photo = Photo.query.get_or_404(photo_id)
-    if current_user != photo.author:
+    if current_user != photo.author and not current_user.can('MODERATE'):
         abort(403)
 
     if photo.in_archive:
