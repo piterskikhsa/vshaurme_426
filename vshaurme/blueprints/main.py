@@ -448,4 +448,4 @@ def trends(order):
             add_columns(func.count(Photo.photohits)).\
             paginate(page, per_page)
     photos = pagination.items
-    return render_template('main/trends.html', pagination=pagination, photos=photos, order_rule=order_rule)
+    return render_template('main/trends_.html', pagination=pagination, photos=photos, order_rule=order_rule)
