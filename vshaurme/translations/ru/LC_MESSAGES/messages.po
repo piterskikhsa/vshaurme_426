@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-06-13 09:07+0300\n"
-"PO-Revision-Date: 2019-06-13 09:08+0300\n"
+"PO-Revision-Date: 2019-06-13 10:01+0300\n"
 "Last-Translator: Petr E. Antonov <antpeter@gmail.com>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -1109,7 +1109,7 @@ msgstr "Поделиться"
 
 #: vshaurme/templates/main/photo.html:28
 msgid "Extract"
-msgstr "Извлечь из архива"
+msgstr "Разархивировать"
 
 #: vshaurme/templates/main/photo.html:28
 msgid "Archive"
