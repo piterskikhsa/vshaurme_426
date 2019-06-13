@@ -32,9 +32,7 @@
                 <div class="navbar-nav mr-auto">
                     {{ render_nav_item('main.index', _('Home')) }}
                     {{ render_nav_item('main.explore', _('Explore')) }}
-                    {% if current_user.is_authenticated %}
-                        {{ render_nav_item('main.trends', _('Trends')) }}
-                    {% endif %}
+                    {{ render_nav_item('main.trends', _('Trends')) }}
                     <form class="form-inline my-2 my-lg-0" action="{{ url_for('main.search') }}">
                         <input type="text" name="q" class="form-control mr-sm-1" placeholder="{{ _("Photo, tag or user") }}"
                                required>

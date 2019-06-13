@@ -421,7 +421,6 @@ def delete_tag(photo_id, tag_id):
 
 @main_bp.route('/trends', defaults={'period': 'month'})
 @main_bp.route('/trends/<period>')
-@login_required
 def trends(period):
 
     today_day = datetime.now() - timedelta(days=1)
