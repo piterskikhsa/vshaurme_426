@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, Blueprint
+from flask import render_template, flash, redirect, url_for, Blueprint, session
 from flask_login import login_user, logout_user, login_required, current_user, login_fresh, confirm_login
 from flask_babel import _
 
@@ -48,6 +48,7 @@ def re_authenticate():
 @login_required
 def logout():
     logout_user()
+    session.clear()
     flash(_('Logout success.'), 'info')
     return redirect(url_for('main.index'))
 

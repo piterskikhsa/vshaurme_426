@@ -1,5 +1,6 @@
 import os
 import sys
+import datetime
 
 from flask_babel import lazy_gettext as _l
 from dotenv import load_dotenv
@@ -76,6 +77,7 @@ class BaseConfig:
     RECAPTCHA_PUBLIC_KEY = os.getenv('CAPTCHA_PUB_KEY')
     RECAPTCHA_PRIVATE_KEY = os.getenv('CAPTCHA_PR_KEY')
 
+    PERMANENT_SESSION_LIFETIME = datetime.timedelta(days=7)
 
 class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = \
