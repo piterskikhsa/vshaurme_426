@@ -13,6 +13,8 @@
                     {% for collect in collects %}
                         {% if current_user == collect.collected.author or current_user.can('MODERATE') or collect.collected.in_archive != True %}
                         {{ photo_card(collect.collected) }}
+                        {% else %}
+                            <div class="photo-card card">{{_('Photo archived')}}</div>
                         {% endif %}
                     {% endfor %}
                 {% else %}
