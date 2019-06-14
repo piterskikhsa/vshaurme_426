@@ -394,11 +394,15 @@ def show_tag(tag_id, order):
     order_rule = _('time')
     pagination = Photo.query.with_parent(tag).order_by(Photo.timestamp.desc()).paginate(page, per_page)
     photos = pagination.items
+    filtered_photos = []
+    for photo in photos:
+        if current_user == photo.author or current_user.can('MODERATE') or photo.in_archive != True:
+            filtered_photos.append(photo)
 
     if order == 'by_collects':
         photos.sort(key=lambda x: len(x.collectors), reverse=True)
         order_rule = _('collects')
-    return render_template('main/tag.html', tag=tag, pagination=pagination, photos=photos, order_rule=order_rule)
+    return render_template('main/tag.html', tag=tag, pagination=pagination, photos=filtered_photos, order_rule=order_rule)
 
 
 @main_bp.route('/delete/tag/<int:photo_id>/<int:tag_id>', methods=['POST'])
