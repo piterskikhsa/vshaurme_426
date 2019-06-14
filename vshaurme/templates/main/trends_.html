@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% from 'macros.html' import photo_card_trends with context %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
 
 {% block title %}{{ _('Trends') }}{% endblock %}
 
@@ -44,4 +45,9 @@
             {% endfor %}
         </div>
     </div>
+    {% if photos %}
+        <div class="page-footer">
+            {{ render_pagination(pagination, align='center') }}
+        </div>
+    {% endif %}
 {% endblock %}
