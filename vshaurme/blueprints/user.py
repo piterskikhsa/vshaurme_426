@@ -37,7 +37,12 @@ def show_collections(username):
     per_page = current_app.config['VSHAURME_PHOTO_PER_PAGE']
     pagination = Collect.query.with_parent(user).order_by(Collect.timestamp.desc()).paginate(page, per_page)
     collects = pagination.items
-    return render_template('user/collections.html', user=user, pagination=pagination, collects=collects)
+    filtered_collects = []
+    for collect in collects:
+        if current_user == collect.collected.author or current_user.can(
+            'MODERATE') or collect.collected.in_archive != True:
+            filtered_collects.append(collect)
+    return render_template('user/collections.html', user=user, pagination=pagination, collects=filtered_collects)
 
 
 @user_bp.route('/follow/<username>', methods=['POST'])
